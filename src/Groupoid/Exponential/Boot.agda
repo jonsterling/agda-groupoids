@@ -21,7 +21,7 @@ record _⇒₀ᵗ_ ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ
     : ∀ {a b}
     → S.obj (G.homˢ A (a , b))
     T.Π.⇒₀ S.obj (G.homˢ B (_$₀_ a , _$₀_ b))
-  _$₁_ = λ {a b} → S.Π._$₀_ -$₁-ˢᵐ
+  _$₁_ = λ {_ _} → S.Π._$₀_ -$₁-ˢᵐ
 
   _$₂_
     : ∀ {a b} {f g : S.obj (G.homˢ A (a , b))}
@@ -79,7 +79,7 @@ idn (cmpᵗᵐ {C = C} (G , F)) = λ {_} →
     ( idn G
     , G $₂ idn F
     )
-cmp (cmpᵗᵐ {C = C} (G , F)) = λ {_}{_}{_} _ _ →
+cmp (cmpᵗᵐ {C = C} (G , F)) = λ {_ _ _} _ _ →
   -- FIXME (whiskering)
   S.cmpᵗᵐ (G.homˢ C _)
     ( cmp G _ _
