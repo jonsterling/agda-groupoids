@@ -19,11 +19,16 @@ _⇒₀ˢ_ : ∀ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
   → (A : S.t ℓ₀ᵒ ℓ₀ʰ)
   → (B : S.t ℓ₁ᵒ ℓ₁ʰ)
   → S.t _ _
-S.obj (A ⇒₀ˢ B) = A ⇒₀ᵗ B
-S.homᵗ (A ⇒₀ˢ B) = λ {(F , G) → F Homo.⇒₁ G}
-S.idnᵗᵐ (A ⇒₀ˢ B) = Homo.idn _
-S.cmpᵗᵐ (A ⇒₀ˢ B) = Homo.cmp
-S.invᵗᵐ (A ⇒₀ˢ B) = Homo.inv
+S.obj (A ⇒₀ˢ B) =
+  A ⇒₀ᵗ B
+S.homᵗ (A ⇒₀ˢ B) =
+  λ {(F , G) → F Homo.⇒₁ G}
+S.idnᵗᵐ (A ⇒₀ˢ B) =
+  Homo.idn _
+S.cmpᵗᵐ (A ⇒₀ˢ B) =
+  Homo.cmp
+S.invᵗᵐ (A ⇒₀ˢ B) =
+  Homo.inv
 
 idn
   : ∀ ..{ℓ₀ᵒ ℓ₀ʰ}
