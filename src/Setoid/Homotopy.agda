@@ -17,7 +17,7 @@ record _⇒₁_ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
   {B : S.t ℓ₁ᵒ ℓ₁ʰ}
   (F G : A Π.⇒₀ᵗ B)
     : Set (ℓ₀ᵒ ⊔ ℓ₁ʰ) where
-  constructor nat
+  constructor nat₁
   field
     com₁
       : ∀ {a}

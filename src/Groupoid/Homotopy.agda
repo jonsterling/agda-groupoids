@@ -16,7 +16,7 @@ record _⇒₁ᵗ_ ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ
   {B : G.t ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
   (F G : A Π.⇒₀ᵗ B)
     : Set (ℓ₀ᵒ ⊔ (ℓ₁ˢᵒ ⊔ ℓ₁ˢʰ)) where
-  constructor nat
+  constructor nat₁
   field
     com₁
       : ∀ {a}
@@ -30,9 +30,9 @@ record _⇒₂_ ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁
   {F G : A Π.⇒₀ᵗ B}
   (α β : F ⇒₁ᵗ G)
     : Set (ℓ₀ᵒ ⊔ (ℓ₁ˢᵒ ⊔ ℓ₁ˢʰ)) where
-  constructor nat
+  constructor nat₂
   field
-    com₂
+    .com₂
       : ∀ {a}
       → S.homᵗ (G.homˢ B (F Π.$₀ a , G Π.$₀ a)) (com₁ α {a} , com₁ β {a})
 {-# NO_ETA _⇒₂_ #-}
