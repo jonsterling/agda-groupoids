@@ -1,4 +1,4 @@
-{-# OPTIONS --sized-types --without-K #-}
+{-# OPTIONS --without-K #-}
 
 module Type.Tensor where
 
@@ -20,4 +20,4 @@ open import Type.Tensor.Boot public
   → (F : X₀ Π.⇒₀ A)
   → (G : ∀ {x₀} → X₁ x₀ Π.⇒₀ B (F x₀))
   → (t X₀ X₁ Π.⇒₀ t A B)
-⟨ F ⊗ G ⟩ (x , y) = F x , G y -- ⟨ F Π.∘ π₀ , G Π.∘ π₁ ⟩
+⟨ F ⊗ G ⟩ (x , y) = F x , G y

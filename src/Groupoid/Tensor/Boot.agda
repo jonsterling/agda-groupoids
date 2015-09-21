@@ -1,3 +1,3 @@
-{-# OPTIONS --sized-types --without-K #-}
+{-# OPTIONS --without-K #-}
 
 module Groupoid.Tensor.Boot where

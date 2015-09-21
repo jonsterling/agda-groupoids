@@ -1,4 +1,4 @@
-{-# OPTIONS --sized-types --without-K #-}
+{-# OPTIONS --without-K #-}
 
 module Type.Homotopy where
 
