@@ -9,6 +9,7 @@ open import Type as T
   using (_,_)
 
 record t ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ ℓˢʰ)) where
+  no-eta-equality
   open S.Π
   field
     obj   : Set ℓᵒ
@@ -54,5 +55,4 @@ record t ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ �
           ( idnˢᵐ $₀ T.𝟙.*
           , cmpˢᵐ $₀ (f , invˢᵐ $₀ f)
           )
-{-# NO_ETA t #-}
 open t public

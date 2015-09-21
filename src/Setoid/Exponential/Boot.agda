@@ -14,12 +14,12 @@ record _⇒₀ᵗ_ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
   (A : S.t ℓ₀ᵒ ℓ₀ʰ)
   (B : S.t ℓ₁ᵒ ℓ₁ʰ)
     : Set ((ℓ₀ᵒ ⊔ ℓ₀ʰ) ⊔ (ℓ₁ᵒ ⊔ ℓ₁ʰ)) where
+  no-eta-equality
   infixr 2 _$₀_
   infixr 2 _$₁_
   field
     _$₀_ : S.obj A T.Π.⇒₀ S.obj B
     _$₁_ : ∀ {a b} → S.homᵗ A (a , b) T.Π.⇒₀ S.homᵗ B (_$₀_ a , _$₀_ b)
-{-# NO_ETA _⇒₀ᵗ_ #-}
 open _⇒₀ᵗ_ public
 
 idnᵗᵐ

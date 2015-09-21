@@ -17,12 +17,12 @@ record _⇒₁_ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
   {B : S.t ℓ₁ᵒ ℓ₁ʰ}
   (F G : A Π.⇒₀ᵗ B)
     : Set (ℓ₀ᵒ ⊔ ℓ₁ʰ) where
+  no-eta-equality
   constructor nat₁
   field
     com₁
       : ∀ {a}
       → S.homᵗ B (F Π.$₀ a , G Π.$₀ a)
-{-# NO_ETA _⇒₁_ #-}
 open _⇒₁_ public
 
 com₁′
