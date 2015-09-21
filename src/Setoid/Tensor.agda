@@ -5,8 +5,8 @@ module Setoid.Tensor where
 open import Agda.Primitive
 import Setoid.Base as S
 open import Setoid.Exponential as Π
-import Setoid.Homotopy as Homo
 open import Setoid.Tensor.Boot public
+import Setoid.Transfor as TFor
 import Type as T
 
 π₀
@@ -29,7 +29,7 @@ _$₁_ π₁ = T.∐.π₁
   → ((X Π.⇒₀ˢ A) ⊗ (X Π.⇒₀ˢ B)) Π.⇒₀ᵗ (X Π.⇒₀ˢ A ⊗ B)
 _$₀_ (_$₀_ ⟨-,-⟩ FG) = T.∐.⟨ T.∐.π₀ FG $₀_ , T.∐.π₁ FG $₀_ ⟩
 _$₁_ (_$₀_ ⟨-,-⟩ FG) = T.∐.⟨ T.∐.π₀ FG $₁_ , T.∐.π₁ FG $₁_ ⟩
-_$₁_ ⟨-,-⟩ = Homo.nat₁ T.Π.∘ (λ x → T.∐.⟨ Homo.com₁′ ⊗ Homo.com₁′ ⟩ x)
+_$₁_ ⟨-,-⟩ = TFor.nat₁ T.Π.∘ (λ x → T.∐.⟨ TFor.com₁′ ⊗ TFor.com₁′ ⟩ x)
 
 ⟨-⊗-⟩
   : ∀ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ ℓ₂ᵒ ℓ₂ʰ ℓ₃ᵒ ℓ₃ʰ}
@@ -38,4 +38,4 @@ _$₁_ ⟨-,-⟩ = Homo.nat₁ T.Π.∘ (λ x → T.∐.⟨ Homo.com₁′ ⊗ H
   → ((X₀ Π.⇒₀ˢ A) ⊗ (X₁ Π.⇒₀ˢ B)) Π.⇒₀ᵗ ((X₀ ⊗ X₁) Π.⇒₀ˢ (A ⊗ B))
 _$₀_ (_$₀_ ⟨-⊗-⟩ FG) = T.∐.⟨ T.∐.π₀ FG $₀_ ⊗ T.∐.π₁ FG $₀_ ⟩
 _$₁_ (_$₀_ ⟨-⊗-⟩ FG) = T.∐.⟨ T.∐.π₀ FG $₁_ ⊗ T.∐.π₁ FG $₁_ ⟩
-_$₁_ ⟨-⊗-⟩ = Homo.nat₁ T.Π.∘ (λ x → T.∐.⟨ Homo.com₁′ ⊗ Homo.com₁′ ⟩ x)
+_$₁_ ⟨-⊗-⟩ = TFor.nat₁ T.Π.∘ (λ x → T.∐.⟨ TFor.com₁′ ⊗ TFor.com₁′ ⟩ x)

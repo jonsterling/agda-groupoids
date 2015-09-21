@@ -1,6 +1,6 @@
 {-# OPTIONS --without-K #-}
 
-module Setoid.Homotopy where
+module Setoid.Transfor where
 
 open import Agda.Primitive
 import Setoid.Base as S

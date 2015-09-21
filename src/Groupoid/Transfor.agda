@@ -1,6 +1,6 @@
 {-# OPTIONS --without-K #-}
 
-module Groupoid.Homotopy where
+module Groupoid.Transfor where
 
 open import Agda.Primitive
 import Groupoid.Base as G

@@ -5,9 +5,9 @@ module Setoid.Exponential where
 open import Agda.Primitive
 import Setoid.Base as S
 open import Setoid.Exponential.Boot public
-import Setoid.Homotopy as Homo
 open import Setoid.Tensor.Boot as ∐
 import Setoid.Terminal as 𝟙
+import Setoid.Transfor as TFor
 open import Type as T
   using (_,_)
 
@@ -22,27 +22,27 @@ _⇒₀ˢ_ : ∀ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
 S.obj (A ⇒₀ˢ B) =
   A ⇒₀ᵗ B
 S.homᵗ (A ⇒₀ˢ B) =
-  λ {(F , G) → F Homo.⇒₁ G}
+  λ {(F , G) → F TFor.⇒₁ G}
 S.idnᵗᵐ (A ⇒₀ˢ B) =
-  Homo.idn _
+  TFor.idn _
 S.cmpᵗᵐ (A ⇒₀ˢ B) =
-  Homo.cmp
+  TFor.cmp
 S.invᵗᵐ (A ⇒₀ˢ B) =
-  Homo.inv
+  TFor.inv
 
 idn
   : ∀ ..{ℓ₀ᵒ ℓ₀ʰ}
   → {A : S.t ℓ₀ᵒ ℓ₀ʰ}
   → 𝟙.s ⇒₀ᵗ (A ⇒₀ˢ A)
 _$₀_ idn = idnᵗᵐ
-_$₁_ idn = Homo.idn _
+_$₁_ idn = TFor.idn _
 
 cmp
   : ∀ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ ℓ₂ᵒ ℓ₂ʰ}
   → {A : S.t ℓ₀ᵒ ℓ₀ʰ} {B : S.t ℓ₁ᵒ ℓ₁ʰ} {C : S.t ℓ₂ᵒ ℓ₂ʰ}
   → (B ⇒₀ˢ C) ∐.⊗ (A ⇒₀ˢ B) ⇒₀ᵗ (A ⇒₀ˢ C)
 _$₀_ cmp = cmpᵗᵐ
-_$₁_ cmp = Homo.cmp-h₁
+_$₁_ cmp = TFor.cmp-h₁
 
 _∘₀_
   : ∀ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ ℓ₂ᵒ ℓ₂ʰ}
@@ -57,9 +57,9 @@ _∘₁_
   → {A : S.t ℓ₀ᵒ ℓ₀ʰ} {B : S.t ℓ₁ᵒ ℓ₁ʰ} {C : S.t ℓ₂ᵒ ℓ₂ʰ}
   → {F G : A ⇒₀ᵗ B}
   → {H K : B ⇒₀ᵗ C}
-  → (β : H Homo.⇒₁ K)
-  → (α : F Homo.⇒₁ G)
-  → (H ∘ᵗᵐ F) Homo.⇒₁ (K ∘ᵗᵐ G)
+  → (β : H TFor.⇒₁ K)
+  → (α : F TFor.⇒₁ G)
+  → (H ∘ᵗᵐ F) TFor.⇒₁ (K ∘ᵗᵐ G)
 β ∘₁ α = cmp $₁ (β , α)
 
 ! : ∀ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
