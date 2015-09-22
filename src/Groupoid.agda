@@ -11,10 +11,14 @@ import Groupoid.Tensor
 import Groupoid.Terminal
 import Groupoid.Transfor
 
-module Π = Groupoid.Exponential
+module Π where
+  open import Groupoid.Exponential public
+  open import Groupoid.Exponential.Boot public
 module 𝟘 = Groupoid.Initial
 module Op = Groupoid.Op
 module Path = Groupoid.Path
-module ∐ = Groupoid.Tensor
+module ∐ where
+  open import Groupoid.Tensor public
+  open import Groupoid.Tensor.Boot public
 module 𝟙 = Groupoid.Terminal
 module TFor = Groupoid.Transfor
