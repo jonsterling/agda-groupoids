@@ -12,7 +12,7 @@ import Setoid.Tensor
 import Setoid.Terminal
 import Setoid.Transfor
 
-module Discrete where
+module ≡ where
   open import Setoid.Discrete public
 module Π where
   open import Setoid.Exponential public

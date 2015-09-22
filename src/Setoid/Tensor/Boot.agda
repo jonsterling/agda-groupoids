@@ -25,5 +25,7 @@ S.idnᵗᵐ (A ⊗ B) =
 S.cmpᵗᵐ (A ⊗ B) =
   T.∐.⟨ S.cmpᵗᵐ A T.Π.∘ T.∐.⟨ T.∐.π₀ ⊗ T.∐.π₀ ⟩
       , S.cmpᵗᵐ B T.Π.∘ T.∐.⟨ T.∐.π₁ ⊗ T.∐.π₁ ⟩ ⟩
-S.invᵗᵐ (_⊗_ {S.Dir.≤} A B) = _
-S.invᵗᵐ (_⊗_ {S.Dir.≈} A B) = T.∐.⟨ S.invᵗᵐ A ⊗ S.invᵗᵐ B ⟩
+S.invᵗᵐ (_⊗_ {S.Dir.≤} A B) =
+  _
+S.invᵗᵐ (_⊗_ {S.Dir.≈} A B) =
+  T.∐.⟨ S.invᵗᵐ A ⊗ S.invᵗᵐ B ⟩

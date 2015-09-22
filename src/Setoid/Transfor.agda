@@ -30,7 +30,8 @@ com₁ᵗᵐ′
   → {A : S.t d ℓ₀ᵒ ℓ₀ʰ}
   → {B : S.t d ℓ₁ᵒ ℓ₁ʰ}
   → {F G : A Π.⇒₀ᵗ B}
-  → ∀ {a} (α : F ⇒₁ G) → S.homᵗ B (F Π.$₀ a , G Π.$₀ a)
+  → ∀ {a} (α : F ⇒₁ G)
+  → S.homᵗ B (F Π.$₀ a , G Π.$₀ a)
 com₁ᵗᵐ′ α = com₁ α
 
 idnᵗᵐ
@@ -48,7 +49,8 @@ cmpᵗᵐ
   → {F G H : A Π.⇒₀ᵗ B}
   → (G ⇒₁ H) T.∐.⊗ (F ⇒₁ G)
   → F ⇒₁ H
-com₁ (cmpᵗᵐ {B = B} (β , α)) = S.cmpᵗᵐ B (com₁ β , com₁ α)
+com₁ (cmpᵗᵐ {B = B} (β , α)) =
+  S.cmpᵗᵐ B (com₁ β , com₁ α)
 
 invᵗᵐ
   : ∀ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
@@ -87,7 +89,8 @@ cmpᵗᵐ-h₀
   → {H K : B Π.⇒₀ᵗ C}
   → (βα : (H ⇒₁ K) T.∐.⊗ (F ⇒₁ G))
   → (H Π.∘ᵗᵐ F) ⇒₁ (K Π.∘ᵗᵐ G)
-com₁ (cmpᵗᵐ-h₀ {C = C} {K = K} (β , α)) = S.cmpᵗᵐ C (K Π.$₁ com₁ α , com₁ β)
+com₁ (cmpᵗᵐ-h₀ {C = C} {K = K} (β , α)) =
+  S.cmpᵗᵐ C (K Π.$₁ com₁ α , com₁ β)
 
 cmpᵗᵐ-h₁
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ ℓ₂ᵒ ℓ₂ʰ}
@@ -98,4 +101,5 @@ cmpᵗᵐ-h₁
   → {H K : B Π.⇒₀ᵗ C}
   → (βα : (H ⇒₁ K) T.∐.⊗ (F ⇒₁ G))
   → (H Π.∘ᵗᵐ F) ⇒₁ (K Π.∘ᵗᵐ G)
-com₁ (cmpᵗᵐ-h₁ {C = C} {H = H} (β , α)) = S.cmpᵗᵐ C (com₁ β , H Π.$₁ com₁ α)
+com₁ (cmpᵗᵐ-h₁ {C = C} {H = H} (β , α)) =
+  S.cmpᵗᵐ C (com₁ β , H Π.$₁ com₁ α)

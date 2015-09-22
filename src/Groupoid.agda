@@ -12,7 +12,7 @@ import Groupoid.Tensor
 import Groupoid.Terminal
 import Groupoid.Transfor
 
-module Discrete where
+module ≡ where
   open import Groupoid.Discrete public
 module Π where
   open import Groupoid.Exponential public

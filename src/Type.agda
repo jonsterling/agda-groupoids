@@ -12,8 +12,9 @@ import Type.Tensor
 import Type.Terminal
 import Type.Transfor
 
-module Discrete where
+module ≡ where
   open import Type.Discrete public
+    renaming (t to _t_)
 module Π where
   open import Type.Exponential public
   open import Type.Exponential.Boot public

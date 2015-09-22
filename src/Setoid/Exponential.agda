@@ -28,8 +28,10 @@ S.idnᵗᵐ (A ⇒₀ˢ B) =
   TFor.idnᵗᵐ _
 S.cmpᵗᵐ (A ⇒₀ˢ B) =
   TFor.cmpᵗᵐ
-S.invᵗᵐ (_⇒₀ˢ_ {S.Dir.≤} A B) = _
-S.invᵗᵐ (_⇒₀ˢ_ {S.Dir.≈} A B) = TFor.invᵗᵐ
+S.invᵗᵐ (_⇒₀ˢ_ {S.Dir.≤} A B) =
+  _
+S.invᵗᵐ (_⇒₀ˢ_ {S.Dir.≈} A B) =
+  TFor.invᵗᵐ
 
 idn
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ʰ}

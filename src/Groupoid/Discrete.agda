@@ -16,36 +16,36 @@ g : ∀ {d} ..{ℓᵒ}
 G.obj (g A) =
   A
 G.homˢ (g A) =
-  λ {(a , b) → S.Discrete.s (T.Discrete.t a b)}
+  λ {(a , b) → S.≡.s (a T.≡.t b)}
 S.Π._$₀_ (G.idnˢᵐ (g A)) =
-  T.Discrete.idn
+  T.≡.idn
 S.Π._$₁_ (G.idnˢᵐ (g A)) =
-  T.Discrete.idn
+  T.≡.idn
 S.Π._$₀_ (G.cmpˢᵐ (g A)) =
-  T.Discrete.cmp
+  T.≡.cmp
 S.Π._$₁_ (G.cmpˢᵐ (g {ℓᵒ = ℓᵒ} A)) = λ { {(_ , _)} (g , f) →
-    T.Discrete.subst {ℓ₁ = ℓᵒ} (λ _ → T.Discrete.t _ _) g
-   (T.Discrete.subst {ℓ₁ = ℓᵒ} (λ _ → T.Discrete.t _ _) f
-    T.Discrete.refl)
+    T.≡.subst {ℓ₁ = ℓᵒ} (λ _ → _ T.≡.t _) g
+   (T.≡.subst {ℓ₁ = ℓᵒ} (λ _ → _ T.≡.t _) f
+    T.≡.refl)
   }
 G.invˢᵐ (g {G.Dir.≤} A) =
   _
 S.Π._$₀_ (G.invˢᵐ (g {G.Dir.≈} A)) =
-  T.Discrete.inv
+  T.≡.inv
 S.Π._$₁_ (G.invˢᵐ (g {G.Dir.≈} {ℓᵒ = ℓᵒ} A)) = λ α →
-    T.Discrete.subst {ℓ₁ = ℓᵒ} (λ _ → T.Discrete.t _ _) α
-    T.Discrete.refl
+    T.≡.subst {ℓ₁ = ℓᵒ} (λ _ → _ T.≡.t _) α
+    T.≡.refl
 G.idn-lhs (g A) =
-  T.Discrete.idn-lhs
+  T.≡.idn-lhs
 G.idn-rhs (g A) =
-  T.Discrete.idn-rhs
+  T.≡.idn-rhs
 G.cmp-ass (g A) =
-  T.Discrete.cmp-ass
+  T.≡.cmp-ass
 G.inv-lhs (g {G.Dir.≤} A) =
   _
 G.inv-lhs (g {G.Dir.≈} A) =
-  T.Discrete.inv-lhs
+  T.≡.inv-lhs
 G.inv-rhs (g {G.Dir.≤} A) =
   _
 G.inv-rhs (g {G.Dir.≈} A) =
-  T.Discrete.inv-rhs
+  T.≡.inv-rhs

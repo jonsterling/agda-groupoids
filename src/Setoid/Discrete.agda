@@ -13,12 +13,12 @@ s : ∀ {d} ..{ℓᵒ}
 S.obj (s A) =
   A
 S.homᵗ (s A) =
-  λ {(a , b) → T.Discrete.t a b}
+  λ {(a , b) → a T.≡.t b}
 S.idnᵗᵐ (s A) =
-  T.Discrete.idn
+  T.≡.idn
 S.cmpᵗᵐ (s A) =
-  T.Discrete.cmp
+  T.≡.cmp
 S.invᵗᵐ (s {S.Dir.≤} A) =
   _
 S.invᵗᵐ (s {S.Dir.≈} A) =
-  T.Discrete.inv
+  T.≡.inv

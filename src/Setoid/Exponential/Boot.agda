@@ -19,8 +19,11 @@ record _⇒₀ᵗ_
   infixr 2 _$₀_
   infixr 2 _$₁_
   field
-    _$₀_ : S.obj A T.Π.⇒₀ S.obj B
-    _$₁_ : ∀ {a b} → S.homᵗ A (a , b) T.Π.⇒₀ S.homᵗ B (_$₀_ a , _$₀_ b)
+    _$₀_
+      : S.obj A T.Π.⇒₀ S.obj B
+    _$₁_
+      : ∀ {a b}
+      → S.homᵗ A (a , b) T.Π.⇒₀ S.homᵗ B (_$₀_ a , _$₀_ b)
 open _⇒₀ᵗ_ public
 
 idnᵗᵐ
