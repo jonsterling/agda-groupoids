@@ -3,7 +3,6 @@
 module Category where
 
 open import Agda.Primitive
-
 import Groupoid.Base
 open import Common public
 

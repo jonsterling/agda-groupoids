@@ -3,7 +3,6 @@
 module Poset where
 
 open import Agda.Primitive
-
 import Setoid.Base
 open import Common public
 

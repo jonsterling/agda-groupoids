@@ -2,6 +2,7 @@
 
 module Groupoid where
 
+open import Agda.Primitive
 open import Groupoid.Base public
 import Groupoid.Discrete
 import Groupoid.Exponential

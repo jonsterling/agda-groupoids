@@ -2,6 +2,7 @@
 
 module Type where
 
+open import Agda.Primitive
 open import Type.Base public
 import Type.Discrete
 import Type.Exponential

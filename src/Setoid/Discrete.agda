@@ -2,6 +2,7 @@
 
 module Setoid.Discrete where
 
+open import Agda.Primitive
 import Setoid.Base as S
 open import Type as T
   using (_,_)

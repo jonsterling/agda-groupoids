@@ -2,6 +2,7 @@
 
 module Setoid where
 
+open import Agda.Primitive
 open import Setoid.Base public
 import Setoid.Discrete
 import Setoid.Exponential
