@@ -2,6 +2,8 @@
 
 module Common where
 
+open import Agda.Primitive
+
 module Dir where
   data t : Set where
     ≤ ≈ : t
