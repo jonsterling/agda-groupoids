@@ -8,7 +8,7 @@ import Setoid as S
 open import Type as T
   using (_,_)
 
-g : ∀ ..{ℓᵒ ℓˢᵒ ℓˢʰ} → G.t ℓᵒ ℓˢᵒ ℓˢʰ → G.t ℓᵒ ℓˢᵒ ℓˢʰ
+g : ∀ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ} → G.t d ℓᵒ ℓˢᵒ ℓˢʰ → G.t d ℓᵒ ℓˢᵒ ℓˢʰ
 G.obj (g A) =
   T.Op.t (G.t.obj A)
 G.homˢ (g A) =
@@ -25,7 +25,9 @@ G.idn-rhs (g A) = λ {b a} f →
   S.invᵗᵐ (G.homˢ A (a , b)) (G.idn-lhs A f)
 G.cmp-ass (g A) = λ {d c b a} h g f →
   S.invᵗᵐ (G.homˢ A (a , d)) (G.cmp-ass A f g h)
-G.inv-lhs (g A) = λ {b a} f →
+G.inv-lhs (g {d = G.Dir.≤} A) = _
+G.inv-lhs (g {d = G.Dir.≈} A) = λ {b a} f →
   S.invᵗᵐ (G.homˢ A (b , b)) (G.inv-rhs A f)
-G.inv-rhs (g A) = λ {b a} f →
+G.inv-rhs (g {d = G.Dir.≤} A) = _
+G.inv-rhs (g {d = G.Dir.≈} A) = λ {b a} f →
   S.invᵗᵐ (G.homˢ A (a , a)) (G.inv-lhs A f)

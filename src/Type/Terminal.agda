@@ -2,5 +2,10 @@
 
 module Type.Terminal where
 
-record t : Set where
+open import Agda.Primitive
+
+record t ..{ℓ} : Set ℓ where
   constructor *
+
+t⁰ : Set₀
+t⁰ = t {lzero}

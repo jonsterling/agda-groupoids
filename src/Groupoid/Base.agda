@@ -3,20 +3,40 @@
 module Groupoid.Base where
 
 open import Agda.Primitive
-
+open import Common public
 import Setoid as S
 open import Type as T
   using (_,_)
 
-record t ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ ℓˢʰ)) where
+record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ ℓˢʰ)) where
   no-eta-equality
   open S.Π
   field
-    obj   : Set ℓᵒ
-    homˢ  : obj T.∐.⊗ obj T.Π.⇒₀ S.t ℓˢᵒ ℓˢʰ
-    idnˢᵐ : ∀ {a} → S.𝟙.s S.Π.⇒₀ᵗ homˢ (a , a)
-    cmpˢᵐ : ∀ {a b c} → homˢ (b , c) S.∐.⊗ homˢ (a , b) S.Π.⇒₀ᵗ homˢ (a , c)
-    invˢᵐ : ∀ {a b} → homˢ (a , b) S.Π.⇒₀ᵗ homˢ (b , a)
+    obj
+      : Set ℓᵒ
+    homˢ
+      : obj T.∐.⊗ obj T.Π.⇒₀ S.t Dir.≈ ℓˢᵒ ℓˢʰ
+    idnˢᵐ
+      : ∀ {a}
+      → S.𝟙.s S.Π.⇒₀ᵗ homˢ (a , a)
+    cmpˢᵐ
+      : ∀ {a b c}
+      → homˢ (b , c) S.∐.⊗ homˢ (a , b) S.Π.⇒₀ᵗ homˢ (a , c)
+    {invˢᵐ}
+      : ∀ {a b}
+      → Dir.el d T.𝟙.t (homˢ (a , b) S.Π.⇒₀ᵗ homˢ (b , a))
+
+  private
+    invˢᵐ≡
+      : ∀ {a b}
+      → (ϕ : T.Path.t d S.Dir.≈)
+      → homˢ (a , b) ⇒₀ᵗ homˢ (b , a)
+    invˢᵐ≡ {a}{b} ϕ =
+      T.Path.subst
+        (λ d′ → Dir.el d′ T.𝟙.t (homˢ (a , b) S.Π.⇒₀ᵗ homˢ (b , a)))
+        ϕ
+        invˢᵐ
+
   field
     .idn-lhs
       : ∀ {a b}
@@ -41,18 +61,22 @@ record t ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ �
           ( cmpˢᵐ $₀ (cmpˢᵐ $₀ (h , g) , f)
           , cmpˢᵐ $₀ (h , cmpˢᵐ $₀ (g , f))
           )
-    .inv-lhs
+    .{inv-lhs}
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
-      → S.homᵗ (homˢ (a , a))
-          ( cmpˢᵐ $₀ (invˢᵐ $₀ f , f)
-          , idnˢᵐ $₀ T.𝟙.*
-          )
-    .inv-rhs
+      → Dir.el {Φ = λ d′ → T.Path.t d d′ → Set _} d (λ _ → T.𝟙.t) (λ ϕ →
+          S.homᵗ (homˢ (a , a))
+            ( cmpˢᵐ $₀ (invˢᵐ≡ ϕ $₀ f , f)
+            , idnˢᵐ $₀ T.𝟙.*
+            ))
+        T.Path.refl
+    .{inv-rhs}
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
-      → S.homᵗ (homˢ (b , b))
-          ( idnˢᵐ $₀ T.𝟙.*
-          , cmpˢᵐ $₀ (f , invˢᵐ $₀ f)
-          )
+      → Dir.el {Φ = λ d′ → T.Path.t d d′ → Set _} d (λ _ → T.𝟙.t) (λ ϕ →
+          S.homᵗ (homˢ (b , b))
+            ( idnˢᵐ $₀ T.𝟙.*
+            , cmpˢᵐ $₀ (f , invˢᵐ≡ ϕ $₀ f)
+            ))
+        T.Path.refl
 open t public

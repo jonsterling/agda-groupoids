@@ -2,6 +2,7 @@
 
 module Type.Path where
 
+open import Agda.Primitive
 import Type.Exponential as Π
 open import Type.Tensor as ∐
   using (_,_)
@@ -17,7 +18,7 @@ primitive
 
 idn
   : ∀ ..{ℓ} {A : Set ℓ} {a : A}
-  → 𝟙.t Π.⇒₀ t a a
+  → 𝟙.t⁰ Π.⇒₀ t a a
 idn = Π.! refl
 
 cmp
@@ -38,7 +39,7 @@ _$₁_ f refl = refl
 
 subst
   : ∀ ..{ℓ₀ ℓ₁} {A : Set ℓ₀} {a b}
-  → (Ψ : A → Set ℓ₁)
+  → (Ψ : A → Set (ℓ₀ ⊔ ℓ₁))
   → (f : t a b)
   → ((ψ : Ψ a) → Ψ b)
 subst Ψ refl ψ = ψ

@@ -9,10 +9,10 @@ open import Type as T
 infixr 3 _⊗_
 
 _⊗_
-  : ∀ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
-  → (A : S.t ℓ₀ᵒ ℓ₀ʰ)
-  → (B : S.t ℓ₁ᵒ ℓ₁ʰ)
-  → S.t _ _
+  : ∀ {d} ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
+  → (A : S.t d ℓ₀ᵒ ℓ₀ʰ)
+  → (B : S.t d ℓ₁ᵒ ℓ₁ʰ)
+  → S.t d _ _
 S.obj (A ⊗ B) =
   S.t.obj A T.∐.⊗ S.t.obj B
 S.homᵗ (A ⊗ B) =
@@ -24,5 +24,5 @@ S.idnᵗᵐ (A ⊗ B) =
 S.cmpᵗᵐ (A ⊗ B) =
   T.∐.⟨ S.cmpᵗᵐ A T.Π.∘ T.∐.⟨ T.∐.π₀ ⊗ T.∐.π₀ ⟩
       , S.cmpᵗᵐ B T.Π.∘ T.∐.⟨ T.∐.π₁ ⊗ T.∐.π₁ ⟩ ⟩
-S.invᵗᵐ (A ⊗ B) =
-  T.∐.⟨ S.invᵗᵐ A ⊗ S.invᵗᵐ B ⟩
+S.invᵗᵐ (_⊗_ {S.Dir.≤} A B) = _
+S.invᵗᵐ (_⊗_ {S.Dir.≈} A B) = T.∐.⟨ S.invᵗᵐ A ⊗ S.invᵗᵐ B ⟩

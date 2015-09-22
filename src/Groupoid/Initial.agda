@@ -7,7 +7,7 @@ import Groupoid.Base as G
 import Setoid as S
 import Type as T
 
-g : G.t lzero lzero lzero
+g : ∀ {d} → G.t d lzero lzero lzero
 G.obj g = T.𝟘.t
 G.homˢ g = λ { (() T., _) }
 G.idnˢᵐ g = λ {}
