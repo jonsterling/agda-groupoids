@@ -1,6 +1,6 @@
 {-# OPTIONS --without-K #-}
 
-module Type.Path where
+module Type.Discrete where
 
 open import Agda.Primitive
 import Type.Exponential as Π

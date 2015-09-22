@@ -4,8 +4,8 @@ module Setoid.Transfor where
 
 open import Agda.Primitive
 import Setoid.Base as S
+import Setoid.Discrete as Discrete
 import Setoid.Exponential.Boot as Π
-import Setoid.Path as Path
 import Setoid.Terminal as 𝟙
 open import Type as T
   using (_,_)

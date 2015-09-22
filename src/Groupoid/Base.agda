@@ -29,10 +29,10 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
   private
     invˢᵐ≡
       : ∀ {a b}
-      → (ϕ : T.Path.t d S.Dir.≈)
+      → (ϕ : T.Discrete.t d S.Dir.≈)
       → homˢ (a , b) ⇒₀ᵗ homˢ (b , a)
     invˢᵐ≡ {a}{b} ϕ =
-      T.Path.subst
+      T.Discrete.subst
         (λ d′ → Dir.el d′ T.𝟙.t (homˢ (a , b) S.Π.⇒₀ᵗ homˢ (b , a)))
         ϕ
         invˢᵐ
@@ -64,19 +64,19 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
     .{inv-lhs}
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
-      → Dir.el {Φ = λ d′ → T.Path.t d d′ → Set _} d (λ _ → T.𝟙.t) (λ ϕ →
+      → Dir.el {Φ = λ d′ → T.Discrete.t d d′ → Set _} d (λ _ → T.𝟙.t) (λ ϕ →
           S.homᵗ (homˢ (a , a))
             ( cmpˢᵐ $₀ (invˢᵐ≡ ϕ $₀ f , f)
             , idnˢᵐ $₀ T.𝟙.*
             ))
-        T.Path.refl
+        T.Discrete.refl
     .{inv-rhs}
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
-      → Dir.el {Φ = λ d′ → T.Path.t d d′ → Set _} d (λ _ → T.𝟙.t) (λ ϕ →
+      → Dir.el {Φ = λ d′ → T.Discrete.t d d′ → Set _} d (λ _ → T.𝟙.t) (λ ϕ →
           S.homᵗ (homˢ (b , b))
             ( idnˢᵐ $₀ T.𝟙.*
             , cmpˢᵐ $₀ (f , invˢᵐ≡ ϕ $₀ f)
             ))
-        T.Path.refl
+        T.Discrete.refl
 open t public
