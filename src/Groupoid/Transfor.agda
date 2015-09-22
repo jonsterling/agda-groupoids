@@ -15,13 +15,20 @@ record _⇒₁ᵗ_ ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ
   {A : G.t ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
   {B : G.t ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
   (F G : A Π.⇒₀ᵗ B)
-    : Set (ℓ₀ᵒ ⊔ (ℓ₁ˢᵒ ⊔ ℓ₁ˢʰ)) where
+    : Set ((ℓ₀ᵒ ⊔ ℓ₀ˢᵒ) ⊔ (ℓ₁ˢᵒ ⊔ ℓ₁ˢʰ)) where
   no-eta-equality
-  constructor nat₁
   field
     com₁
       : ∀ {a}
       → S.obj (G.homˢ B (F Π.$₀ a , G Π.$₀ a))
+  field
+    .nat₁
+      : ∀ {a b}
+      → (f : S.obj (G.homˢ A (a , b)))
+      → S.homᵗ (G.homˢ B (F Π.$₀ a , G Π.$₀ b))
+          ( G.cmpˢᵐ B S.Π.$₀ (com₁ {b} , F Π.$₁ f)
+          , G.cmpˢᵐ B S.Π.$₀ (G Π.$₁ f , com₁ {a})
+          )
 open _⇒₁ᵗ_ public
 
 record _⇒₂_ ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
@@ -31,7 +38,6 @@ record _⇒₂_ ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁
   (α β : F ⇒₁ᵗ G)
     : Set (ℓ₀ᵒ ⊔ (ℓ₁ˢᵒ ⊔ ℓ₁ˢʰ)) where
   no-eta-equality
-  constructor nat₂
   field
     .com₂
       : ∀ {a}

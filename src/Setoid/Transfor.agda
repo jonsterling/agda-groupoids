@@ -18,7 +18,6 @@ record _⇒₁_ ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
   (F G : A Π.⇒₀ᵗ B)
     : Set (ℓ₀ᵒ ⊔ ℓ₁ʰ) where
   no-eta-equality
-  constructor nat₁
   field
     com₁
       : ∀ {a}
