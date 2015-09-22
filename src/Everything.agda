@@ -2,6 +2,8 @@
 
 module Everything where
 
+import Category
+
 import Groupoid
 import Groupoid.Base
 import Groupoid.Exponential
@@ -15,6 +17,8 @@ import Groupoid.Tensor
 import Groupoid.Tensor.Boot
 import Groupoid.Terminal
 import Groupoid.Transfor
+
+import Poset
 
 import Setoid
 import Setoid.Base
