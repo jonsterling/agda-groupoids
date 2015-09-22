@@ -12,7 +12,8 @@ import Setoid.Tensor
 import Setoid.Terminal
 import Setoid.Transfor
 
-module Discrete = Setoid.Discrete
+module Discrete where
+  open import Setoid.Discrete public
 module Π where
   open import Setoid.Exponential public
   open import Setoid.Exponential.Boot public

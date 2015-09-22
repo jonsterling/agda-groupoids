@@ -9,10 +9,16 @@ open import Type as T
 
 s : ∀ {d} ..{ℓᵒ}
   → (A : T.t ℓᵒ)
-  → S.t d ℓᵒ ℓᵒ
-S.obj (s A) = A
-S.homᵗ (s A) = λ {(a , b) → T.Discrete.t a b}
-S.idnᵗᵐ (s A) = T.Discrete.idn
-S.cmpᵗᵐ (s A) = T.Discrete.cmp
-S.invᵗᵐ (s {S.Dir.≤} A) = _
-S.invᵗᵐ (s {S.Dir.≈} A) = T.Discrete.inv
+  → S.t d _ _
+S.obj (s A) =
+  A
+S.homᵗ (s A) =
+  λ {(a , b) → T.Discrete.t a b}
+S.idnᵗᵐ (s A) =
+  T.Discrete.idn
+S.cmpᵗᵐ (s A) =
+  T.Discrete.cmp
+S.invᵗᵐ (s {S.Dir.≤} A) =
+  _
+S.invᵗᵐ (s {S.Dir.≈} A) =
+  T.Discrete.inv

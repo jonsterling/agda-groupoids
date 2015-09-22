@@ -12,7 +12,8 @@ import Type.Tensor
 import Type.Terminal
 import Type.Transfor
 
-module Discrete = Type.Discrete
+module Discrete where
+  open import Type.Discrete public
 module Π where
   open import Type.Exponential public
   open import Type.Exponential.Boot public
