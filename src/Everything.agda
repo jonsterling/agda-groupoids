@@ -7,6 +7,8 @@ import Groupoid.Base
 import Groupoid.Exponential
 import Groupoid.Exponential.Boot
 import Groupoid.Initial
+import Groupoid.Instances
+import Groupoid.Notation
 import Groupoid.Op
 import Groupoid.Path
 import Groupoid.Tensor
@@ -19,6 +21,8 @@ import Setoid.Base
 import Setoid.Exponential
 import Setoid.Exponential.Boot
 import Setoid.Initial
+import Setoid.Instances
+import Setoid.Notation
 import Setoid.Op
 import Setoid.Path
 import Setoid.Tensor
@@ -31,6 +35,8 @@ import Type.Base
 import Type.Exponential
 import Type.Exponential.Boot
 import Type.Initial
+import Type.Instances
+import Type.Notation
 import Type.Op
 import Type.Path
 import Type.Tensor
