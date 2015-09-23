@@ -16,8 +16,8 @@ record _⇒₀ᵗ_
   (B : S.t d ℓ₁ᵒ ℓ₁ʰ)
     : Set ((ℓ₀ᵒ ⊔ ℓ₀ʰ) ⊔ (ℓ₁ᵒ ⊔ ℓ₁ʰ)) where
   no-eta-equality
-  infixr 2 _$₀_
-  infixr 2 _$₁_
+  infixr 4 _$₀_
+  infixr 4 _$₁_
   field
     _$₀_
       : S.obj A T.Π.⇒₀ S.obj B
