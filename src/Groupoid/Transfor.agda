@@ -127,7 +127,7 @@ cmp-w₀
   → (T.∐.π₀ Hα Π.∘ᵗᵐ F) ⇒₁ᵗ (T.∐.π₀ Hα Π.∘ᵗᵐ G)
 com₁ (cmp-w₀ (H , α)) =
   H Π.$₁ com₁ α
-nat₁ (cmp-w₀ {C = C} {F = F} {G = G} (H , α)) = λ {a}{b} f →
+nat₁ (cmp-w₀ {C = C} (H , α)) = λ {a}{b} f →
   S.cmpᵗᵐ (G.homˢ C _)
   ( Π.cmp H _ _
   , S.cmpᵗᵐ (G.homˢ C _)
