@@ -6,6 +6,7 @@ open import Agda.Primitive
 import Groupoid.Base as G
 import Groupoid.Exponential.Boot as Π
 import Setoid as S
+import Setoid.Reasoning
 open import Type as T
   using (_,_)
 
@@ -111,7 +112,74 @@ invˢᵐ
 com₁ (S.Π._$₀_ (invˢᵐ {B = B}) α) =
   G.invˢᵐ B S.Π.$₀ (com₁ α)
 nat₁ (S.Π._$₀_ (invˢᵐ {A = A}{B = B}{F}{G}) α) = λ {a b} f →
-  {!!}
+  -- FIXME: normalize
+  let open Setoid.Reasoning (G.homˢ B (G Π.$₀ a , F Π.$₀ b)) in
+  proof
+    G.cmpˢᵐ B S.Π.$₀
+      ( G.invˢᵐ B S.Π.$₀ com₁ α , G Π.$₁ f )
+  ≈⟨ G.idn-rhs B _ ⟩
+    G.cmpˢᵐ B S.Π.$₀
+      ( G.cmpˢᵐ B S.Π.$₀
+        ( G.invˢᵐ B S.Π.$₀ com₁ α , G Π.$₁ f )
+      , G.idnˢᵐ B S.Π.$₀ T.𝟙.* )
+  ≈⟨ G.cmpˢᵐ B S.Π.$₁ (S.idnᵗᵐ (G.homˢ B _) T.𝟙.* , G.inv-rhs B _) ⟩
+    G.cmpˢᵐ B S.Π.$₀
+      ( G.cmpˢᵐ B S.Π.$₀
+        ( G.invˢᵐ B S.Π.$₀ com₁ α
+        , G Π.$₁ f )
+      , G.cmpˢᵐ B S.Π.$₀ ( com₁ α , G.invˢᵐ B S.Π.$₀ com₁ α ))
+  ≈⟨ G.cmp-ass B _ _ _ ⟩
+    G.cmpˢᵐ B S.Π.$₀
+      ( G.invˢᵐ B S.Π.$₀ com₁ α ,
+        G.cmpˢᵐ B S.Π.$₀
+        ( G Π.$₁ f
+        , G.cmpˢᵐ B S.Π.$₀ ( com₁ α , G.invˢᵐ B S.Π.$₀ com₁ α )))
+  ≈⟨ G.cmpˢᵐ B S.Π.$₁ (S.idnᵗᵐ (G.homˢ B _) _ , S.invᵗᵐ (G.homˢ B _) (G.cmp-ass B _ _ _)) ⟩
+    G.cmpˢᵐ B S.Π.$₀
+      ( G.invˢᵐ B S.Π.$₀ com₁ α ,
+        G.cmpˢᵐ B S.Π.$₀
+        ( G.cmpˢᵐ B S.Π.$₀ ( G Π.$₁ f , com₁ α )
+        , G.invˢᵐ B S.Π.$₀ com₁ α ))
+  ≈⟨ S.invᵗᵐ (G.homˢ B _) (G.cmp-ass B _ _ _) ⟩
+    G.cmpˢᵐ B S.Π.$₀
+      ( G.cmpˢᵐ B S.Π.$₀
+        ( G.invˢᵐ B S.Π.$₀ com₁ α , G.cmpˢᵐ B S.Π.$₀ ( G Π.$₁ f , com₁ α ) )
+      , G.invˢᵐ B S.Π.$₀ com₁ α )
+  ≈⟨ G.cmpˢᵐ B S.Π.$₁
+     ( G.cmpˢᵐ B S.Π.$₁
+       ( S.idnᵗᵐ (G.homˢ B _) _
+       , S.invᵗᵐ (G.homˢ B _) (nat₁ α _) )
+     , S.idnᵗᵐ (G.homˢ B _) _ ) ⟩
+    G.cmpˢᵐ B S.Π.$₀
+      ( G.cmpˢᵐ B S.Π.$₀
+        ( G.invˢᵐ B S.Π.$₀ com₁ α
+        , G.cmpˢᵐ B S.Π.$₀ ( com₁ α , F Π.$₁ f ) )
+      , G.invˢᵐ B S.Π.$₀ com₁ α )
+  ≈⟨ G.cmpˢᵐ B S.Π.$₁
+     ( S.invᵗᵐ (G.homˢ B _) (G.cmp-ass B _ _ _)
+     , S.idnᵗᵐ (G.homˢ B _) _ ) ⟩
+    G.cmpˢᵐ B S.Π.$₀
+      ( G.cmpˢᵐ B S.Π.$₀
+        ( G.cmpˢᵐ B S.Π.$₀ (G.invˢᵐ B S.Π.$₀ com₁ α , com₁ α)
+        , F Π.$₁ f )
+      , G.invˢᵐ B S.Π.$₀ com₁ α )
+  ≈⟨ G.cmpˢᵐ B S.Π.$₁
+      ( G.cmpˢᵐ B S.Π.$₁
+        ( G.inv-lhs B _
+        , S.idnᵗᵐ (G.homˢ B _) _ )
+      , S.idnᵗᵐ (G.homˢ B _) _ ) ⟩
+    G.cmpˢᵐ B S.Π.$₀
+      ( G.cmpˢᵐ B S.Π.$₀
+        ( G.idnˢᵐ B S.Π.$₀ T.𝟙.*
+        , F Π.$₁ f )
+      , G.invˢᵐ B S.Π.$₀ com₁ α )
+  ≈⟨ G.cmpˢᵐ B S.Π.$₁ (G.idn-lhs B _ , S.idnᵗᵐ (G.homˢ B _) _) ⟩
+    G.cmpˢᵐ B S.Π.$₀
+      ( F Π.$₁ f , G.invˢᵐ B S.Π.$₀ com₁ α )
+  ≈⟨ S.idnᵗᵐ (G.homˢ B _) _ ⟩
+    G.cmpˢᵐ B S.Π.$₀
+      ( F Π.$₁ f , com₁ (invˢᵐ S.Π.$₀ α) )
+  ∎
 com₂ (S.Π._$₁_ (invˢᵐ {B = B}) α) =
   G.invˢᵐ B S.Π.$₁ (com₂ α)
 
