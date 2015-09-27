@@ -7,7 +7,8 @@ import Setoid.Base as S
 open import Setoid.Exponential as Π
 import Setoid.Homotopy as TFor
 open import Setoid.Tensor.Boot public
-import Type as T
+open import Type as T
+  using (_,_)
 
 π₀
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
