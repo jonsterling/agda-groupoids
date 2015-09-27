@@ -215,32 +215,116 @@ com₁ (cmp-w₁ (β , F)) =
 nat₁ (cmp-w₁ (β , F)) =
   nat₁ β T.Π.∘ F Π.$₁_
 
--- cmpˢᵐ-h₀
---   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
---   → {A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
---   → {B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
---   → {C : G.t d ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
---   → {F G : A Π.⇒₀ᵗ B}
---   → {H K : B Π.⇒₀ᵗ C}
---   → ((H ⇒₁ˢ K) S.∐.⊗ (F ⇒₁ˢ G)) S.Π.⇒₀ᵗ ((H Π.∘ᵗᵐ F) ⇒₁ˢ (K Π.∘ᵗᵐ G))
--- com₁ (S.Π._$₀_ (cmpˢᵐ-h₀ {C = C} {K = K}) (β , α)) =
---   G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , com₁ β)
--- nat₁ (S.Π._$₀_ (cmpˢᵐ-h₀ {C = C} {K = K}) (β , α)) = λ f →
---   {!!}
--- com₂ (S.Π._$₁_ (cmpˢᵐ-h₀ {C = C} {K = K}) (β , α)) =
---   G.cmpˢᵐ C S.Π.$₁ (K Π.$₂ com₂ α , com₂ β)
+cmpˢᵐ-h₀
+  : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
+  → {A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
+  → {B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
+  → {C : G.t d ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
+  → {F G : A Π.⇒₀ᵗ B}
+  → {H K : B Π.⇒₀ᵗ C}
+  → ((H ⇒₁ˢ K) S.∐.⊗ (F ⇒₁ˢ G)) S.Π.⇒₀ᵗ ((H Π.∘ᵗᵐ F) ⇒₁ˢ (K Π.∘ᵗᵐ G))
+com₁ (S.Π._$₀_ (cmpˢᵐ-h₀ {C = C} {K = K}) (β , α)) =
+  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , com₁ β)
+com₂ (S.Π._$₁_ (cmpˢᵐ-h₀ {C = C} {K = K}) (β , α)) =
+  G.cmpˢᵐ C S.Π.$₁ (K Π.$₂ com₂ α , com₂ β)
+nat₁ (S.Π._$₀_ (cmpˢᵐ-h₀ {B = B}{C}{F}{G}{H}{K}) (β , α)) = λ {a}{b} f →
+  let open Setoid.Reasoning (G.homˢ C ((H Π.∘ᵗᵐ F) Π.$₀ a , (K Π.∘ᵗᵐ G) Π.$₀ b)) in
+        proof
 
--- cmpˢᵐ-h₁
---   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
---   → {A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
---   → {B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
---   → {C : G.t d ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
---   → {F G : A Π.⇒₀ᵗ B}
---   → {H K : B Π.⇒₀ᵗ C}
---   → ((H ⇒₁ˢ K) S.∐.⊗ (F ⇒₁ˢ G)) S.Π.⇒₀ᵗ ((H Π.∘ᵗᵐ F) ⇒₁ˢ (K Π.∘ᵗᵐ G))
--- com₁ (S.Π._$₀_ (cmpˢᵐ-h₁ {C = C} {H = H}) (β , α)) =
---   G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ com₁ α)
--- nat₁ (S.Π._$₀_ (cmpˢᵐ-h₁ {C = C} {H = H}) (β , α)) =
---   {!!}
--- com₂ (S.Π._$₁_ (cmpˢᵐ-h₁ {C = C} {H = H}) (β , α)) =
---   G.cmpˢᵐ C S.Π.$₁ (com₂ β , H Π.$₂ com₂ α)
+  G.cmpˢᵐ C S.Π.$₀ (com₁ (cmpˢᵐ-h₀ S.Π.$₀ (β , α)) , (H Π.∘ᵗᵐ F) Π.$₁ _)
+
+      ≈⟨ S.idnᵗᵐ (G.homˢ C _) _ ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , com₁ β) , H Π.$₁ F Π.$₁ _)
+
+      ≈⟨ G.cmp-ass C _ _ _ ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ F Π.$₁ _))
+
+      ≈⟨ G.cmpˢᵐ C S.Π.$₁ (S.idnᵗᵐ (G.homˢ C _) _ , nat₁ β (F Π.$₁ _)) ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ F Π.$₁ _ , com₁ β))
+
+      ≈⟨ S.invᵗᵐ (G.homˢ C _) (G.cmp-ass C _ _ _) ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , K Π.$₁ F Π.$₁ f) , com₁ β)
+
+      ≈⟨ G.cmpˢᵐ C S.Π.$₁
+         ( S.invᵗᵐ (G.homˢ C _) (Π.cmp K (com₁ α) (F Π.$₁ _))
+         , S.idnᵗᵐ (G.homˢ C _) _) ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G.cmpˢᵐ B S.Π.$₀ (com₁ α , F Π.$₁ _) , com₁ β)
+
+      ≈⟨ G.cmpˢᵐ C S.Π.$₁ (K Π.$₂ nat₁ α f , S.idnᵗᵐ (G.homˢ C _) _) ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G.cmpˢᵐ B S.Π.$₀ (G Π.$₁ f , com₁ α) , com₁ β)
+
+      ≈⟨ G.cmpˢᵐ C S.Π.$₁ (Π.cmp K (G Π.$₁ f) (com₁ α) , S.idnᵗᵐ (G.homˢ C _) _) ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G Π.$₁ _ , K Π.$₁ com₁ α) , com₁ β)
+
+      ≈⟨ G.cmp-ass C _ _ _ ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G Π.$₁ _ , G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , com₁ β))
+
+      ≈⟨ S.idnᵗᵐ (G.homˢ C _) _ ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ ((K Π.∘ᵗᵐ G) Π.$₁ _ , com₁ (cmpˢᵐ-h₀ S.Π.$₀ (β , α)))
+
+      ∎
+
+cmpˢᵐ-h₁
+  : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
+  → {A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
+  → {B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
+  → {C : G.t d ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
+  → {F G : A Π.⇒₀ᵗ B}
+  → {H K : B Π.⇒₀ᵗ C}
+  → ((H ⇒₁ˢ K) S.∐.⊗ (F ⇒₁ˢ G)) S.Π.⇒₀ᵗ ((H Π.∘ᵗᵐ F) ⇒₁ˢ (K Π.∘ᵗᵐ G))
+com₁ (S.Π._$₀_ (cmpˢᵐ-h₁ {C = C} {H = H}) (β , α)) =
+  G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ com₁ α)
+com₂ (S.Π._$₁_ (cmpˢᵐ-h₁ {C = C} {H = H}) (β , α)) =
+  G.cmpˢᵐ C S.Π.$₁ (com₂ β , H Π.$₂ com₂ α)
+nat₁ (S.Π._$₀_ (cmpˢᵐ-h₁ {B = B}{C}{F}{G}{H}{K}) (β , α)) = λ {a}{b} f →
+  let open Setoid.Reasoning (G.homˢ C ((H Π.∘ᵗᵐ F) Π.$₀ a , (K Π.∘ᵗᵐ G) Π.$₀ b)) in
+      proof
+
+  G.cmpˢᵐ C S.Π.$₀ (com₁ (cmpˢᵐ-h₁ S.Π.$₀ (β , α)) , (H Π.∘ᵗᵐ F) Π.$₁ _)
+
+      ≈⟨ S.idnᵗᵐ (G.homˢ C _) _ ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ com₁ α) , H Π.$₁ F Π.$₁ _)
+
+      ≈⟨ G.cmp-ass C _ _ _ ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (com₁ β , G.cmpˢᵐ C S.Π.$₀ (H Π.$₁ com₁ α , H Π.$₁ F Π.$₁ _))
+
+      ≈⟨ G.cmpˢᵐ C S.Π.$₁ (S.idnᵗᵐ (G.homˢ C _) _ , S.invᵗᵐ (G.homˢ C _) (Π.cmp H _ _)) ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ G.cmpˢᵐ B S.Π.$₀ (com₁ α , F Π.$₁ _))
+
+      ≈⟨ G.cmpˢᵐ C S.Π.$₁ (S.idnᵗᵐ (G.homˢ C _) _ , H Π.$₂ nat₁ α _) ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ G.cmpˢᵐ B S.Π.$₀ (G Π.$₁ _ , com₁ α))
+
+      ≈⟨ G.cmpˢᵐ C S.Π.$₁ (S.idnᵗᵐ (G.homˢ C _) _ , Π.cmp H _ _) ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (com₁ β , G.cmpˢᵐ C S.Π.$₀ (H Π.$₁ G Π.$₁ _ , H Π.$₁ com₁ α))
+
+      ≈⟨ S.invᵗᵐ (G.homˢ C _) (G.cmp-ass C _ _ _) ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ G Π.$₁ _) , H Π.$₁ com₁ α)
+
+      ≈⟨ G.cmpˢᵐ C S.Π.$₁ (nat₁ β _ , S.idnᵗᵐ (G.homˢ C _) _) ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G Π.$₁ _ , com₁ β) , H Π.$₁ com₁ α)
+
+      ≈⟨ G.cmp-ass C _ _ _ ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G Π.$₁ _ , G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ com₁ α))
+
+      ≈⟨ S.idnᵗᵐ (G.homˢ C _) _ ⟩
+
+  G.cmpˢᵐ C S.Π.$₀ ((K Π.∘ᵗᵐ G) Π.$₁ f , com₁ (cmpˢᵐ-h₁ S.Π.$₀ (β , α)))
+
+      ∎
