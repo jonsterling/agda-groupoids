@@ -5,8 +5,8 @@ module Setoid.Tensor where
 open import Agda.Primitive
 import Setoid.Base as S
 open import Setoid.Exponential as Π
+import Setoid.Homotopy as TFor
 open import Setoid.Tensor.Boot public
-import Setoid.Transfor as TFor
 import Type as T
 
 π₀

@@ -1,6 +1,6 @@
 {-# OPTIONS --without-K #-}
 
-module Groupoid.Transfor where
+module Groupoid.Homotopy where
 
 open import Agda.Primitive
 import Groupoid.Base as G
@@ -114,7 +114,7 @@ com₂ (S.Π._$₁_ (invˢᵐ {B = B}) α) =
   G.invˢᵐ B S.Π.$₁ (com₂ α)
 nat₁ (S.Π._$₀_ (invˢᵐ {A = A}{B = B}{F}{G}) α) = λ {a b} f →
   -- FIXME: normalize
-  let open Setoid.Reasoning (G.homˢ B (G Π.$₀ a , F Π.$₀ b)) in
+  let open Setoid.Reasoning (G.homˢ B (G Π.$₀ _ , F Π.$₀ _)) in
       proof
 
   G.cmpˢᵐ B S.Π.$₀ (G.invˢᵐ B S.Π.$₀ com₁ α , G Π.$₁ _)

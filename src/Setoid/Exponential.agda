@@ -5,9 +5,9 @@ module Setoid.Exponential where
 open import Agda.Primitive
 import Setoid.Base as S
 open import Setoid.Exponential.Boot public
+import Setoid.Homotopy as TFor
 open import Setoid.Tensor.Boot as ∐
 import Setoid.Terminal as 𝟙
-import Setoid.Transfor as TFor
 open import Type as T
   using (_,_)
 

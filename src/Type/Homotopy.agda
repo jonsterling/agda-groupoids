@@ -1,6 +1,6 @@
 {-# OPTIONS --without-K #-}
 
-module Type.Transfor where
+module Type.Homotopy where
 
 open import Agda.Primitive
 import Type.Base as T

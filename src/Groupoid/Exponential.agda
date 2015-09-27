@@ -5,8 +5,8 @@ module Groupoid.Exponential where
 open import Agda.Primitive
 import Groupoid.Base as G
 open import Groupoid.Exponential.Boot public
+import Groupoid.Homotopy as TFor
 import Setoid as S
-import Groupoid.Transfor as TFor
 open import Type as T
   using (_,_)
 
