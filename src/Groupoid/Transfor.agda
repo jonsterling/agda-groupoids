@@ -255,11 +255,11 @@ nat₁ (S.Π._$₀_ (cmpˢᵐ-h₀ {B = B}{C}{F}{G}{H}{K}) (β , α)) = λ {a}{b
 
   G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G.cmpˢᵐ B S.Π.$₀ (com₁ α , F Π.$₁ _) , com₁ β)
 
-      ≈⟨ G.cmpˢᵐ C S.Π.$₁ (K Π.$₂ nat₁ α f , S.idnᵗᵐ (G.homˢ C _) _) ⟩
+      ≈⟨ G.cmpˢᵐ C S.Π.$₁ (K Π.$₂ nat₁ α _ , S.idnᵗᵐ (G.homˢ C _) _) ⟩
 
-  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G.cmpˢᵐ B S.Π.$₀ (G Π.$₁ f , com₁ α) , com₁ β)
+  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G.cmpˢᵐ B S.Π.$₀ (G Π.$₁ _ , com₁ α) , com₁ β)
 
-      ≈⟨ G.cmpˢᵐ C S.Π.$₁ (Π.cmp K (G Π.$₁ f) (com₁ α) , S.idnᵗᵐ (G.homˢ C _) _) ⟩
+      ≈⟨ G.cmpˢᵐ C S.Π.$₁ (Π.cmp K (G Π.$₁ _) (com₁ α) , S.idnᵗᵐ (G.homˢ C _) _) ⟩
 
   G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G Π.$₁ _ , K Π.$₁ com₁ α) , com₁ β)
 
@@ -325,6 +325,6 @@ nat₁ (S.Π._$₀_ (cmpˢᵐ-h₁ {B = B}{C}{F}{G}{H}{K}) (β , α)) = λ {a}{b
 
       ≈⟨ S.idnᵗᵐ (G.homˢ C _) _ ⟩
 
-  G.cmpˢᵐ C S.Π.$₀ ((K Π.∘ᵗᵐ G) Π.$₁ f , com₁ (cmpˢᵐ-h₁ S.Π.$₀ (β , α)))
+  G.cmpˢᵐ C S.Π.$₀ ((K Π.∘ᵗᵐ G) Π.$₁ _ , com₁ (cmpˢᵐ-h₁ S.Π.$₀ (β , α)))
 
       ∎
