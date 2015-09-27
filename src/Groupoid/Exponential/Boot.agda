@@ -14,7 +14,8 @@ record _⇒₀ᵗ_
   (B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ)
     : Set ((ℓ₀ᵒ ⊔ ℓ₀ˢᵒ ⊔ ℓ₀ˢʰ) ⊔ (ℓ₁ᵒ ⊔ ℓ₁ˢᵒ ⊔ ℓ₁ˢʰ)) where
   no-eta-equality
-  infixr 2 _$₀_
+  infixr 4 _$₀_
+  infixr 4 _$₁_
   field
     _$₀_ : G.obj A T.Π.⇒₀ G.obj B
     -$₁-ˢᵐ : ∀ {a b} → G.homˢ A (a , b) S.Π.⇒₀ᵗ G.homˢ B (_$₀_ a , _$₀_ b)
