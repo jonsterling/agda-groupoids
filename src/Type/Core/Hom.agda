@@ -1,9 +1,9 @@
 {-# OPTIONS --without-K #-}
 
-module Type.Core.Exponential where
+module Type.Core.Hom where
 
 open import Agda.Primitive
-open import Type.Core.Exponential.Boot public
+open import Type.Core.Hom.Boot public
 open import Type.Core.Tensor.Boot as ∐
   using (_,_)
 

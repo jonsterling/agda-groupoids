@@ -6,7 +6,7 @@ module Setoid.Instances where
 
 open import Agda.Primitive
 import Setoid.Core.Base as S
-import Setoid.Core.Exponential as Π
+import Setoid.Core.Hom as Π
 import Setoid.Core.Homotopy as TFor
 import Setoid.Reasoning
 

@@ -4,7 +4,7 @@ module Setoid.Core.Initial where
 
 open import Agda.Primitive
 import Setoid.Core.Base as S
-import Setoid.Core.Exponential as Π
+import Setoid.Core.Hom as Π
 open import Type as T
   using (_,_)
 

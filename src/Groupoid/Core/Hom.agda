@@ -1,10 +1,10 @@
 {-# OPTIONS --without-K #-}
 
-module Groupoid.Core.Exponential where
+module Groupoid.Core.Hom where
 
 open import Agda.Primitive
 import Groupoid.Core.Base as G
-open import Groupoid.Core.Exponential.Boot public
+open import Groupoid.Core.Hom.Boot public
 import Groupoid.Core.Homotopy as TFor
 import Setoid as S
 open import Type as T

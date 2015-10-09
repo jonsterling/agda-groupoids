@@ -6,7 +6,7 @@ open import Agda.Primitive
 import Type.Core.Base as T
 import Type.Core.Discrete as Discrete
   renaming (t to _≡_)
-import Type.Core.Exponential as Π
+import Type.Core.Hom as Π
 open import Type.Core.Tensor as ∐
   using (_,_)
 import Type.Core.Terminal as 𝟙

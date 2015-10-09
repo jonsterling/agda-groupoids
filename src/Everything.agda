@@ -7,8 +7,8 @@ import Category
 import Groupoid
 import Groupoid.Core.Base
 import Groupoid.Core.Discrete
-import Groupoid.Core.Exponential
-import Groupoid.Core.Exponential.Boot
+import Groupoid.Core.Hom
+import Groupoid.Core.Hom.Boot
 import Groupoid.Core.Homotopy
 import Groupoid.Core.Initial
 import Groupoid.Core.Op
@@ -23,8 +23,8 @@ import Poset
 import Setoid
 import Setoid.Core.Base
 import Setoid.Core.Discrete
-import Setoid.Core.Exponential
-import Setoid.Core.Exponential.Boot
+import Setoid.Core.Hom
+import Setoid.Core.Hom.Boot
 import Setoid.Core.Homotopy
 import Setoid.Core.Initial
 import Setoid.Core.Op
@@ -37,8 +37,8 @@ import Setoid.Notation
 import Type
 import Type.Core.Base
 import Type.Core.Discrete
-import Type.Core.Exponential
-import Type.Core.Exponential.Boot
+import Type.Core.Hom
+import Type.Core.Hom.Boot
 import Type.Core.Homotopy
 import Type.Core.Initial
 import Type.Core.Op

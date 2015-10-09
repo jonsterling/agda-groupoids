@@ -5,7 +5,7 @@ module Type where
 open import Agda.Primitive
 open import Type.Core.Base public
 import Type.Core.Discrete
-import Type.Core.Exponential
+import Type.Core.Hom
 import Type.Core.Homotopy
 import Type.Core.Initial
 import Type.Core.Op
@@ -16,8 +16,8 @@ module ≡ where
   open import Type.Core.Discrete public
     renaming (t to _t_)
 module Π where
-  open import Type.Core.Exponential public
-  open import Type.Core.Exponential.Boot public
+  open import Type.Core.Hom public
+  open import Type.Core.Hom.Boot public
 module TFor = Type.Core.Homotopy
 module 𝟘 = Type.Core.Initial
 module Op = Type.Core.Op

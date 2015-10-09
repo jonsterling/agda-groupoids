@@ -4,7 +4,7 @@ module Groupoid.Core.Homotopy where
 
 open import Agda.Primitive
 import Groupoid.Core.Base as G
-import Groupoid.Core.Exponential.Boot as Π
+import Groupoid.Core.Hom.Boot as Π
 import Setoid as S
 open import Type as T
   using (_,_)

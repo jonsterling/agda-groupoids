@@ -10,7 +10,7 @@ t : ∀ ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) → Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ �
 t = Groupoid.Core.Base.t Dir.≤
 
 import Groupoid.Core.Discrete
-import Groupoid.Core.Exponential
+import Groupoid.Core.Hom
 import Groupoid.Core.Homotopy
 import Groupoid.Core.Initial
 import Groupoid.Core.Op
@@ -19,8 +19,8 @@ import Groupoid.Core.Terminal
 
 module Discrete = Groupoid.Core.Discrete
 module Π where
-  open import Groupoid.Core.Exponential public
-  open import Groupoid.Core.Exponential.Boot public
+  open import Groupoid.Core.Hom public
+  open import Groupoid.Core.Hom.Boot public
 module TFor = Groupoid.Core.Homotopy
 module 𝟘 = Groupoid.Core.Initial
 module Op = Groupoid.Core.Op

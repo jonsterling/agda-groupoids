@@ -1,6 +1,6 @@
 {-# OPTIONS --without-K #-}
 
-module Type.Core.Exponential.Boot where
+module Type.Core.Hom.Boot where
 
 open import Agda.Primitive
 open import Type.Core.Tensor.Boot as ∐

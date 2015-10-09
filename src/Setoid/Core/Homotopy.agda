@@ -5,7 +5,7 @@ module Setoid.Core.Homotopy where
 open import Agda.Primitive
 import Setoid.Core.Base as S
 import Setoid.Core.Discrete as Discrete
-import Setoid.Core.Exponential.Boot as Π
+import Setoid.Core.Hom.Boot as Π
 import Setoid.Core.Terminal as 𝟙
 open import Type as T
   using (_,_)

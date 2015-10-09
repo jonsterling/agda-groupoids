@@ -4,7 +4,7 @@ module Setoid.Core.Tensor where
 
 open import Agda.Primitive
 import Setoid.Core.Base as S
-open import Setoid.Core.Exponential as Π
+open import Setoid.Core.Hom as Π
 import Setoid.Core.Homotopy as TFor
 open import Setoid.Core.Tensor.Boot public
 open import Type as T

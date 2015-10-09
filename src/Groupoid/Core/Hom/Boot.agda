@@ -1,6 +1,6 @@
 {-# OPTIONS --without-K #-}
 
-module Groupoid.Core.Exponential.Boot where
+module Groupoid.Core.Hom.Boot where
 
 open import Agda.Primitive
 import Groupoid.Core.Base as G

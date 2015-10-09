@@ -3,7 +3,7 @@
 module Type.Core.Discrete where
 
 open import Agda.Primitive
-import Type.Core.Exponential as Π
+import Type.Core.Hom as Π
 open import Type.Core.Tensor as ∐
   using (_,_)
 import Type.Core.Terminal as 𝟙

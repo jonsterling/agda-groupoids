@@ -4,7 +4,7 @@ module Groupoid.Core.Tensor where
 
 open import Agda.Primitive
 import Groupoid.Core.Base as G
-open import Groupoid.Core.Exponential as Π
+open import Groupoid.Core.Hom as Π
 import Groupoid.Core.Homotopy as TFor
 open import Groupoid.Core.Tensor.Boot public
 import Setoid as S

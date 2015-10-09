@@ -1,6 +1,6 @@
 {-# OPTIONS --without-K #-}
 
-module Setoid.Core.Exponential.Boot where
+module Setoid.Core.Hom.Boot where
 
 open import Agda.Primitive
 import Setoid.Core.Base as S

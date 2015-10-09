@@ -1,10 +1,10 @@
 {-# OPTIONS --without-K #-}
 
-module Setoid.Core.Exponential where
+module Setoid.Core.Hom where
 
 open import Agda.Primitive
 import Setoid.Core.Base as S
-open import Setoid.Core.Exponential.Boot public
+open import Setoid.Core.Hom.Boot public
 import Setoid.Core.Homotopy as TFor
 open import Setoid.Core.Tensor.Boot as ∐
 import Setoid.Core.Terminal as 𝟙

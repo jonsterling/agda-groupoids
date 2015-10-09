@@ -3,7 +3,7 @@
 module Type.Core.Tensor where
 
 open import Agda.Primitive
-import Type.Core.Exponential as Π
+import Type.Core.Hom as Π
 open import Type.Core.Tensor.Boot public
 
 ⟨_,_⟩
