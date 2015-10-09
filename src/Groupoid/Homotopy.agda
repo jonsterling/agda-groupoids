@@ -113,7 +113,7 @@ com₁ (S.Π._$₀_ (invˢᵐ {B = B}) α) =
 com₂ (S.Π._$₁_ (invˢᵐ {B = B}) α) =
   G.invˢᵐ B S.Π.$₁ (com₂ α)
 nat₁ (S.Π._$₀_ (invˢᵐ {A = A}{B = B}{F}{G}) α) = λ {a b} f →
-  let module S₀ = Setoid.Reasoning (G.homˢ B (G Π.$₀ _ , F Π.$₀ _)) in
+  let module S₀ = Setoid.Reasoning (G.homˢ B _) in
       S₀.proof
 
   G.cmpˢᵐ B S.Π.$₀ (G.invˢᵐ B S.Π.$₀ com₁ α , G Π.$₁ _)
@@ -149,7 +149,7 @@ nat₁ (S.Π._$₀_ (invˢᵐ {A = A}{B = B}{F}{G}) α) = λ {a b} f →
     , G.invˢᵐ B S.Π.$₀ com₁ α )
 
       S₀.≈⟨ G.cmpˢᵐ B S.Π.$₁
-              (let module S₁ = Setoid.Reasoning (G.homˢ B (F Π.$₀ a , F Π.$₀ b)) in
+              (let module S₁ = Setoid.Reasoning (G.homˢ B _) in
         S₁.proof
 
     G.cmpˢᵐ B S.Π.$₀ (G.invˢᵐ B S.Π.$₀ com₁ α , G.cmpˢᵐ B S.Π.$₀ (G Π.$₁ f , com₁ α))
@@ -226,7 +226,7 @@ com₁ (S.Π._$₀_ (cmpˢᵐ-h₀ {C = C} {K = K}) (β , α)) =
 com₂ (S.Π._$₁_ (cmpˢᵐ-h₀ {C = C} {K = K}) (β , α)) =
   G.cmpˢᵐ C S.Π.$₁ (K Π.$₂ com₂ α , com₂ β)
 nat₁ (S.Π._$₀_ (cmpˢᵐ-h₀ {B = B}{C}{F}{G}{H}{K}) (β , α)) = λ {a}{b} f →
-  let module S₀ = Setoid.Reasoning (G.homˢ C ((H Π.∘ᵗᵐ F) Π.$₀ a , (K Π.∘ᵗᵐ G) Π.$₀ b)) in
+  let module S₀ = Setoid.Reasoning (G.homˢ C _) in
       S₀.proof
 
   G.cmpˢᵐ C S.Π.$₀ (com₁ (cmpˢᵐ-h₀ S.Π.$₀ (β , α)) , (H Π.∘ᵗᵐ F) Π.$₁ _)
@@ -283,7 +283,7 @@ com₁ (S.Π._$₀_ (cmpˢᵐ-h₁ {C = C} {H = H}) (β , α)) =
 com₂ (S.Π._$₁_ (cmpˢᵐ-h₁ {C = C} {H = H}) (β , α)) =
   G.cmpˢᵐ C S.Π.$₁ (com₂ β , H Π.$₂ com₂ α)
 nat₁ (S.Π._$₀_ (cmpˢᵐ-h₁ {B = B}{C}{F}{G}{H}{K}) (β , α)) = λ {a}{b} f →
-  let module S₀ = Setoid.Reasoning (G.homˢ C ((H Π.∘ᵗᵐ F) Π.$₀ a , (K Π.∘ᵗᵐ G) Π.$₀ b)) in
+  let module S₀ = Setoid.Reasoning (G.homˢ C _) in
       S₀.proof
 
   G.cmpˢᵐ C S.Π.$₀ (com₁ (cmpˢᵐ-h₁ S.Π.$₀ (β , α)) , (H Π.∘ᵗᵐ F) Π.$₁ _)
@@ -297,7 +297,7 @@ nat₁ (S.Π._$₀_ (cmpˢᵐ-h₁ {B = B}{C}{F}{G}{H}{K}) (β , α)) = λ {a}{b
   G.cmpˢᵐ C S.Π.$₀ (com₁ β , G.cmpˢᵐ C S.Π.$₀ (H Π.$₁ com₁ α , H Π.$₁ F Π.$₁ _))
 
       S₀.≈⟨ G.cmpˢᵐ C S.Π.$₁ (S.idnᵗᵐ (G.homˢ C _) _
-       , (let module S₁ = Setoid.Reasoning (G.homˢ C ((H Π.∘ᵗᵐ F) Π.$₀ a , (H Π.∘ᵗᵐ G) Π.$₀ b)) in
+       , (let module S₁ = Setoid.Reasoning (G.homˢ C _) in
          S₁.proof
 
     G.cmpˢᵐ C S.Π.$₀ (H Π.$₁ com₁ α , H Π.$₁ F Π.$₁ f)
