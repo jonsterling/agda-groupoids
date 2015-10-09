@@ -6,7 +6,6 @@ open import Agda.Primitive
 import Groupoid.Base as G
 import Groupoid.Exponential.Boot as Π
 import Setoid as S
-import Setoid.Reasoning
 open import Type as T
   using (_,_)
 
@@ -93,11 +92,15 @@ nat₁ (S.Π._$₀_ (cmpˢᵐ {B = B}) (β , α)) = λ f →
   S.cmpᵗᵐ (G.homˢ B _)
   ( G.cmp-ass B _ _ _
   , S.cmpᵗᵐ (G.homˢ B _)
-    ( G.cmpˢᵐ B S.Π.$₁ (nat₁ β _ , S.idnᵗᵐ (G.homˢ B _) _)
+    ( G.cmpˢᵐ B S.Π.$₁
+      ( nat₁ β _
+      , S.idnᵗᵐ (G.homˢ B _) _ )
     , S.cmpᵗᵐ (G.homˢ B _)
       ( S.invᵗᵐ (G.homˢ B _) (G.cmp-ass B _ _ _)
       , S.cmpᵗᵐ (G.homˢ B _)
-        ( G.cmpˢᵐ B S.Π.$₁ (S.idnᵗᵐ (G.homˢ B _) _ , nat₁ α _)
+        ( G.cmpˢᵐ B S.Π.$₁
+          ( S.idnᵗᵐ (G.homˢ B _) _
+          , nat₁ α _ )
         , G.cmp-ass B _ _ _ ))))
 com₂ (S.Π._$₁_ (cmpˢᵐ {B = B}) (β , α)) =
   G.cmpˢᵐ B S.Π.$₁ (com₂ β , com₂ α)
@@ -112,74 +115,32 @@ com₁ (S.Π._$₀_ (invˢᵐ {B = B}) α) =
   G.invˢᵐ B S.Π.$₀ (com₁ α)
 com₂ (S.Π._$₁_ (invˢᵐ {B = B}) α) =
   G.invˢᵐ B S.Π.$₁ (com₂ α)
-nat₁ (S.Π._$₀_ (invˢᵐ {A = A}{B = B}{F}{G}) α) = λ {a b} f →
-  let module S₀ = Setoid.Reasoning (G.homˢ B _) in
-      S₀.proof
-
-  G.cmpˢᵐ B S.Π.$₀ (G.invˢᵐ B S.Π.$₀ com₁ α , G Π.$₁ _)
-
-      S₀.≈⟨ G.idn-rhs B _ ⟩
-
-  G.cmpˢᵐ B S.Π.$₀
-    ( G.cmpˢᵐ B S.Π.$₀ (G.invˢᵐ B S.Π.$₀ com₁ α , G Π.$₁ _)
-    , G.idnˢᵐ B S.Π.$₀ _ )
-
-      S₀.≈⟨ G.cmpˢᵐ B S.Π.$₁ (S.idnᵗᵐ (G.homˢ B _) _ , G.inv-rhs B _) ⟩
-
-  G.cmpˢᵐ B S.Π.$₀
-    ( G.cmpˢᵐ B S.Π.$₀ (G.invˢᵐ B S.Π.$₀ com₁ α , G Π.$₁ _)
-    , G.cmpˢᵐ B S.Π.$₀ (com₁ α , G.invˢᵐ B S.Π.$₀ com₁ α) )
-
-      S₀.≈⟨ G.cmp-ass B _ _ _ ⟩
-
-  G.cmpˢᵐ B S.Π.$₀
-    ( G.invˢᵐ B S.Π.$₀ com₁ α
-    , G.cmpˢᵐ B S.Π.$₀ (G Π.$₁ _ , G.cmpˢᵐ B S.Π.$₀ (com₁ α , G.invˢᵐ B S.Π.$₀ com₁ α)) )
-
-      S₀.≈⟨ G.cmpˢᵐ B S.Π.$₁ (S.idnᵗᵐ (G.homˢ B _) _ , S.invᵗᵐ (G.homˢ B _) (G.cmp-ass B _ _ _)) ⟩
-
-  G.cmpˢᵐ B S.Π.$₀
-    ( G.invˢᵐ B S.Π.$₀ com₁ α
-    , G.cmpˢᵐ B S.Π.$₀ (G.cmpˢᵐ B S.Π.$₀ (G Π.$₁ _ , com₁ α) , G.invˢᵐ B S.Π.$₀ com₁ α) )
-
-      S₀.≈⟨ S.invᵗᵐ (G.homˢ B _) (G.cmp-ass B _ _ _) ⟩
-
-  G.cmpˢᵐ B S.Π.$₀
-    ( G.cmpˢᵐ B S.Π.$₀ (G.invˢᵐ B S.Π.$₀ com₁ α , G.cmpˢᵐ B S.Π.$₀ (G Π.$₁ _ , com₁ α))
-    , G.invˢᵐ B S.Π.$₀ com₁ α )
-
-      S₀.≈⟨ G.cmpˢᵐ B S.Π.$₁
-              (let module S₁ = Setoid.Reasoning (G.homˢ B _) in
-        S₁.proof
-
-    G.cmpˢᵐ B S.Π.$₀ (G.invˢᵐ B S.Π.$₀ com₁ α , G.cmpˢᵐ B S.Π.$₀ (G Π.$₁ f , com₁ α))
-
-        S₁.≈⟨ G.cmpˢᵐ B S.Π.$₁ (S.idnᵗᵐ (G.homˢ B _) _ , S.invᵗᵐ (G.homˢ B _) (nat₁ α _)) ⟩
-
-    G.cmpˢᵐ B S.Π.$₀ (G.invˢᵐ B S.Π.$₀ com₁ α , G.cmpˢᵐ B S.Π.$₀ (com₁ α , F Π.$₁ _))
-
-        S₁.≈⟨ S.invᵗᵐ (G.homˢ B _) (G.cmp-ass B _ _ _) ⟩
-
-    G.cmpˢᵐ B S.Π.$₀ (G.cmpˢᵐ B S.Π.$₀ (G.invˢᵐ B S.Π.$₀ com₁ α , com₁ α) , F Π.$₁ _)
-
-        S₁.≈⟨ G.cmpˢᵐ B S.Π.$₁ (G.inv-lhs B _ , S.idnᵗᵐ (G.homˢ B _) _) ⟩
-
-    G.cmpˢᵐ B S.Π.$₀ (G.idnˢᵐ B S.Π.$₀ _ , F Π.$₁ _)
-
-        S₁.≈⟨ G.idn-lhs B _ ⟩
-
-    F Π.$₁ f
-
-        S₁.∎
-              , S.idnᵗᵐ (G.homˢ B _) _) ⟩
-
-  G.cmpˢᵐ B S.Π.$₀ (F Π.$₁ _ , G.invˢᵐ B S.Π.$₀ com₁ α)
-
-      S₀.≈⟨ S.idnᵗᵐ (G.homˢ B _) _ ⟩
-
-  G.cmpˢᵐ B S.Π.$₀ (F Π.$₁ _ , com₁ (invˢᵐ S.Π.$₀ α))
-
-      S₀.∎
+nat₁ (S.Π._$₀_ (invˢᵐ {A = A}{B = B}) α) = λ f →
+  S.cmpᵗᵐ (G.homˢ B _)
+    ( S.cmpᵗᵐ (G.homˢ B _)
+      ( S.cmpᵗᵐ (G.homˢ B _)
+        ( S.cmpᵗᵐ (G.homˢ B _)
+          ( S.cmpᵗᵐ (G.homˢ B _)
+            ( G.cmpˢᵐ B S.Π.$₁
+              ( S.cmpᵗᵐ (G.homˢ B _)
+                ( S.cmpᵗᵐ (G.homˢ B _)
+                  ( S.cmpᵗᵐ (G.homˢ B _)
+                    ( G.idn-lhs B _
+                    , G.cmpˢᵐ B S.Π.$₁
+                      ( G.inv-lhs B _
+                      , S.idnᵗᵐ (G.homˢ B _) _ ) )
+                  , S.invᵗᵐ (G.homˢ B _) (G.cmp-ass B _ _ _) )
+                , G.cmpˢᵐ B S.Π.$₁
+                  ( S.idnᵗᵐ (G.homˢ B _) _
+                  , S.invᵗᵐ (G.homˢ B _) (nat₁ α _) ))
+              , S.idnᵗᵐ (G.homˢ B _) _ )
+            , S.invᵗᵐ (G.homˢ B _) (G.cmp-ass B _ _ _) )
+          , G.cmpˢᵐ B S.Π.$₁
+            ( S.idnᵗᵐ (G.homˢ B _) _
+            , S.invᵗᵐ (G.homˢ B _) (G.cmp-ass B _ _ _) ) )
+        , G.cmp-ass B _ _ _)
+      , G.cmpˢᵐ B S.Π.$₁ (S.idnᵗᵐ (G.homˢ B _) _ , G.inv-rhs B _))
+    , G.idn-rhs B _)
 
 -- FIXME: cmp-w₀ and cmp-w₀ are problematic because of Hα/βF dependency
 
@@ -193,7 +154,7 @@ cmp-w₀
   → (T.∐.π₀ Hα Π.∘ᵗᵐ F) ⇒₁ᵗ (T.∐.π₀ Hα Π.∘ᵗᵐ G)
 com₁ (cmp-w₀ (H , α)) =
   H Π.$₁ com₁ α
-nat₁ (cmp-w₀ {C = C} (H , α)) = λ {a}{b} f →
+nat₁ (cmp-w₀ {C = C} (H , α)) = λ f →
   S.cmpᵗᵐ (G.homˢ C _)
   ( Π.cmp H _ _
   , S.cmpᵗᵐ (G.homˢ C _)
@@ -208,10 +169,8 @@ cmp-w₁
   → {G H : B Π.⇒₀ᵗ C}
   → (βF : (G ⇒₁ᵗ H) T.∐.⊗ (A Π.⇒₀ᵗ B))
   → (G Π.∘ᵗᵐ T.∐.π₁ βF) ⇒₁ᵗ (H Π.∘ᵗᵐ T.∐.π₁ βF)
-com₁ (cmp-w₁ (β , F)) =
-  com₁ β
-nat₁ (cmp-w₁ (β , F)) =
-  nat₁ β T.Π.∘ F Π.$₁_
+com₁ (cmp-w₁ (β , F)) = com₁ β
+nat₁ (cmp-w₁ (β , F)) = nat₁ β T.Π.∘ F Π.$₁_
 
 cmpˢᵐ-h₀
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
@@ -225,50 +184,22 @@ com₁ (S.Π._$₀_ (cmpˢᵐ-h₀ {C = C} {K = K}) (β , α)) =
   G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , com₁ β)
 com₂ (S.Π._$₁_ (cmpˢᵐ-h₀ {C = C} {K = K}) (β , α)) =
   G.cmpˢᵐ C S.Π.$₁ (K Π.$₂ com₂ α , com₂ β)
-nat₁ (S.Π._$₀_ (cmpˢᵐ-h₀ {B = B}{C}{F}{G}{H}{K}) (β , α)) = λ {a}{b} f →
-  let module S₀ = Setoid.Reasoning (G.homˢ C _) in
-      S₀.proof
-
-  G.cmpˢᵐ C S.Π.$₀ (com₁ (cmpˢᵐ-h₀ S.Π.$₀ (β , α)) , (H Π.∘ᵗᵐ F) Π.$₁ _)
-
-      S₀.≈⟨ S.idnᵗᵐ (G.homˢ C _) _ ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , com₁ β) , H Π.$₁ F Π.$₁ _)
-
-      S₀.≈⟨ G.cmp-ass C _ _ _ ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ F Π.$₁ _))
-
-      S₀.≈⟨ G.cmpˢᵐ C S.Π.$₁ (S.idnᵗᵐ (G.homˢ C _) _ , nat₁ β (F Π.$₁ _)) ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ F Π.$₁ _ , com₁ β))
-
-      S₀.≈⟨ S.invᵗᵐ (G.homˢ C _) (G.cmp-ass C _ _ _) ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , K Π.$₁ F Π.$₁ f) , com₁ β)
-
-      S₀.≈⟨ G.cmpˢᵐ C S.Π.$₁
-         ( S.invᵗᵐ (G.homˢ C _) (Π.cmp K (com₁ α) (F Π.$₁ _))
-         , S.idnᵗᵐ (G.homˢ C _) _) ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G.cmpˢᵐ B S.Π.$₀ (com₁ α , F Π.$₁ _) , com₁ β)
-
-      S₀.≈⟨ G.cmpˢᵐ C S.Π.$₁
-            ( S.cmpᵗᵐ (G.homˢ C _) (Π.cmp K (G Π.$₁ _) (com₁ α) , K Π.$₂ nat₁ α _)
-            , S.idnᵗᵐ (G.homˢ C _) _
-            ) ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G Π.$₁ _ , K Π.$₁ com₁ α) , com₁ β)
-
-      S₀.≈⟨ G.cmp-ass C _ _ _ ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G Π.$₁ _ , G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ com₁ α , com₁ β))
-
-      S₀.≈⟨ S.idnᵗᵐ (G.homˢ C _) _ ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ ((K Π.∘ᵗᵐ G) Π.$₁ _ , com₁ (cmpˢᵐ-h₀ S.Π.$₀ (β , α)))
-
-      S₀.∎
+nat₁ (S.Π._$₀_ (cmpˢᵐ-h₀ {C = C}{K = K}) (β , α)) = λ f →
+  S.cmpᵗᵐ (G.homˢ C _)
+    ( S.cmpᵗᵐ (G.homˢ C _)
+      ( S.cmpᵗᵐ (G.homˢ C _)
+        ( S.cmpᵗᵐ (G.homˢ C _)
+          ( G.cmp-ass C _ _ _
+          , G.cmpˢᵐ C S.Π.$₁
+            ( S.cmpᵗᵐ (G.homˢ C _)
+              ( S.cmpᵗᵐ (G.homˢ C _)
+                ( Π.cmp K _ _
+                , K Π.$₂ nat₁ α _ )
+              , S.invᵗᵐ (G.homˢ C _) (Π.cmp K _ _) )
+            , S.idnᵗᵐ (G.homˢ C _) _) )
+        , S.invᵗᵐ (G.homˢ C _) (G.cmp-ass C _ _ _) )
+      , G.cmpˢᵐ C S.Π.$₁ (S.idnᵗᵐ (G.homˢ C _) _ , nat₁ β _) )
+    , G.cmp-ass C _ _ _ )
 
 cmpˢᵐ-h₁
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
@@ -278,60 +209,25 @@ cmpˢᵐ-h₁
   → {F G : A Π.⇒₀ᵗ B}
   → {H K : B Π.⇒₀ᵗ C}
   → ((H ⇒₁ˢ K) S.∐.⊗ (F ⇒₁ˢ G)) S.Π.⇒₀ᵗ ((H Π.∘ᵗᵐ F) ⇒₁ˢ (K Π.∘ᵗᵐ G))
-com₁ (S.Π._$₀_ (cmpˢᵐ-h₁ {C = C} {H = H}) (β , α)) =
+com₁ (S.Π._$₀_ (cmpˢᵐ-h₁ {C = C}{H = H}) (β , α)) =
   G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ com₁ α)
-com₂ (S.Π._$₁_ (cmpˢᵐ-h₁ {C = C} {H = H}) (β , α)) =
+com₂ (S.Π._$₁_ (cmpˢᵐ-h₁ {C = C}{H = H}) (β , α)) =
   G.cmpˢᵐ C S.Π.$₁ (com₂ β , H Π.$₂ com₂ α)
-nat₁ (S.Π._$₀_ (cmpˢᵐ-h₁ {B = B}{C}{F}{G}{H}{K}) (β , α)) = λ {a}{b} f →
-  let module S₀ = Setoid.Reasoning (G.homˢ C _) in
-      S₀.proof
-
-  G.cmpˢᵐ C S.Π.$₀ (com₁ (cmpˢᵐ-h₁ S.Π.$₀ (β , α)) , (H Π.∘ᵗᵐ F) Π.$₁ _)
-
-      S₀.≈⟨ S.idnᵗᵐ (G.homˢ C _) _ ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ com₁ α) , H Π.$₁ F Π.$₁ _)
-
-      S₀.≈⟨ G.cmp-ass C _ _ _ ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (com₁ β , G.cmpˢᵐ C S.Π.$₀ (H Π.$₁ com₁ α , H Π.$₁ F Π.$₁ _))
-
-      S₀.≈⟨ G.cmpˢᵐ C S.Π.$₁ (S.idnᵗᵐ (G.homˢ C _) _
-       , (let module S₁ = Setoid.Reasoning (G.homˢ C _) in
-         S₁.proof
-
-    G.cmpˢᵐ C S.Π.$₀ (H Π.$₁ com₁ α , H Π.$₁ F Π.$₁ f)
-
-         S₁.≈⟨ S.invᵗᵐ (G.homˢ C _) (Π.cmp H _ _) ⟩
-
-    H Π.$₁ G.cmpˢᵐ B S.Π.$₀ (com₁ α , F Π.$₁ _)
-
-         S₁.≈⟨ H Π.$₂ nat₁ α _ ⟩
-
-    H Π.$₁ G.cmpˢᵐ B S.Π.$₀ (G Π.$₁ _ , com₁ α)
-
-         S₁.≈⟨ Π.cmp H _ _ ⟩
-
-    G.cmpˢᵐ C S.Π.$₀ (H Π.$₁ G Π.$₁ f , H Π.$₁ com₁ α)
-
-         S₁.∎)) ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (com₁ β , G.cmpˢᵐ C S.Π.$₀ (H Π.$₁ G Π.$₁ _ , H Π.$₁ com₁ α))
-
-      S₀.≈⟨ S.invᵗᵐ (G.homˢ C _) (G.cmp-ass C _ _ _) ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ G Π.$₁ _) , H Π.$₁ com₁ α)
-
-      S₀.≈⟨ G.cmpˢᵐ C S.Π.$₁ (nat₁ β _ , S.idnᵗᵐ (G.homˢ C _) _) ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G Π.$₁ _ , com₁ β) , H Π.$₁ com₁ α)
-
-      S₀.≈⟨ G.cmp-ass C _ _ _ ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ (K Π.$₁ G Π.$₁ _ , G.cmpˢᵐ C S.Π.$₀ (com₁ β , H Π.$₁ com₁ α))
-
-      S₀.≈⟨ S.idnᵗᵐ (G.homˢ C _) _ ⟩
-
-  G.cmpˢᵐ C S.Π.$₀ ((K Π.∘ᵗᵐ G) Π.$₁ _ , com₁ (cmpˢᵐ-h₁ S.Π.$₀ (β , α)))
-
-      S₀.∎
+nat₁ (S.Π._$₀_ (cmpˢᵐ-h₁ {C = C}{H = H}) (β , α)) = λ f →
+  S.cmpᵗᵐ (G.homˢ C _)
+    ( S.cmpᵗᵐ (G.homˢ C _)
+      ( S.cmpᵗᵐ (G.homˢ C _)
+        ( S.cmpᵗᵐ (G.homˢ C _)
+          ( G.cmp-ass C _ _ _
+          , G.cmpˢᵐ C S.Π.$₁
+            ( nat₁ β _
+            , S.idnᵗᵐ (G.homˢ C _) _ ) )
+        , S.invᵗᵐ (G.homˢ C _) (G.cmp-ass C _ _ _) )
+      , G.cmpˢᵐ C S.Π.$₁
+        ( S.idnᵗᵐ (G.homˢ C _) _
+        , S.cmpᵗᵐ (G.homˢ C _)
+          ( S.cmpᵗᵐ (G.homˢ C _)
+            ( Π.cmp H _ _
+            , H Π.$₂ nat₁ α _ )
+          , S.invᵗᵐ (G.homˢ C _) (Π.cmp H _ _) ) ) )
+    , G.cmp-ass C _ _ _ )
