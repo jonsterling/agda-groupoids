@@ -9,6 +9,7 @@ open import Common public
 t : ∀ ..(ℓᵒ ℓʰ : _) → Set (lsuc (ℓᵒ ⊔ ℓʰ))
 t = Setoid.Core.Base.t Dir.≤
 
+import Setoid.Closed
 import Setoid.Core.Discrete
 import Setoid.Core.Hom
 import Setoid.Core.Homotopy
@@ -16,6 +17,7 @@ import Setoid.Core.Initial
 import Setoid.Core.Op
 import Setoid.Core.Tensor
 import Setoid.Core.Terminal
+import Setoid.Monoidal
 
 module Discrete = Setoid.Core.Discrete
 module Π where

@@ -4,6 +4,7 @@ module Groupoid where
 
 open import Agda.Primitive
 open import Groupoid.Core.Base public
+import Groupoid.Closed
 import Groupoid.Core.Discrete
 import Groupoid.Core.Hom
 import Groupoid.Core.Homotopy
@@ -11,6 +12,7 @@ import Groupoid.Core.Initial
 import Groupoid.Core.Op
 import Groupoid.Core.Tensor
 import Groupoid.Core.Terminal
+import Groupoid.Monoidal
 
 module ≡ where
   open import Groupoid.Core.Discrete public

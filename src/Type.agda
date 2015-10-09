@@ -4,6 +4,7 @@ module Type where
 
 open import Agda.Primitive
 open import Type.Core.Base public
+import Type.Closed
 import Type.Core.Discrete
 import Type.Core.Hom
 import Type.Core.Homotopy
@@ -11,6 +12,7 @@ import Type.Core.Initial
 import Type.Core.Op
 import Type.Core.Tensor
 import Type.Core.Terminal
+import Type.Monoidal
 
 module ≡ where
   open import Type.Core.Discrete public
