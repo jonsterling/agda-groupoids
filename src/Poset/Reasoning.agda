@@ -1,6 +1,6 @@
 open import Agda.Primitive
 open import Common
-import Setoid.Base as S
+import Setoid.Core.Base as S
 open import Type as T
   using (_,_)
 

@@ -5,9 +5,9 @@ import Common
 module Setoid.Instances where
 
 open import Agda.Primitive
-import Setoid.Base as S
-import Setoid.Exponential as Π
-import Setoid.Homotopy as TFor
+import Setoid.Core.Base as S
+import Setoid.Core.Exponential as Π
+import Setoid.Core.Homotopy as TFor
 import Setoid.Reasoning
 
 open S.t ⦃ … ⦄ public
