@@ -1,6 +1,7 @@
 {-# OPTIONS --without-K #-}
 
-module Groupoid.Bifunctor where
+open import Common
+module Groupoid.Bifunctor {d : Dir.t} where
 
 open import Agda.Primitive
 import Groupoid as G
@@ -8,7 +9,7 @@ import Setoid as S
 open import Type as T
   using (_,_)
 
-module _ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ} where
+module _ ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ} where
   infixr 0 :[_,_]⇒₀_
 
   :[_,_]⇒₀_

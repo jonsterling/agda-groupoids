@@ -1,6 +1,7 @@
 {-# OPTIONS --without-K #-}
 
-module Groupoid.Profunctor where
+open import Common
+module Groupoid.Profunctor {d : Dir.t} where
 
 open import Agda.Primitive
 module G where
@@ -13,7 +14,7 @@ import Setoid as S
 open import Type as T
   using (_,_)
 
-module _ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ} where
+module _ ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ} where
   infixr 0 _:[_]⇏₀_
 
   _:[_]⇏₀_

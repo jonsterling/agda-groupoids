@@ -1,6 +1,7 @@
 {-# OPTIONS --without-K #-}
 
-module Groupoid.Dinatural where
+open import Common
+module Groupoid.Dinatural {d : Dir.t} where
 
 open import Agda.Primitive
 import Groupoid as G
@@ -11,7 +12,7 @@ open import Type as T
 infixr 0 _:⇏₁ᵗ_
 
 record _:⇏₁ᵗ_
-  {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
+  ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
   {A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
   {B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
   (F G : (G.Op.g A G.∐.⊗ A) G.Π.⇒₀ᵗ B)
