@@ -6,6 +6,7 @@ import Category
 import Category.Core.Base
 import Category.Instances.SETOID
 import Category.Reasoning
+import Category.Yoneda
 
 import Groupoid
 import Groupoid.Bifunctor
