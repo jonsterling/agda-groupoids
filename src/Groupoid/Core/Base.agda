@@ -10,7 +10,6 @@ open import Type as T
 
 record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ ℓˢʰ)) where
   no-eta-equality
-  open S.Π
   field
     obj
       : Set ℓᵒ
@@ -30,7 +29,7 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
     invˢ≡
       : ∀ {a b}
       → (ϕ : d T.≡.t S.Dir.≈)
-      → homˢ (a , b) ⇒₀ᵗ homˢ (b , a)
+      → homˢ (a , b) S.Π.⇒₀ᵗ homˢ (b , a)
     invˢ≡ {a}{b} ϕ =
       T.≡.subst
         (λ d′ → Dir.el d′ T.𝟙.t (homˢ (a , b) S.Π.⇒₀ᵗ homˢ (b , a))) ϕ
@@ -41,7 +40,7 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
       → S.homᵗ (homˢ (a , b))
-          ( cmpˢ $₀ (idnˢ $₀ T.𝟙.* , f)
+          ( cmpˢ S.Π.$₀ (idnˢ S.Π.$₀ T.𝟙.* , f)
           , f
           )
     .idn-rhs
@@ -49,7 +48,7 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
       → (f : S.obj (homˢ (a , b)))
       → S.homᵗ (homˢ (a , b))
           ( f
-          , cmpˢ $₀ (f , idnˢ $₀ T.𝟙.*)
+          , cmpˢ S.Π.$₀ (f , idnˢ S.Π.$₀ T.𝟙.*)
           )
     .cmp-ass
       : ∀ {a b c d}
@@ -57,16 +56,16 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
       → (g : S.obj (homˢ (b , c)))
       → (h : S.obj (homˢ (c , d)))
       → S.homᵗ (homˢ (a , d))
-          ( cmpˢ $₀ (cmpˢ $₀ (h , g) , f)
-          , cmpˢ $₀ (h , cmpˢ $₀ (g , f))
+          ( cmpˢ S.Π.$₀ (cmpˢ S.Π.$₀ (h , g) , f)
+          , cmpˢ S.Π.$₀ (h , cmpˢ S.Π.$₀ (g , f))
           )
     .{inv-lhs}
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
       → Dir.el {Φ = λ d′ → d T.≡.t d′ → Set _} d (T.Π.! T.𝟙.t) (λ ϕ →
           S.homᵗ (homˢ (a , a))
-            ( cmpˢ $₀ (invˢ≡ ϕ $₀ f , f)
-            , idnˢ $₀ T.𝟙.*
+            ( cmpˢ S.Π.$₀ (invˢ≡ ϕ S.Π.$₀ f , f)
+            , idnˢ S.Π.$₀ T.𝟙.*
             ))
         T.≡.refl
     .{inv-rhs}
@@ -74,8 +73,8 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
       → (f : S.obj (homˢ (a , b)))
       → Dir.el {Φ = λ d′ → d T.≡.t d′ → Set _} d (T.Π.! T.𝟙.t) (λ ϕ →
           S.homᵗ (homˢ (b , b))
-            ( idnˢ $₀ T.𝟙.*
-            , cmpˢ $₀ (f , invˢ≡ ϕ $₀ f)
+            ( idnˢ S.Π.$₀ T.𝟙.*
+            , cmpˢ S.Π.$₀ (f , invˢ≡ ϕ S.Π.$₀ f)
             ))
         T.≡.refl
 open t public
