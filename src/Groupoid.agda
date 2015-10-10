@@ -19,10 +19,14 @@ module ≡ where
 module Π where
   open import Groupoid.Core.Hom public
   open import Groupoid.Core.Hom.Boot public
-module TFor = Groupoid.Core.Homotopy
-module 𝟘 = Groupoid.Core.Initial
-module Op = Groupoid.Core.Op
+module TFor where
+  open import Groupoid.Core.Homotopy public
+module 𝟘 where
+  open import Groupoid.Core.Initial public
+module Op where
+  open import Groupoid.Core.Op public
 module ∐ where
   open import Groupoid.Core.Tensor public
   open import Groupoid.Core.Tensor.Boot public
-module 𝟙 = Groupoid.Core.Terminal
+module 𝟙 where
+  open import Groupoid.Core.Terminal public

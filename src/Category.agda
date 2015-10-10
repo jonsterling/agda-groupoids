@@ -6,9 +6,7 @@ open import Agda.Primitive
 import Groupoid.Core.Base
 open import Common public
 
-t : ∀ ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) → Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ ℓˢʰ))
-t = Groupoid.Core.Base.t Dir.≤
-
+open import Category.Core.Base public
 import Groupoid.Closed
 import Groupoid.Core.Discrete
 import Groupoid.Core.Hom
@@ -19,14 +17,19 @@ import Groupoid.Core.Tensor
 import Groupoid.Core.Terminal
 import Groupoid.Monoidal
 
-module Discrete = Groupoid.Core.Discrete
+module Discrete where
+  open import Groupoid.Core.Discrete public
 module Π where
   open import Groupoid.Core.Hom public
   open import Groupoid.Core.Hom.Boot public
-module TFor = Groupoid.Core.Homotopy
-module 𝟘 = Groupoid.Core.Initial
-module Op = Groupoid.Core.Op
+module TFor where
+  open import Groupoid.Core.Homotopy public
+module 𝟘 where
+  open import Groupoid.Core.Initial public
+module Op where
+  open import Groupoid.Core.Op public
 module ∐ where
   open import Groupoid.Core.Tensor public
   open import Groupoid.Core.Tensor.Boot public
-module 𝟙 = Groupoid.Core.Terminal
+module 𝟙 where
+  open import Groupoid.Core.Terminal public

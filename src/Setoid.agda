@@ -19,10 +19,14 @@ module ≡ where
 module Π where
   open import Setoid.Core.Hom public
   open import Setoid.Core.Hom.Boot public
-module TFor = Setoid.Core.Homotopy
-module 𝟘 = Setoid.Core.Initial
-module Op = Setoid.Core.Op
+module TFor where
+  open import Setoid.Core.Homotopy public
+module 𝟘 where
+  open import Setoid.Core.Initial public
+module Op where
+  open import Setoid.Core.Op public
 module ∐ where
   open import Setoid.Core.Tensor public
   open import Setoid.Core.Tensor.Boot public
-module 𝟙 = Setoid.Core.Terminal
+module 𝟙 where
+  open import Setoid.Core.Terminal public
