@@ -3,6 +3,9 @@
 module Everything where
 
 import Category
+import Category.Core.Base
+import Category.Instances.SETOID
+import Category.Reasoning
 
 import Groupoid
 import Groupoid.Bifunctor
