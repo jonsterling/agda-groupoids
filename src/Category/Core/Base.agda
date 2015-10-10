@@ -10,5 +10,5 @@ module t where
   open G.t {Dir.≤} public
 open t public
 
-t : ∀ ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) → Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ ℓˢʰ))
+t : ∀ ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) → Set _
 t = G.t Dir.≤
