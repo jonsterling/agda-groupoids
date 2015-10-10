@@ -1,5 +1,5 @@
 {-# OPTIONS --without-K #-}
 
-module Groupoid.Instances where
+module Type.Implicits where
 
 open import Agda.Primitive

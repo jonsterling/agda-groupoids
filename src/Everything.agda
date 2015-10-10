@@ -21,7 +21,7 @@ import Groupoid.Core.Op
 import Groupoid.Core.Tensor
 import Groupoid.Core.Tensor.Boot
 import Groupoid.Core.Terminal
-import Groupoid.Instances
+import Groupoid.Implicits
 import Groupoid.Monoidal
 import Groupoid.Notation
 import Groupoid.Presheaf
@@ -42,7 +42,7 @@ import Setoid.Core.Op
 import Setoid.Core.Tensor
 import Setoid.Core.Tensor.Boot
 import Setoid.Core.Terminal
-import Setoid.Instances
+import Setoid.Implicits
 import Setoid.Monoidal
 import Setoid.Notation
 
@@ -58,6 +58,6 @@ import Type.Core.Op
 import Type.Core.Tensor
 import Type.Core.Tensor.Boot
 import Type.Core.Terminal
-import Type.Instances
+import Type.Implicits
 import Type.Monoidal
 import Type.Notation
