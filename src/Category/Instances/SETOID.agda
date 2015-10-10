@@ -3,8 +3,8 @@
 module Category.Instances.SETOID where
 
 open import Agda.Primitive
-import Category as C
 open import Common
+import Category as C
 import Setoid as S
 open import Type as T
   using (_,_)
