@@ -5,6 +5,7 @@ module Everything where
 import Category
 import Category.Core.Base
 import Category.Instances.SETOID
+import Category.Iso
 import Category.Reasoning
 import Category.Yoneda
 
@@ -23,6 +24,7 @@ import Groupoid.Core.Tensor
 import Groupoid.Core.Tensor.Boot
 import Groupoid.Core.Terminal
 import Groupoid.Implicits
+import Groupoid.Iso
 import Groupoid.Monoidal
 import Groupoid.Notation
 import Groupoid.Presheaf
