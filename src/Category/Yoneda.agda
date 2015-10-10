@@ -20,7 +20,7 @@ open import Type as T
 yo
   : ∀ ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
   → (A : C.t ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ)
-  → A C.Π.⇒₀ᵗ (A C.Π.⇏₀ᵍ C.I.SETOID.c ℓ₀ˢᵒ ℓ₀ˢʰ)
+  → A C.Π.⇒₀ᵗ (A C.Π.⇏₀ᵍ C.I.SETOID.c _ _)
 C.Π._$₀_ (C.Π._$₀_ (yo A) b) a =
   C.homˢ A (a , b)
 S.Π._$₀_ (S.Π._$₀_ (C.Π.-$₁ˢᵐ- (C.Π._$₀_ (yo A) _)) f) g =
