@@ -27,6 +27,8 @@ import Groupoid.Notation
 import Groupoid.Presheaf
 
 import Poset
+import Poset.Core.Base
+import Poset.Reasoning
 
 import Setoid
 import Setoid.Closed

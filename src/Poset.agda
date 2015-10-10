@@ -6,9 +6,7 @@ open import Agda.Primitive
 import Setoid.Core.Base
 open import Common public
 
-t : ∀ ..(ℓᵒ ℓʰ : _) → Set (lsuc (ℓᵒ ⊔ ℓʰ))
-t = Setoid.Core.Base.t Dir.≤
-
+open import Poset.Core.Base public
 import Setoid.Closed
 import Setoid.Core.Discrete
 import Setoid.Core.Hom
