@@ -8,6 +8,8 @@ import Setoid as S
 open import Type as T
   using (_,_)
 
+infixr 0 _⇒₀ᵗ_
+
 record _⇒₀ᵗ_
   {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
   (A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ)

@@ -5,6 +5,7 @@ module Everything where
 import Category
 
 import Groupoid
+import Groupoid.Bifunctor
 import Groupoid.Dinatural
 import Groupoid.Closed
 import Groupoid.Core.Base
@@ -20,11 +21,11 @@ import Groupoid.Core.Terminal
 import Groupoid.Instances
 import Groupoid.Monoidal
 import Groupoid.Notation
+import Groupoid.Presheaf
 
 import Poset
 
 import Setoid
-import Setoid.Dinatural
 import Setoid.Closed
 import Setoid.Core.Base
 import Setoid.Core.Discrete
@@ -41,7 +42,6 @@ import Setoid.Monoidal
 import Setoid.Notation
 
 import Type
-import Type.Dinatural
 import Type.Closed
 import Type.Core.Base
 import Type.Core.Discrete
