@@ -5,7 +5,7 @@ module Setoid.Core.Hom where
 open import Agda.Primitive
 import Setoid.Core.Base as S
 open import Setoid.Core.Hom.Boot public
-import Setoid.Core.Homotopy as TFor
+import Setoid.Core.Homotopy as TF
 open import Setoid.Core.Tensor.Boot as ∐
 import Setoid.Core.Terminal as 𝟙
 open import Type as T
@@ -23,22 +23,22 @@ _⇒₀ˢ_
 S.obj (A ⇒₀ˢ B) =
   A ⇒₀ᵗ B
 S.homᵗ (A ⇒₀ˢ B) =
-  λ {(F , G) → F TFor.⇒₁ G}
+  λ {(F , G) → F TF.⇒₁ G}
 S.idnᵗᵐ (A ⇒₀ˢ B) =
-  TFor.idnᵗᵐ _
+  TF.idnᵗᵐ _
 S.cmpᵗᵐ (A ⇒₀ˢ B) =
-  TFor.cmpᵗᵐ
+  TF.cmpᵗᵐ
 S.invᵗᵐ (_⇒₀ˢ_ {S.Dir.≤} A B) =
   _
 S.invᵗᵐ (_⇒₀ˢ_ {S.Dir.≈} A B) =
-  TFor.invᵗᵐ
+  TF.invᵗᵐ
 
 idn
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ʰ}
   → {A : S.t d ℓ₀ᵒ ℓ₀ʰ}
   → 𝟙.s ⇒₀ᵗ (A ⇒₀ˢ A)
 _$₀_ idn = idnᵗᵐ
-_$₁_ idn = TFor.idnᵗᵐ _
+_$₁_ idn = TF.idnᵗᵐ _
 
 cmp
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ ℓ₂ᵒ ℓ₂ʰ}
@@ -47,7 +47,7 @@ cmp
   → {C : S.t d ℓ₂ᵒ ℓ₂ʰ}
   → (B ⇒₀ˢ C) ∐.⊗ (A ⇒₀ˢ B) ⇒₀ᵗ (A ⇒₀ˢ C)
 _$₀_ cmp = cmpᵗᵐ
-_$₁_ cmp = TFor.cmpᵗᵐ-h₁
+_$₁_ cmp = TF.cmpᵗᵐ-h₁
 
 _∘₀_
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ ℓ₂ᵒ ℓ₂ʰ}
@@ -66,9 +66,9 @@ _∘₁_
   → {C : S.t d ℓ₂ᵒ ℓ₂ʰ}
   → {F G : A ⇒₀ᵗ B}
   → {H K : B ⇒₀ᵗ C}
-  → (β : H TFor.⇒₁ K)
-  → (α : F TFor.⇒₁ G)
-  → (H ∘ᵗᵐ F) TFor.⇒₁ (K ∘ᵗᵐ G)
+  → (β : H TF.⇒₁ K)
+  → (α : F TF.⇒₁ G)
+  → (H ∘ᵗᵐ F) TF.⇒₁ (K ∘ᵗᵐ G)
 β ∘₁ α = cmp $₁ (β , α)
 
 ! : ∀ {d} ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}

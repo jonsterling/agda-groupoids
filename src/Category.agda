@@ -22,7 +22,7 @@ module Discrete where
 module Π where
   open import Groupoid.Core.Hom public
   open import Groupoid.Core.Hom.Boot public
-module TFor where
+module TF where
   open import Groupoid.Core.Homotopy public
 module 𝟘 where
   open import Groupoid.Core.Initial public

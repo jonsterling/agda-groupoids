@@ -5,7 +5,7 @@ module Groupoid.Core.Tensor where
 open import Agda.Primitive
 import Groupoid.Core.Base as G
 open import Groupoid.Core.Hom as Π
-import Groupoid.Core.Homotopy as TFor
+import Groupoid.Core.Homotopy as TF
 open import Groupoid.Core.Tensor.Boot public
 import Setoid as S
 open import Type as T
@@ -53,15 +53,15 @@ idn (_$₀_ ⟨-,-⟩ (F , G)) =
   Π.idn F , Π.idn G
 cmp (_$₀_ ⟨-,-⟩ (F , G)) _ _ =
   cmp F _ _ , cmp G _ _
-TFor.com₁ (S.Π._$₀_ (-$₁ˢᵐ- ⟨-,-⟩) (α , β)) =
-  TFor.com₁ α , TFor.com₁ β
-TFor.nat₁ (S.Π._$₀_ (-$₁ˢᵐ- ⟨-,-⟩) (α , β)) _ =
-  TFor.nat₁ α _ , TFor.nat₁ β _
-TFor.com₂ (S.Π._$₁_ (-$₁ˢᵐ- ⟨-,-⟩) (α¹ , β¹)) =
-  TFor.com₂ α¹ , TFor.com₂ β¹
-TFor.com₂ (idn (⟨-,-⟩ {A = A}{B})) =
+TF.com₁ (S.Π._$₀_ (-$₁ˢᵐ- ⟨-,-⟩) (α , β)) =
+  TF.com₁ α , TF.com₁ β
+TF.nat₁ (S.Π._$₀_ (-$₁ˢᵐ- ⟨-,-⟩) (α , β)) _ =
+  TF.nat₁ α _ , TF.nat₁ β _
+TF.com₂ (S.Π._$₁_ (-$₁ˢᵐ- ⟨-,-⟩) (α¹ , β¹)) =
+  TF.com₂ α¹ , TF.com₂ β¹
+TF.com₂ (idn (⟨-,-⟩ {A = A}{B})) =
   S.idnᵗᵐ (G.homˢ A _) _ , S.idnᵗᵐ (G.homˢ B _) _
-TFor.com₂ (cmp (⟨-,-⟩ {A = A}{B}) _ _) =
+TF.com₂ (cmp (⟨-,-⟩ {A = A}{B}) _ _) =
   S.idnᵗᵐ (G.homˢ A _) _ , S.idnᵗᵐ (G.homˢ B _) _
 
 ⟨-⊗-⟩
@@ -79,13 +79,13 @@ idn (_$₀_ ⟨-⊗-⟩ (F , G)) =
   Π.idn F , Π.idn G
 cmp (_$₀_ ⟨-⊗-⟩ (F , G)) _ _ =
   Π.cmp F _ _ , Π.cmp G _ _
-TFor.com₁ (S.Π._$₀_ (-$₁ˢᵐ- ⟨-⊗-⟩) (α , β)) =
-  TFor.com₁ α , TFor.com₁ β
-TFor.nat₁ (S.Π._$₀_ (-$₁ˢᵐ- ⟨-⊗-⟩) (α , β)) _ =
-  TFor.nat₁ α _ , TFor.nat₁ β _
-TFor.com₂ (S.Π._$₁_ (-$₁ˢᵐ- ⟨-⊗-⟩) (α¹ , β¹)) =
-  TFor.com₂ α¹ , TFor.com₂ β¹
-TFor.com₂ (idn (⟨-⊗-⟩ {A = A}{B})) =
+TF.com₁ (S.Π._$₀_ (-$₁ˢᵐ- ⟨-⊗-⟩) (α , β)) =
+  TF.com₁ α , TF.com₁ β
+TF.nat₁ (S.Π._$₀_ (-$₁ˢᵐ- ⟨-⊗-⟩) (α , β)) _ =
+  TF.nat₁ α _ , TF.nat₁ β _
+TF.com₂ (S.Π._$₁_ (-$₁ˢᵐ- ⟨-⊗-⟩) (α¹ , β¹)) =
+  TF.com₂ α¹ , TF.com₂ β¹
+TF.com₂ (idn (⟨-⊗-⟩ {A = A}{B})) =
   S.idnᵗᵐ (G.homˢ A _) _ , S.idnᵗᵐ (G.homˢ B _) _
-TFor.com₂ (cmp (⟨-⊗-⟩ {A = A}{B}) _ _) =
+TF.com₂ (cmp (⟨-⊗-⟩ {A = A}{B}) _ _) =
   S.idnᵗᵐ (G.homˢ A _) _ , S.idnᵗᵐ (G.homˢ B _) _

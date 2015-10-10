@@ -5,7 +5,7 @@ module Setoid.Core.Tensor where
 open import Agda.Primitive
 import Setoid.Core.Base as S
 open import Setoid.Core.Hom as Π
-import Setoid.Core.Homotopy as TFor
+import Setoid.Core.Homotopy as TF
 open import Setoid.Core.Tensor.Boot public
 open import Type as T
   using (_,_)
@@ -36,8 +36,8 @@ _$₀_ (_$₀_ ⟨-,-⟩ FG) =
   T.∐.⟨ T.∐.π₀ FG $₀_ , T.∐.π₁ FG $₀_ ⟩
 _$₁_ (_$₀_ ⟨-,-⟩ FG) =
   T.∐.⟨ T.∐.π₀ FG $₁_ , T.∐.π₁ FG $₁_ ⟩
-TFor.com₁ (_$₁_ ⟨-,-⟩ x) =
-  T.∐.⟨ TFor.com₁ᵗᵐ′ ⊗ TFor.com₁ᵗᵐ′ ⟩ x
+TF.com₁ (_$₁_ ⟨-,-⟩ x) =
+  T.∐.⟨ TF.com₁ᵗᵐ′ ⊗ TF.com₁ᵗᵐ′ ⟩ x
 
 ⟨-⊗-⟩
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ ℓ₂ᵒ ℓ₂ʰ ℓ₃ᵒ ℓ₃ʰ}
@@ -50,5 +50,5 @@ _$₀_ (_$₀_ ⟨-⊗-⟩ FG) =
   T.∐.⟨ T.∐.π₀ FG $₀_ ⊗ T.∐.π₁ FG $₀_ ⟩
 _$₁_ (_$₀_ ⟨-⊗-⟩ FG) =
   T.∐.⟨ T.∐.π₀ FG $₁_ ⊗ T.∐.π₁ FG $₁_ ⟩
-TFor.com₁ (_$₁_ ⟨-⊗-⟩ x) =
-  T.∐.⟨ TFor.com₁ᵗᵐ′ ⊗ TFor.com₁ᵗᵐ′ ⟩ x
+TF.com₁ (_$₁_ ⟨-⊗-⟩ x) =
+  T.∐.⟨ TF.com₁ᵗᵐ′ ⊗ TF.com₁ᵗᵐ′ ⟩ x

@@ -20,7 +20,7 @@ module ≡ where
 module Π where
   open import Type.Core.Hom public
   open import Type.Core.Hom.Boot public
-module TFor where
+module TF where
   open import Type.Core.Homotopy public
 module 𝟘 where
   open import Type.Core.Initial public

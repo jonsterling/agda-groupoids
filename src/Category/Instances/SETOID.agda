@@ -18,11 +18,11 @@ C.idnˢᵐ (c _ _) =
   S.Π.idn
 C.cmpˢᵐ (c _ _) =
   S.Π.cmp
-S.TFor.com₁ (C.idn-lhs (c _ _) {b = B} _) =
+S.TF.com₁ (C.idn-lhs (c _ _) {b = B} _) =
   S.idnᵗᵐ B _
-S.TFor.com₁ (C.idn-rhs (c _ _) {b = B} _) =
+S.TF.com₁ (C.idn-rhs (c _ _) {b = B} _) =
   S.idnᵗᵐ B _
-S.TFor.com₁ (C.cmp-ass (c _ _) {d = D} _ _ _) =
+S.TF.com₁ (C.cmp-ass (c _ _) {d = D} _ _ _) =
   S.idnᵗᵐ D _
 C.invˢᵐ (c _ _) =
   _

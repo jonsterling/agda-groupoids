@@ -19,7 +19,7 @@ module ≡ where
 module Π where
   open import Setoid.Core.Hom public
   open import Setoid.Core.Hom.Boot public
-module TFor where
+module TF where
   open import Setoid.Core.Homotopy public
 module 𝟘 where
   open import Setoid.Core.Initial public
