@@ -37,21 +37,21 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
         invˢᵐ
 
   field
-    idn-lhs
+    .idn-lhs
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
       → S.homᵗ (homˢ (a , b))
           ( cmpˢᵐ $₀ (idnˢᵐ $₀ T.𝟙.* , f)
           , f
           )
-    idn-rhs
+    .idn-rhs
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
       → S.homᵗ (homˢ (a , b))
           ( f
           , cmpˢᵐ $₀ (f , idnˢᵐ $₀ T.𝟙.*)
           )
-    cmp-ass
+    .cmp-ass
       : ∀ {a b c d}
       → (f : S.obj (homˢ (a , b)))
       → (g : S.obj (homˢ (b , c)))
@@ -60,7 +60,7 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
           ( cmpˢᵐ $₀ (cmpˢᵐ $₀ (h , g) , f)
           , cmpˢᵐ $₀ (h , cmpˢᵐ $₀ (g , f))
           )
-    {inv-lhs}
+    .{inv-lhs}
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
       → Dir.el {Φ = λ d′ → d T.≡.t d′ → Set _} d (T.Π.! T.𝟙.t) (λ ϕ →
@@ -69,7 +69,7 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
             , idnˢᵐ $₀ T.𝟙.*
             ))
         T.≡.refl
-    {inv-rhs}
+    .{inv-rhs}
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
       → Dir.el {Φ = λ d′ → d T.≡.t d′ → Set _} d (T.Π.! T.𝟙.t) (λ ϕ →
