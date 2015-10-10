@@ -20,12 +20,12 @@ record _⇒₁_
     : Set (ℓ₀ᵒ ⊔ ℓ₁ʰ) where
   no-eta-equality
   field
-    com₁
+    .com₁
       : ∀ {a}
       → S.homᵗ B (F Π.$₀ a , G Π.$₀ a)
 open _⇒₁_ public
 
-com₁ᵗᵐ′
+.com₁ᵗᵐ′
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ}
   → {A : S.t d ℓ₀ᵒ ℓ₀ʰ}
   → {B : S.t d ℓ₁ᵒ ℓ₁ʰ}
