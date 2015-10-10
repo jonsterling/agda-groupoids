@@ -20,14 +20,14 @@ G.obj (A ⇒₀ᵍ B) =
   A ⇒₀ᵗ B
 G.homˢ (A ⇒₀ᵍ B) =
   λ {(F , G) → F TF.⇒₁ˢ G}
-G.idnˢᵐ (A ⇒₀ᵍ B) =
-  λ {F} → TF.idnˢᵐ F
-G.cmpˢᵐ (A ⇒₀ᵍ B) =
-  TF.cmpˢᵐ
-G.invˢᵐ (_⇒₀ᵍ_ {G.Dir.≤} A B) =
+G.idnˢ (A ⇒₀ᵍ B) =
+  λ {F} → TF.idnˢ F
+G.cmpˢ (A ⇒₀ᵍ B) =
+  TF.cmpˢ
+G.invˢ (_⇒₀ᵍ_ {G.Dir.≤} A B) =
   _
-G.invˢᵐ (_⇒₀ᵍ_ {G.Dir.≈} A B) =
-  TF.invˢᵐ
+G.invˢ (_⇒₀ᵍ_ {G.Dir.≈} A B) =
+  TF.invˢ
 TF.com₂ (G.idn-lhs (A ⇒₀ᵍ B) α) =
   G.idn-lhs B (TF.com₁ α)
 TF.com₂ (G.idn-rhs (A ⇒₀ᵍ B) α) =

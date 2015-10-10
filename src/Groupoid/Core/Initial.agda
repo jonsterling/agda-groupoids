@@ -10,9 +10,9 @@ import Type as T
 g : ∀ {d} → G.t d lzero lzero lzero
 G.obj g = T.𝟘.t
 G.homˢ g = λ { (() T., _) }
-G.idnˢᵐ g = λ {}
-G.cmpˢᵐ g = λ {}
-G.invˢᵐ g = λ {}
+G.idnˢ g = λ {}
+G.cmpˢ g = λ {}
+G.invˢ g = λ {}
 G.idn-lhs g = λ {}
 G.idn-rhs g = λ {}
 G.cmp-ass g = λ {}

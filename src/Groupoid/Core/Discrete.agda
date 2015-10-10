@@ -17,22 +17,22 @@ G.obj (g A) =
   A
 G.homˢ (g A) =
   λ {(a , b) → S.≡.s (a T.≡.t b)}
-S.Π._$₀_ (G.idnˢᵐ (g A)) =
+S.Π._$₀_ (G.idnˢ (g A)) =
   T.≡.idn
-S.Π._$₁_ (G.idnˢᵐ (g A)) =
+S.Π._$₁_ (G.idnˢ (g A)) =
   T.≡.idn
-S.Π._$₀_ (G.cmpˢᵐ (g A)) =
+S.Π._$₀_ (G.cmpˢ (g A)) =
   T.≡.cmp
-S.Π._$₁_ (G.cmpˢᵐ (g {ℓᵒ = ℓᵒ} A)) = λ { {(_ , _)} (g , f) →
+S.Π._$₁_ (G.cmpˢ (g {ℓᵒ = ℓᵒ} A)) = λ { {(_ , _)} (g , f) →
     T.≡.subst {ℓ₁ = ℓᵒ} (λ _ → _ T.≡.t _) g
    (T.≡.subst {ℓ₁ = ℓᵒ} (λ _ → _ T.≡.t _) f
     T.≡.refl)
   }
-G.invˢᵐ (g {G.Dir.≤} A) =
+G.invˢ (g {G.Dir.≤} A) =
   _
-S.Π._$₀_ (G.invˢᵐ (g {G.Dir.≈} A)) =
+S.Π._$₀_ (G.invˢ (g {G.Dir.≈} A)) =
   T.≡.inv
-S.Π._$₁_ (G.invˢᵐ (g {G.Dir.≈} {ℓᵒ = ℓᵒ} A)) = λ α →
+S.Π._$₁_ (G.invˢ (g {G.Dir.≈} {ℓᵒ = ℓᵒ} A)) = λ α →
     T.≡.subst {ℓ₁ = ℓᵒ} (λ _ → _ T.≡.t _) α
     T.≡.refl
 G.idn-lhs (g A) =

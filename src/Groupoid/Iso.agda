@@ -21,9 +21,9 @@ record t
     field
       .{iso-fwd} :
           S.homᵗ (G.homˢ A (a₀ , a₀))
-            ( G.cmpˢᵐ A S.Π.$₀ (bwd , fwd)
-            , G.idnˢᵐ A S.Π.$₀ T.𝟙.* )
+            ( G.cmpˢ A S.Π.$₀ (bwd , fwd)
+            , G.idnˢ A S.Π.$₀ T.𝟙.* )
       .{iso-bwd} : 
           S.homᵗ (G.homˢ A (a₁ , a₁))
-            ( G.cmpˢᵐ A S.Π.$₀ (fwd , bwd)
-            , G.idnˢᵐ A S.Π.$₀ T.𝟙.* )
+            ( G.cmpˢ A S.Π.$₀ (fwd , bwd)
+            , G.idnˢ A S.Π.$₀ T.𝟙.* )

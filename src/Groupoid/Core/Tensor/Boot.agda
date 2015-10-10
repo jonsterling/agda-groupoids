@@ -22,16 +22,16 @@ G.homˢ (A ⊗ B) =
   λ {((a₀ , b₀) , (a₁ , b₁)) →
     G.homˢ A (a₀ , a₁) S.∐.⊗ G.homˢ B (b₀ , b₁)
   }
-G.idnˢᵐ (A ⊗ B) =
-  S.∐.⟨-,-⟩ S.Π.$₀ (G.idnˢᵐ A , G.idnˢᵐ B)
-G.cmpˢᵐ (A ⊗ B) =
+G.idnˢ (A ⊗ B) =
+  S.∐.⟨-,-⟩ S.Π.$₀ (G.idnˢ A , G.idnˢ B)
+G.cmpˢ (A ⊗ B) =
   S.∐.⟨-,-⟩ S.Π.$₀
-    ( G.cmpˢᵐ A S.Π.∘ᵗᵐ S.∐.⟨-⊗-⟩ S.Π.$₀ (S.∐.π₀ , S.∐.π₀)
-    , G.cmpˢᵐ B S.Π.∘ᵗᵐ S.∐.⟨-⊗-⟩ S.Π.$₀ (S.∐.π₁ , S.∐.π₁))
-G.invˢᵐ (_⊗_ {S.Dir.≤} A B) =
+    ( G.cmpˢ A S.Π.∘ᵗ S.∐.⟨-⊗-⟩ S.Π.$₀ (S.∐.π₀ , S.∐.π₀)
+    , G.cmpˢ B S.Π.∘ᵗ S.∐.⟨-⊗-⟩ S.Π.$₀ (S.∐.π₁ , S.∐.π₁))
+G.invˢ (_⊗_ {S.Dir.≤} A B) =
   _
-G.invˢᵐ (_⊗_ {S.Dir.≈} A B) =
-  S.∐.⟨-⊗-⟩ S.Π.$₀ (G.invˢᵐ A , G.invˢᵐ B)
+G.invˢ (_⊗_ {S.Dir.≈} A B) =
+  S.∐.⟨-⊗-⟩ S.Π.$₀ (G.invˢ A , G.invˢ B)
 G.idn-lhs (A ⊗ B) _ =
   G.idn-lhs A _ , G.idn-lhs B _
 G.idn-rhs (A ⊗ B) _ =

@@ -14,13 +14,13 @@ record t d ..(ℓᵒ ℓʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓʰ)) where
       : Set ℓᵒ
     homᵗ
       : obj T.∐.⊗ obj → Set ℓʰ
-    idnᵗᵐ
+    idnᵗ
       : ∀ {a}
       → T.𝟙.t⁰ T.Π.⇒₀ homᵗ (a , a)
-    cmpᵗᵐ
+    cmpᵗ
       : ∀ {a b c}
       → homᵗ (b , c) T.∐.⊗ homᵗ (a , b) T.Π.⇒₀ homᵗ (a , c)
-    {invᵗᵐ}
+    {invᵗ}
       : ∀ {a b}
       → Dir.el d T.𝟙.t (homᵗ (a , b) T.Π.⇒₀ homᵗ (b , a))
 open t public

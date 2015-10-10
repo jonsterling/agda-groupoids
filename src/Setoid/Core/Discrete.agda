@@ -14,11 +14,11 @@ S.obj (s A) =
   A
 S.homᵗ (s A) =
   λ {(a , b) → a T.≡.t b}
-S.idnᵗᵐ (s A) =
+S.idnᵗ (s A) =
   T.≡.idn
-S.cmpᵗᵐ (s A) =
+S.cmpᵗ (s A) =
   T.≡.cmp
-S.invᵗᵐ (s {S.Dir.≤} A) =
+S.invᵗ (s {S.Dir.≤} A) =
   _
-S.invᵗᵐ (s {S.Dir.≈} A) =
+S.invᵗ (s {S.Dir.≈} A) =
   T.≡.inv

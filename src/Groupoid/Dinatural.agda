@@ -27,14 +27,14 @@ record _:⇏₁ᵗ_
       : ∀ {a b}
       → (f : S.obj (G.homˢ A (a , b)))
       → S.homᵗ (G.homˢ B (F G.Π.$₀ (b , a) , G G.Π.$₀ (a , b)))
-          ( G.cmpˢᵐ B S.Π.$₀
-            ( G G.Π.$₁ (G.idnˢᵐ (G.Op.g A) S.Π.$₀ _ , f)
-            , G.cmpˢᵐ B S.Π.$₀
+          ( G.cmpˢ B S.Π.$₀
+            ( G G.Π.$₁ (G.idnˢ (G.Op.g A) S.Π.$₀ _ , f)
+            , G.cmpˢ B S.Π.$₀
               ( com₁ {a}
-              , F G.Π.$₁ (f , G.idnˢᵐ A S.Π.$₀ _) ) )
-          , G.cmpˢᵐ B S.Π.$₀
-            ( G G.Π.$₁ (f , G.idnˢᵐ A S.Π.$₀ _)
-            , G.cmpˢᵐ B S.Π.$₀
+              , F G.Π.$₁ (f , G.idnˢ A S.Π.$₀ _) ) )
+          , G.cmpˢ B S.Π.$₀
+            ( G G.Π.$₁ (f , G.idnˢ A S.Π.$₀ _)
+            , G.cmpˢ B S.Π.$₀
               ( com₁ {b}
-              , F G.Π.$₁ (G.idnˢᵐ (G.Op.g A) S.Π.$₀ _ , f) ) ) )
+              , F G.Π.$₁ (G.idnˢ (G.Op.g A) S.Π.$₀ _ , f) ) ) )
 open _:⇏₁ᵗ_ public

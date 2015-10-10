@@ -20,12 +20,12 @@ S.homᵗ (A ⊗ B) =
   λ {((a₀ , b₀) , (a₁ , b₁)) →
     S.homᵗ A (a₀ , a₁) T.∐.⊗ S.homᵗ B (b₀ , b₁)
   }
-S.idnᵗᵐ (A ⊗ B) =
-  T.∐.⟨ S.idnᵗᵐ A , S.idnᵗᵐ B ⟩
-S.cmpᵗᵐ (A ⊗ B) =
-  T.∐.⟨ S.cmpᵗᵐ A T.Π.∘ T.∐.⟨ T.∐.π₀ ⊗ T.∐.π₀ ⟩
-      , S.cmpᵗᵐ B T.Π.∘ T.∐.⟨ T.∐.π₁ ⊗ T.∐.π₁ ⟩ ⟩
-S.invᵗᵐ (_⊗_ {S.Dir.≤} A B) =
+S.idnᵗ (A ⊗ B) =
+  T.∐.⟨ S.idnᵗ A , S.idnᵗ B ⟩
+S.cmpᵗ (A ⊗ B) =
+  T.∐.⟨ S.cmpᵗ A T.Π.∘ T.∐.⟨ T.∐.π₀ ⊗ T.∐.π₀ ⟩
+      , S.cmpᵗ B T.Π.∘ T.∐.⟨ T.∐.π₁ ⊗ T.∐.π₁ ⟩ ⟩
+S.invᵗ (_⊗_ {S.Dir.≤} A B) =
   _
-S.invᵗᵐ (_⊗_ {S.Dir.≈} A B) =
-  T.∐.⟨ S.invᵗᵐ A ⊗ S.invᵗᵐ B ⟩
+S.invᵗ (_⊗_ {S.Dir.≈} A B) =
+  T.∐.⟨ S.invᵗ A ⊗ S.invᵗ B ⟩

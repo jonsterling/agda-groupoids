@@ -11,9 +11,9 @@ open import Type as T
 s : ∀ {d} → S.t d lzero lzero
 S.obj s = T.𝟘.t
 S.homᵗ s = λ {((), _)}
-S.idnᵗᵐ s = λ {}
-S.cmpᵗᵐ s = λ {}
-S.invᵗᵐ s = λ {}
+S.idnᵗ s = λ {}
+S.cmpᵗ s = λ {}
+S.invᵗ s = λ {}
 
 ¡ : ∀ {d} ..{ℓᵒ ℓʰ}
   → {A : S.t d ℓᵒ ℓʰ}

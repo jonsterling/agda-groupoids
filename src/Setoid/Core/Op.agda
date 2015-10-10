@@ -13,9 +13,9 @@ S.obj (s A) =
   T.Op.t (S.obj A)
 S.homᵗ (s A) =
   S.homᵗ A T.Π.∘ T.∐.⟨ T.∐.π₁ , T.∐.π₀ ⟩
-S.idnᵗᵐ (s A) =
-  S.idnᵗᵐ A
-S.cmpᵗᵐ (s A) =
-  S.cmpᵗᵐ A T.Π.∘ T.∐.⟨ T.∐.π₁ , T.∐.π₀ ⟩
-S.invᵗᵐ (s A) =
-  S.invᵗᵐ A
+S.idnᵗ (s A) =
+  S.idnᵗ A
+S.cmpᵗ (s A) =
+  S.cmpᵗ A T.Π.∘ T.∐.⟨ T.∐.π₁ , T.∐.π₀ ⟩
+S.invᵗ (s A) =
+  S.invᵗ A
