@@ -98,36 +98,3 @@ _∘₀ᵗ_
   → {C : G.t d ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
   → (B ⇒₀ᵗ C) T.Π.⇒₀ (A ⇒₀ᵗ B) T.Π.⇒₀ (A ⇒₀ᵗ C)
 _∘₀ᵗ_ G F = cmp₀ᵗ (G , F)
-
--- infixr 2 _⇒₀ᵍ_
-
--- _⇒₀ᵍ_ : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
---   → (A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ)
---   → (B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ)
---   → G.t d _ _ _
--- G.obj (A ⇒₀ᵍ B) =
---   A ⇒₀ᵗ B
--- G.homˢ (A ⇒₀ᵍ B) =
---   λ {(F , G) → F ⇒₁ˢ G}
--- G.idnˢ (A ⇒₀ᵍ B) =
---   λ {F} → idn₁ˢ F
--- G.cmpˢ (A ⇒₀ᵍ B) =
---   cmp₁ˢ
--- G.invˢ (_⇒₀ᵍ_ {G.Dir.≤} A B) =
---   _
--- G.invˢ (_⇒₀ᵍ_ {G.Dir.≈} A B) =
---   inv₁ˢ
--- com₂ (G.idn-lhs (A ⇒₀ᵍ B) α) =
---   G.idn-lhs B (com₁ α)
--- com₂ (G.idn-rhs (A ⇒₀ᵍ B) α) =
---   G.idn-rhs B (com₁ α)
--- com₂ (G.cmp-ass (A ⇒₀ᵍ B) α β γ) =
---   G.cmp-ass B (com₁ α) (com₁ β) (com₁ γ)
--- G.inv-lhs (_⇒₀ᵍ_ {G.Dir.≤} A B) =
---   _
--- com₂ (G.inv-lhs (_⇒₀ᵍ_ {G.Dir.≈} A B) α) =
---   G.inv-lhs B (com₁ α)
--- G.inv-rhs (_⇒₀ᵍ_ {G.Dir.≤} A B) f =
---   _
--- com₂ (G.inv-rhs (_⇒₀ᵍ_ {G.Dir.≈} A B) α) =
---   G.inv-rhs B (com₁ α)

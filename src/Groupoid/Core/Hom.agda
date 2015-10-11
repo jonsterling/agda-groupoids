@@ -98,6 +98,6 @@ TF.com₂ (Π.cmp (cmp₀ᵍ {C = C}) {c = h₁ , _} (β₁ , _) _) =
 Π._$₀_ (!ᵍ a) _ = a
 Π.-$₁ˢ- (!ᵍ {A = A} a) = S.Π.!ˢ (G.idnˢ A S.Π.$₀ _)
 Π.idn (!ᵍ {A = A} a) = S.idnᵗ (G.homˢ A _) _
-Π.cmp (!ᵍ {A = A}{B} a) g f = G.idn-rhs A (G.idnˢ A S.Π.$₀ _)
+Π.cmp (!ᵍ {A = A} a) g f = G.idn-rhs A (G.idnˢ A S.Π.$₀ _)
 
 open import Groupoid.Core.Hom.Boot public
