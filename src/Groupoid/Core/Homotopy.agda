@@ -155,6 +155,7 @@ record _⇔₁_
   field
     .iso-fwd : S.homᵗ (F ⇒₁ˢ F) (cmp₁ˢ S.Π.$₀ (bwd , fwd) , idn₁ˢ F S.Π.$₀ _)
     .iso-bwd : S.homᵗ (G ⇒₁ˢ G) (cmp₁ˢ S.Π.$₀ (fwd , bwd) , idn₁ˢ G S.Π.$₀ _)
+open _⇔₁_ public
 
 -- FIXME: cmp-w₀ and cmp-w₀ are problematic because of Hα/βF dependency
 
