@@ -1,12 +1,12 @@
 {-# OPTIONS --without-K #-}
 
-module Poset where
+module Preorder where
 
 open import Agda.Primitive
 import Setoid.Core.Base
 open import Common public
 
-open import Poset.Core.Base public
+open import Preorder.Core.Base public
 import Setoid.Closed
 import Setoid.Core.Discrete
 import Setoid.Core.Hom

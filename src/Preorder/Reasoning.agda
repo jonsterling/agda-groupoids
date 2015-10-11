@@ -2,11 +2,11 @@
 
 open import Agda.Primitive
 open import Common
-import Poset.Core.Base as P
+import Preorder.Core.Base as P
 open import Type as T
   using (_,_)
 
-module Poset.Reasoning ..{ℓᵒ ℓʰ} (A : P.t ℓᵒ ℓʰ) where
+module Preorder.Reasoning ..{ℓᵒ ℓʰ} (A : P.t ℓᵒ ℓʰ) where
   infix  4 _⊢≤_
   infix  3 _∎
   infixr 2 _≤⟨_⟩_

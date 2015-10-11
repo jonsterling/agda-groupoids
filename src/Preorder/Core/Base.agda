@@ -1,6 +1,6 @@
 {-# OPTIONS --without-K #-}
 
-module Poset.Core.Base where
+module Preorder.Core.Base where
 
 open import Agda.Primitive
 open import Common

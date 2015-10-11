@@ -31,9 +31,9 @@ import Groupoid.Presheaf
 import Groupoid.Profunctor
 import Groupoid.Wedge
 
-import Poset
-import Poset.Core.Base
-import Poset.Reasoning
+import Preorder
+import Preorder.Core.Base
+import Preorder.Reasoning
 
 import Setoid
 import Setoid.Closed
