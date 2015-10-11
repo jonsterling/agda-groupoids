@@ -37,4 +37,3 @@ record _:⇏₁ᵗ_
             , G.cmpˢ B S.Π.$₀
               ( com₁ {b}
               , F G.Π.$₁ (G.idnˢ (G.Op.g A) S.Π.$₀ _ , f) ) ) )
-open _:⇏₁ᵗ_ public
