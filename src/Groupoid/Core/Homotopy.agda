@@ -142,6 +142,20 @@ nat₁ (S.Π._$₀_ (inv₁ˢ {A = A}{B = B}) α) _ =
       , G.cmpˢ B S.Π.$₁ (S.idnᵗ (G.homˢ B _) _ , G.inv-rhs B _))
     , G.idn-rhs B _)
 
+record _≅_
+  {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
+  {A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
+  {B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
+  (F G : A Π.⇒₀ᵗ B)
+    : Set ((ℓ₀ᵒ ⊔ ℓ₀ˢᵒ) ⊔ (ℓ₁ˢᵒ ⊔ ℓ₁ˢʰ)) where
+  no-eta-equality
+  field
+    fwd : F ⇒₁ᵗ G
+    bwd : G ⇒₁ᵗ F
+  field
+    .iso-fwd : S.homᵗ (F ⇒₁ˢ F) (cmp₁ˢ S.Π.$₀ (bwd , fwd) , idn₁ˢ F S.Π.$₀ _)
+    .iso-bwd : S.homᵗ (G ⇒₁ˢ G) (cmp₁ˢ S.Π.$₀ (fwd , bwd) , idn₁ˢ G S.Π.$₀ _)
+
 -- FIXME: cmp-w₀ and cmp-w₀ are problematic because of Hα/βF dependency
 
 cmp₁ᵗ-w₀
