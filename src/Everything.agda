@@ -28,6 +28,7 @@ import Groupoid.Iso
 import Groupoid.Monoidal
 import Groupoid.Notation
 import Groupoid.Presheaf
+import Groupoid.Profunctor
 import Groupoid.Wedge
 
 import Poset
