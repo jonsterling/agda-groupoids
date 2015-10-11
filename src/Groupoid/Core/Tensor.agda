@@ -89,3 +89,41 @@ TF.com₂ (idn (⟨-⊗-⟩ {A = A}{B})) =
   S.idnᵗ (G.homˢ A _) _ , S.idnᵗ (G.homˢ B _) _
 TF.com₂ (cmp (⟨-⊗-⟩ {A = A}{B}) _ _) =
   S.idnᵗ (G.homˢ A _) _ , S.idnᵗ (G.homˢ B _) _
+
+ap-lhs₀
+  : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
+  → {A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
+  → {B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
+  → {C : G.t d ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
+  → (F : A ⊗ B Π.⇒₀ᵗ C)
+  → (a : G.obj A)
+  → B Π.⇒₀ᵗ C
+Π._$₀_ (ap-lhs₀ F a) =
+  T.∐.ap-lhs (F Π.$₀_) a
+Π.-$₁ˢ- (ap-lhs₀ {A = A} F a) =
+  S.∐.ap-lhs₀ (Π.-$₁ˢ- F) (G.idnˢ A S.Π.$₀ _)
+Π.idn (ap-lhs₀ F a) =
+  Π.idn F
+Π.cmp (ap-lhs₀ {A = A}{B}{C} F a) g f =
+  S.cmpᵗ (G.homˢ C _)
+    ( Π.cmp F _ _
+    , F Π.$₂ (G.idn-rhs A _ , S.idnᵗ (G.homˢ B _) _) )
+
+ap-rhs₀
+  : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
+  → {A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
+  → {B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
+  → {C : G.t d ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
+  → (F : A ⊗ B Π.⇒₀ᵗ C)
+  → (b : G.obj B)
+  → A Π.⇒₀ᵗ C
+Π._$₀_ (ap-rhs₀ F b) =
+  T.∐.ap-rhs (F Π.$₀_) b
+Π.-$₁ˢ- (ap-rhs₀ {B = B} F b) =
+  S.∐.ap-rhs₀ (Π.-$₁ˢ- F) (G.idnˢ B S.Π.$₀ _)
+Π.idn (ap-rhs₀ F b) =
+  Π.idn F
+Π.cmp (ap-rhs₀ {A = A}{B}{C} F b) g f =
+  S.cmpᵗ (G.homˢ C _)
+    ( Π.cmp F _ _
+    , F Π.$₂ (S.idnᵗ (G.homˢ A _) _ , G.idn-rhs B _) )
