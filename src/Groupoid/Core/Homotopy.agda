@@ -142,7 +142,7 @@ nat₁ (S.Π._$₀_ (inv₁ˢ {A = A}{B = B}) α) _ =
       , G.cmpˢ B S.Π.$₁ (S.idnᵗ (G.homˢ B _) _ , G.inv-rhs B _))
     , G.idn-rhs B _)
 
-record _≅_
+record _⇔₁_
   {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
   {A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
   {B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
