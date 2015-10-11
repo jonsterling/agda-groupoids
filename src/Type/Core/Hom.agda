@@ -11,10 +11,10 @@ infixr 1 _∘_
 
 _∘_
   : ∀ ..{ℓ₀ ℓ₁ ℓ₂}
-  → {A : Set ℓ₀} {B : A → Set ℓ₁} {C : ∀ {a} → B a → Set ℓ₂}
-  → (g : ∀ {a} → t (B a) C)
-  → (f : t A B)
-  → (t A (λ a → C (f a)))
+  → {A : Set ℓ₀} {B : Set ℓ₁} {C : Set ℓ₂}
+  → (g : B ⇒₀ C)
+  → (f : A ⇒₀ B)
+  → (A ⇒₀ C)
 g ∘ f = cmp (g , f)
 
 ! : ∀ ..{ℓ₀ ℓ₁}
