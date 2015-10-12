@@ -10,7 +10,7 @@ open import Type as T
   using (_,_)
 
 infixr 0 _⇒₁ᵗ_
-infix 0 _⇔₁_
+infix 0 _⇔₁ᵗ_
 
 record _⇒₁ᵗ_
   {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
@@ -143,7 +143,7 @@ nat₁ (S.Π._$₀_ (inv₁ˢ {A = A}{B = B}) α) _ =
       , G.cmpˢ B S.Π.$₁ (S.idnᵗ (G.homˢ B _) _ , G.inv-rhs B _))
     , G.idn-rhs B _)
 
-record _⇔₁_
+record _⇔₁ᵗ_
   {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
   {A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
   {B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
@@ -162,7 +162,7 @@ record _⇔₁_
 
   ₁⇐ : ∀ {a} → G.hom₀ B (G Π.$₀ a) (F Π.$₀ a)
   ₁⇐ = com₁ bwd
-open _⇔₁_ public
+open _⇔₁ᵗ_ public
 
 -- FIXME: cmp-w₀ and cmp-w₀ are problematic because of Hα/βF dependency
 
