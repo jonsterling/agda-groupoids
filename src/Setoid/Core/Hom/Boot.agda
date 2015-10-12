@@ -21,7 +21,7 @@ record _⇒₀ᵗ_
   field
     _$₀_
       : S.obj A T.Π.⇒₀ S.obj B
-    _$₁_
+    ._$₁_
       : ∀ {a b}
       → S.homᵗ A (a , b) T.Π.⇒₀ S.homᵗ B (_$₀_ a , _$₀_ b)
 open _⇒₀ᵗ_ public
