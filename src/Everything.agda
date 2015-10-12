@@ -5,6 +5,7 @@ module Everything where
 import Category
 import Category.Core.Base
 import Category.Instances.SETOID
+import Category.Instances.SETOID.Closed
 import Category.Instances.SETOID.Monoidal
 import Category.Iso
 import Category.Reasoning
