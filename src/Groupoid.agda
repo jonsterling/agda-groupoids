@@ -11,6 +11,7 @@ import Groupoid.Core.Initial
 import Groupoid.Core.Op
 import Groupoid.Core.Tensor
 import Groupoid.Core.Terminal
+import Type as T
 
 module ≡ where
   open import Groupoid.Core.Discrete public
@@ -28,3 +29,9 @@ module ∐ where
   open import Groupoid.Core.Tensor.Boot public
 module 𝟙 where
   open import Groupoid.Core.Terminal public
+
+-
+  : ∀ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
+  → {A : t d ℓᵒ ℓˢᵒ ℓˢʰ}
+  → A Π.⇒₀ᵗ A
+- = Π.idn₀ᵗ T.𝟙.*
