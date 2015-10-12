@@ -27,18 +27,18 @@ record t {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
 
   _⊗₁_
     : ∀ {a₀ a₁ a₂ a₃}
-    → (f₀ : S.obj (G.homˢ A (a₀ , a₁)))
-    → (f₁ : S.obj (G.homˢ A (a₂ , a₃)))
-    → S.obj (G.homˢ A (a₀ ⊗₀ a₂ , a₁ ⊗₀ a₃))
+    → (f₀ : G.hom₀ A a₀ a₁)
+    → (f₁ : G.hom₀ A a₂ a₃)
+    → G.hom₀ A (a₀ ⊗₀ a₂) (a₁ ⊗₀ a₃)
   _⊗₁_ = λ f₀ f₁ → ⊗ G.Π.$₁ (f₀ , f₁)
 
   _⊗₂_
     : ∀ {a₀ a₁ a₂ a₃}
-    → {f₀ g₀ : S.obj (G.homˢ A (a₀ , a₁))}
-    → {f₁ g₁ : S.obj (G.homˢ A (a₂ , a₃))}
-    → (p₀ : S.homᵗ (G.homˢ A (a₀ , a₁)) (f₀ , g₀))
-    → (p₁ : S.homᵗ (G.homˢ A (a₂ , a₃)) (f₁ , g₁))
-    → S.homᵗ (G.homˢ A (a₀ ⊗₀ a₂ , a₁ ⊗₀ a₃)) (f₀ ⊗₁ f₁ , g₀ ⊗₁ g₁)
+    → {f₀ g₀ : G.hom₀ A a₀ a₁}
+    → {f₁ g₁ : G.hom₀ A a₂ a₃}
+    → (p₀ : G.hom₁ A f₀ g₀)
+    → (p₁ : G.hom₁ A f₁ g₁)
+    → G.hom₁ A (f₀ ⊗₁ f₁) (g₀ ⊗₁ g₁)
   _⊗₂_ = λ p₀ p₁ → ⊗ G.Π.$₂ (p₀ , p₁)
 
   field
