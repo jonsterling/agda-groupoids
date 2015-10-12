@@ -56,7 +56,7 @@ S.Π._$₀_ (G.TF.com₁ (G.TF.bwd (G.Clo.t.susp clo)) {A}) =
   S.Π._$₀ T.𝟙.*
 S.Π._$₁_ (G.TF.com₁ (G.TF.bwd (G.Clo.t.susp clo)) {A}) {f₀}{f₁} α =
   S.TF.com₁ α
-S.TF.com₁ (G.TF.nat₁ (G.TF.bwd (G.Clo.t.susp clo)) {A}{B} f) =
+S.TF.com₁ (G.TF.nat₁ (G.TF.bwd (G.Clo.t.susp clo)) {_}{B} f) =
   S.idnᵗ B _
 S.TF.com₁ (G.TF.com₂ (G.TF.iso-fwd (G.Clo.t.susp clo)) {A}) =
   S.idnᵗ A _
