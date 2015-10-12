@@ -10,6 +10,7 @@ open import Type as T
   using (_,_)
 
 infixr 0 _⇒₁ᵗ_
+infix 0 _⇔₁_
 
 record _⇒₁ᵗ_
   {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
@@ -155,6 +156,12 @@ record _⇔₁_
   field
     .iso-fwd : S.homᵗ (F ⇒₁ˢ F) (cmp₁ˢ S.Π.$₀ (bwd , fwd) , idn₁ˢ F S.Π.$₀ _)
     .iso-bwd : S.homᵗ (G ⇒₁ˢ G) (cmp₁ˢ S.Π.$₀ (fwd , bwd) , idn₁ˢ G S.Π.$₀ _)
+
+  ₁⇒ : ∀ {a} → G.hom₀ B (F Π.$₀ a) (G Π.$₀ a)
+  ₁⇒ = com₁ fwd
+
+  ₁⇐ : ∀ {a} → G.hom₀ B (G Π.$₀ a) (F Π.$₀ a)
+  ₁⇐ = com₁ bwd
 open _⇔₁_ public
 
 -- FIXME: cmp-w₀ and cmp-w₀ are problematic because of Hα/βF dependency
