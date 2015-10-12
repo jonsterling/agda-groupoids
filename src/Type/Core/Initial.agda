@@ -4,10 +4,10 @@ module Type.Core.Initial where
 
 open import Agda.Primitive
 
-data t : Set where
+data t ..{ℓ} : Set ℓ where
 
-¡ : ∀ ..{ℓ} {A : Set ℓ} → t → A
+¡ : ∀ ..{ℓ} {A : Set ℓ} → t {lzero} → A
 ¡ ()
 
 ¬_ : ∀ ..{ℓ} → Set ℓ → Set ℓ
-¬_ A = A → t
+¬_ A = A → t {lzero}
