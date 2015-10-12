@@ -107,20 +107,14 @@ curry
 _$₀_ (curry F) = ap-lhs₀ F
 _$₁_ (curry F) = ap-lhs₁ F
 
--- FIXME: We can't define `uncurry` unless transformations are
--- relevant. However, if we make them relevant then we also need to
--- make the groupoid laws relevant in order to define the Yoneda
--- embedding (among other things).
-
--- uncurry
---   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ ℓ₂ᵒ ℓ₂ʰ}
---   → {A : S.t d ℓ₀ᵒ ℓ₀ʰ}
---   → {B : S.t d ℓ₁ᵒ ℓ₁ʰ}
---   → {C : S.t d ℓ₂ᵒ ℓ₂ʰ}
---   → (F : A Π.⇒₀ᵗ (B Π.⇒₀ˢ C))
---   → A ⊗ B Π.⇒₀ᵗ C
--- _$₀_ (uncurry F) =
---   T.∐.uncurry _$₀_ T.Π.∘ T.∐.⟨ (F $₀_) ⊗ T.Π.idn ⟩
--- _$₁_ (uncurry {C = C} F) (f₀ , f₁) =
---   S.cmpᵗ C (TF.com₁ (F $₁ f₀) , (F $₀ _) $₁ f₁)
-
+uncurry
+  : ∀ {d} ..{ℓ₀ᵒ ℓ₀ʰ ℓ₁ᵒ ℓ₁ʰ ℓ₂ᵒ ℓ₂ʰ}
+  → {A : S.t d ℓ₀ᵒ ℓ₀ʰ}
+  → {B : S.t d ℓ₁ᵒ ℓ₁ʰ}
+  → {C : S.t d ℓ₂ᵒ ℓ₂ʰ}
+  → (F : A Π.⇒₀ᵗ (B Π.⇒₀ˢ C))
+  → A ⊗ B Π.⇒₀ᵗ C
+_$₀_ (uncurry F) =
+  T.∐.uncurry _$₀_ T.Π.∘ T.∐.⟨ (F $₀_) ⊗ T.Π.idn ⟩
+_$₁_ (uncurry {C = C} F) (f₀ , f₁) =
+  S.cmpᵗ C (TF.com₁ (F $₁ f₀) , (F $₀ _) $₁ f₁)
