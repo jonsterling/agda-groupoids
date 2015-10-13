@@ -4,16 +4,17 @@ open import Common
 module Groupoid.Wedge {d : Dir.t} where
 
 open import Agda.Primitive
-module G where
-  open import Groupoid public
-    hiding (module Π; module TF)
-  module Π where
-    open Groupoid.Π public
-    open import Groupoid.Bifunctor public
-    open import Groupoid.Profunctor public
-  module TF where
-    open Groupoid.TF public
-    open import Groupoid.Dinatural public
+private
+  module G where
+    open import Groupoid public
+      hiding (module Π; module TF)
+    module Π where
+      open Groupoid.Π public
+      open import Groupoid.Bifunctor public
+      open import Groupoid.Profunctor public
+    module TF where
+      open Groupoid.TF public
+      open import Groupoid.Dinatural public
 import Setoid as S
 open import Type as T
   using (_,_)

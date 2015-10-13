@@ -3,12 +3,13 @@
 module Groupoid.Monoidal where
 
 open import Agda.Primitive
-module G where
-  open import Groupoid public
-    hiding (module Π)
-  module Π where
-    open Groupoid.Π public
-    open import Groupoid.Bifunctor public
+private
+  module G where
+    open import Groupoid public
+      hiding (module Π)
+    module Π where
+      open Groupoid.Π public
+      open import Groupoid.Bifunctor public
 import Setoid as S
 open import Type as T
   using (_,_)

@@ -4,12 +4,13 @@ open import Common
 module Groupoid.Profunctor {d : Dir.t} where
 
 open import Agda.Primitive
-module G where
-  open import Groupoid public
-    hiding (module Π; module TF)
-  module Π where
-    open Groupoid.Π public
-    open import Groupoid.Bifunctor public
+private
+  module G where
+    open import Groupoid public
+      hiding (module Π; module TF)
+    module Π where
+      open Groupoid.Π public
+      open import Groupoid.Bifunctor public
 import Setoid as S
 open import Type as T
   using (_,_)

@@ -4,20 +4,22 @@ module Category.Instances.SETOID.Closed where
 
 open import Agda.Primitive
 open import Common
-module C where
-  open import Category public
-  module I where
-    module SETOID where
-      open import Category.Instances.SETOID public
-module G where
-  open import Groupoid public
-    hiding (module TF)
-  module Clo where
-    open import Groupoid.Closed public
-      hiding (module G)
-  module TF where
-    open Groupoid.TF public
-    open import Groupoid.Dinatural public
+private
+  module C where
+    open import Category public
+    module I where
+      module SETOID where
+        open import Category.Instances.SETOID public
+private
+  module G where
+    open import Groupoid public
+      hiding (module TF)
+    module Clo where
+      open import Groupoid.Closed public
+        hiding (module G)
+    module TF where
+      open Groupoid.TF public
+      open import Groupoid.Dinatural public
 import Setoid as S
 open import Type as T
   using (_,_)

@@ -4,15 +4,17 @@ module Category.Instances.SETOID.Monoidal where
 
 open import Agda.Primitive
 open import Common
-module C where
-  open import Category public
-  module I where
-    module SETOID where
-      open import Category.Instances.SETOID public
-module G where
-  open import Groupoid public
-  module Mon where
-    open import Groupoid.Monoidal public
+private
+  module C where
+    open import Category public
+    module I where
+      module SETOID where
+        open import Category.Instances.SETOID public
+private
+  module G where
+    open import Groupoid public
+    module Mon where
+      open import Groupoid.Monoidal public
 import Setoid as S
 open import Type as T
   using (_,_)
