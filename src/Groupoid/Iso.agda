@@ -60,7 +60,6 @@ iso-fwd (S.Π._$₀_ (G.idnˢ (g A)) _) =
   G.idn-lhs A _
 iso-bwd (S.Π._$₀_ (G.idnˢ (g A)) _) =
   G.idn-lhs A _
-
 S.Π._$₁_ (G.idnˢ (g A)) _ =
   S.idnᵗ (G.homˢ A _) _
 
