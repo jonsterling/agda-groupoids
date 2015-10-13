@@ -10,7 +10,6 @@ open import Type as T
 
 record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ ℓˢʰ)) where
   no-eta-equality
-  infixr 0 ⊢_[_∘₀_]
   field
     obj
       : Set ℓᵒ
@@ -25,22 +24,6 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
     {invˢ}
       : ∀ {a b}
       → Dir.el d T.𝟙.t (homˢ (a , b) S.Π.⇒₀ᵗ homˢ (b , a))
-
-  hom₀ : obj → obj → Set _
-  hom₀ a b = S.obj (homˢ (a , b))
-
-  hom₁ : ∀ {a b} (f g : hom₀ a b) → Set _
-  hom₁ {a}{b} f g = S.homᵗ (homˢ (a , b)) (f , g)
-
-  idn₀ : ∀ {a} → hom₀ a a
-  idn₀ {a} = idnˢ {a} S.Π.$₀ T.𝟙.*
-
-  ⊢_[_∘₀_]
-    : ∀ {a b c}
-    → hom₀ b c
-    → hom₀ a b
-    → hom₀ a c
-  ⊢_[_∘₀_] {a}{b}{c} g f = cmpˢ {a}{b}{c} S.Π.$₀ (g , f)
 
   private
     invˢ≡
@@ -95,3 +78,33 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
             ))
         T.≡.refl
 open t public
+
+module _ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ} (A : t d ℓᵒ ℓˢᵒ ℓˢʰ) where
+  infixr 0 ⊢_[_∘₀_]
+
+  hom₀ : obj A → obj A → Set _
+  hom₀ a b = S.obj (homˢ A (a , b))
+
+  hom₁ : ∀ {a b} (f g : hom₀ a b) → Set _
+  hom₁ {a}{b} f g = S.homᵗ (homˢ A (a , b)) (f , g)
+
+  idn₀ : ∀ {a} → hom₀ a a
+  idn₀ {a} = idnˢ A {a} S.Π.$₀ T.𝟙.*
+
+  cmp₀
+    : ∀ {a b c}
+    → hom₀ b c
+    → hom₀ a b
+    → hom₀ a c
+  cmp₀ {a}{b}{c} g f = cmpˢ A {a}{b}{c} S.Π.$₀ (g , f)
+
+  ⊢_[_∘₀_]
+    : ∀ {a b c}
+    → hom₀ b c
+    → hom₀ a b
+    → hom₀ a c
+  ⊢_[_∘₀_] {a}{b}{c} g f = cmpˢ A {a}{b}{c} S.Π.$₀ (g , f)
+
+module _ ..{ℓᵒ ℓˢᵒ ℓˢʰ} (A : t Dir.≈ ℓᵒ ℓˢᵒ ℓˢʰ) where
+  inv₀ : ∀ {a b} → hom₀ A a b → hom₀ A b a
+  inv₀ = invˢ A S.Π.$₀_
