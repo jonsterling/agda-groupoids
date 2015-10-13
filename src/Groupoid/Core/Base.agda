@@ -105,6 +105,8 @@ module _ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ} (A : t d ℓᵒ ℓˢᵒ ℓˢʰ) where
     → hom₀ a c
   ⊢_[_∘₀_] {a}{b}{c} g f = cmpˢ A {a}{b}{c} S.Π.$₀ (g , f)
 
-module _ ..{ℓᵒ ℓˢᵒ ℓˢʰ} (A : t Dir.≈ ℓᵒ ℓˢᵒ ℓˢʰ) where
-  inv₀ : ∀ {a b} → hom₀ A a b → hom₀ A b a
-  inv₀ = invˢ A S.Π.$₀_
+inv₀
+  : ∀ ..{ℓᵒ ℓˢᵒ ℓˢʰ}
+  → ∀ (A : t Dir.≈ ℓᵒ ℓˢᵒ ℓˢʰ) {a b}
+  → hom₀ A a b → hom₀ A b a
+inv₀ A = invˢ A S.Π.$₀_
