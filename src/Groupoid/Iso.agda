@@ -44,30 +44,32 @@ S.cmpᵗ (s {A = A} _ _) =
 S.invᵗ (s {A = A} _ _) =
   S.invᵗ (G.homˢ A _)
 
-g : ∀ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
-  → (A : G.t d ℓᵒ ℓˢᵒ ℓˢʰ)
+g : ∀ {d′} d ..{ℓᵒ ℓˢᵒ ℓˢʰ}
+  → (A : G.t d′ ℓᵒ ℓˢᵒ ℓˢʰ)
   → G.t d _ _ _
-G.obj (g A) =
+G.obj (g d A) =
   G.obj A
-G.homˢ (g A) (a , b) =
+G.homˢ (g d A) (a , b) =
   s {A = A} a b
 
-fwd (S.Π._$₀_ (G.idnˢ (g A) {a}) _) =
+-- idn
+fwd (S.Π._$₀_ (G.idnˢ (g d A) {a}) _) =
   G.idn₀ A
-bwd (S.Π._$₀_ (G.idnˢ (g A) {a}) _) =
+bwd (S.Π._$₀_ (G.idnˢ (g d A) {a}) _) =
   G.idn₀ A
-iso-fwd (S.Π._$₀_ (G.idnˢ (g A)) _) =
+iso-fwd (S.Π._$₀_ (G.idnˢ (g d A)) _) =
   G.idn-lhs A _
-iso-bwd (S.Π._$₀_ (G.idnˢ (g A)) _) =
+iso-bwd (S.Π._$₀_ (G.idnˢ (g d A)) _) =
   G.idn-lhs A _
-S.Π._$₁_ (G.idnˢ (g A)) _ =
+S.Π._$₁_ (G.idnˢ (g d A)) _ =
   S.idnᵗ (G.homˢ A _) _
 
-fwd (S.Π._$₀_ (G.cmpˢ (g A)) (g , f)) =
+-- cmp
+fwd (S.Π._$₀_ (G.cmpˢ (g d A)) (g , f)) =
   G.cmp₀ A (fwd g) (fwd f)
-bwd (S.Π._$₀_ (G.cmpˢ (g A)) (g , f)) =
+bwd (S.Π._$₀_ (G.cmpˢ (g d A)) (g , f)) =
   G.cmp₀ A (bwd f) (bwd g)
-iso-fwd (S.Π._$₀_ (G.cmpˢ (g A)) (g , f)) =
+iso-fwd (S.Π._$₀_ (G.cmpˢ (g d A)) (g , f)) =
   S.cmpᵗ (G.homˢ A _)
     ( S.cmpᵗ (G.homˢ A _)
       ( iso-fwd f
@@ -81,7 +83,7 @@ iso-fwd (S.Π._$₀_ (G.cmpˢ (g A)) (g , f)) =
               , S.idnᵗ (G.homˢ A _) _ ) )
           , S.invᵗ (G.homˢ A _) (G.cmp-ass A _ _ _) ) ) )
     , G.cmp-ass A _ _ _ )
-iso-bwd (S.Π._$₀_ (G.cmpˢ (g A)) (g , f)) =
+iso-bwd (S.Π._$₀_ (G.cmpˢ (g d A)) (g , f)) =
   S.cmpᵗ (G.homˢ A _)
     ( S.cmpᵗ (G.homˢ A _)
       ( iso-bwd g
@@ -95,89 +97,50 @@ iso-bwd (S.Π._$₀_ (G.cmpˢ (g A)) (g , f)) =
               , S.idnᵗ (G.homˢ A _) _ ) )
           , S.invᵗ (G.homˢ A _) (G.cmp-ass A _ _ _) ) ) )
     , G.cmp-ass A _ _ _ )
-S.Π._$₁_ (G.cmpˢ (g A)) {g₀ , f₀}{g₁ , f₁} =
+S.Π._$₁_ (G.cmpˢ (g d A)) {g₀ , f₀}{g₁ , f₁} =
   G.cmpˢ A S.Π.$₁_
 
-G.invˢ (g {Dir.≤} A) =
+-- inv
+G.invˢ (g Dir.≤ A) =
   _
-fwd (S.Π._$₀_ (G.invˢ (g {Dir.≈} A)) f) =
-  G.inv₀ A (fwd f)
-bwd (S.Π._$₀_ (G.invˢ (g {Dir.≈} A)) f) =
-  G.inv₀ A (bwd f)
-iso-fwd (S.Π._$₀_ (G.invˢ (g {Dir.≈} A)) f) =
+fwd (S.Π._$₀_ (G.invˢ (g Dir.≈ A)) f) =
+  bwd f
+bwd (S.Π._$₀_ (G.invˢ (g Dir.≈ A)) f) =
+  fwd f
+iso-fwd (S.Π._$₀_ (G.invˢ (g Dir.≈ A)) f) =
+  iso-bwd f
+iso-bwd (S.Π._$₀_ (G.invˢ (g Dir.≈ A)) f) =
+  iso-fwd f
+S.Π._$₁_ (G.invˢ (g Dir.≈ A)) {f₀}{f₁} p =
   S.cmpᵗ (G.homˢ A _)
-    ( iso-bwd f
-    , G.cmpˢ A S.Π.$₁
+    ( S.cmpᵗ (G.homˢ A _)
       ( S.cmpᵗ (G.homˢ A _)
         ( S.cmpᵗ (G.homˢ A _)
-          ( S.cmpᵗ (G.homˢ A _)
-            ( G.idn-lhs A _
-            , G.cmpˢ A S.Π.$₁
-              ( G.inv-lhs A _
-              , S.idnᵗ (G.homˢ A _) _ ) )
-          , S.invᵗ (G.homˢ A _) (G.cmp-ass A _ _ _) )
-        , S.cmpᵗ (G.homˢ A _)
-          ( G.cmpˢ A S.Π.$₁
-            ( S.idnᵗ (G.homˢ A _) _
-            , S.invᵗ (G.homˢ A _) (iso-fwd f) )
-          , G.idn-rhs A _ ) )
-      , S.cmpᵗ (G.homˢ A _)
-        ( S.cmpᵗ (G.homˢ A _)
-          ( S.cmpᵗ (G.homˢ A _)
-            ( S.invᵗ (G.homˢ A _) (G.idn-rhs A _)
-            , G.cmpˢ A S.Π.$₁
-              ( S.idnᵗ (G.homˢ A _) _
-              , S.invᵗ (G.homˢ A _) (G.inv-rhs A _) ) )
-          , G.cmp-ass A _ _ _ )
-        , S.cmpᵗ (G.homˢ A _)
-          ( G.cmpˢ A S.Π.$₁
-            ( S.invᵗ (G.homˢ A _) (iso-fwd f)
-            , S.idnᵗ (G.homˢ A _) _ )
-          , S.invᵗ (G.homˢ A _) (G.idn-lhs A _) ) ) ) )
-iso-bwd (S.Π._$₀_ (G.invˢ (g {Dir.≈} A)) f) =
-  S.cmpᵗ (G.homˢ A _)
-    ( iso-fwd f
-    , G.cmpˢ A S.Π.$₁
-      ( S.cmpᵗ (G.homˢ A _)
-        ( S.cmpᵗ (G.homˢ A _)
-          ( S.cmpᵗ (G.homˢ A _)
-            ( G.idn-lhs A _
-            , G.cmpˢ A S.Π.$₁
-              ( G.inv-lhs A _
-              , S.idnᵗ (G.homˢ A _) _ ) )
-          , S.invᵗ (G.homˢ A _) (G.cmp-ass A _ _ _) )
-        , S.cmpᵗ (G.homˢ A _)
-          ( G.cmpˢ A S.Π.$₁
-            ( S.idnᵗ (G.homˢ A _) _
-            , S.invᵗ (G.homˢ A _) (iso-bwd f) )
-          , G.idn-rhs A _ ) )
-      , S.cmpᵗ (G.homˢ A _)
-        ( S.cmpᵗ (G.homˢ A _)
-          ( S.cmpᵗ (G.homˢ A _)
-            ( S.invᵗ (G.homˢ A _) (G.idn-rhs A _)
-            , G.cmpˢ A S.Π.$₁
-              ( S.idnᵗ (G.homˢ A _) _
-              , S.invᵗ (G.homˢ A _) (G.inv-rhs A _) ) )
-          , G.cmp-ass A _ _ _ )
-        , S.cmpᵗ (G.homˢ A _)
-          ( G.cmpˢ A S.Π.$₁
-            ( S.invᵗ (G.homˢ A _) (iso-bwd f)
-            , S.idnᵗ (G.homˢ A _) _ )
-          , S.invᵗ (G.homˢ A _) (G.idn-lhs A _) ) ) ) )
-S.Π._$₁_ (G.invˢ (g {Dir.≈} A)) =
-  G.invˢ A S.Π.$₁_
+          ( G.idn-lhs A _
+          , G.cmpˢ A S.Π.$₁
+              ( S.cmpᵗ (G.homˢ A _)
+                ( iso-fwd f₀
+                , G.cmpˢ A S.Π.$₁
+                  ( S.idnᵗ (G.homˢ A _) _
+                  , S.invᵗ (G.homˢ A _) p ) )
+              , S.idnᵗ (G.homˢ A _) _) )
+        , S.invᵗ (G.homˢ A _) (G.cmp-ass A _ _ _) )
+      , G.cmpˢ A S.Π.$₁
+        ( S.idnᵗ (G.homˢ A _) _
+        , S.invᵗ (G.homˢ A _) (iso-bwd f₁) ) )
+    , G.idn-rhs A _ )
 
-G.idn-lhs (g A) _ =
+G.idn-lhs (g d A) _ =
   G.idn-lhs A _
-G.idn-rhs (g A) _ =
+G.idn-rhs (g d A) _ =
   G.idn-rhs A _
-G.cmp-ass (g A) _ _ _ =
+G.cmp-ass (g d A) _ _ _ =
   G.cmp-ass A _ _ _
-G.inv-lhs (g {Dir.≤} A) =
+G.inv-lhs (g Dir.≤ A) =
   _
-G.inv-lhs (g {Dir.≈} A) _ =
-  G.inv-lhs A _
-G.inv-rhs (g {Dir.≤} A) =
+G.inv-lhs (g Dir.≈ A) f =
+  iso-fwd f
+G.inv-rhs (g Dir.≤ A) =
   _
-G.inv-rhs (g {Dir.≈} A) _ =
-  G.inv-rhs A _
+G.inv-rhs (g Dir.≈ A) f =
+  S.invᵗ (G.homˢ A _) (iso-bwd f)

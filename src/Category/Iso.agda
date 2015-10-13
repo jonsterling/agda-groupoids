@@ -24,4 +24,4 @@ s {A = A} = GI.s {A = A}
 c : ∀ ..{ℓᵒ ℓˢᵒ ℓˢʰ}
   → (A : G.t Dir.≤ ℓᵒ ℓˢᵒ ℓˢʰ)
   → _
-c A = GI.g A
+c A = GI.g Dir.≤ A
