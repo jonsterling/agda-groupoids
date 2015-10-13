@@ -3,7 +3,6 @@
 module Category.Instances.SETOID.Monoidal where
 
 open import Agda.Primitive
-open import Common
 private
   module C where
     open import Category public

@@ -3,7 +3,6 @@
 module Groupoid.Instances.SETOID where
 
 open import Agda.Primitive
-open import Common
 private
   module G where
     open import Groupoid public
@@ -13,9 +12,9 @@ import Setoid as S
 open import Type as T
   using (_,_)
 
-c : ..(ℓᵒ ℓʰ : _) → G.t Dir.≤ _ _ _
+c : ..(ℓᵒ ℓʰ : _) → G.t S.Dir.≤ _ _ _
 G.obj (c ℓᵒ ℓʰ) =
-  S.t Dir.≈ ℓᵒ ℓʰ
+  S.t S.Dir.≈ ℓᵒ ℓʰ
 G.homˢ (c _ _) =
   λ {(a , b) → a S.Π.⇒₀ˢ b}
 G.idnˢ (c _ _) =

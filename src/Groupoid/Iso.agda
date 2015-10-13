@@ -3,7 +3,6 @@
 module Groupoid.Iso where
 
 open import Agda.Primitive
-open import Common
 import Groupoid.Core.Base as G
 import Setoid as S
 open import Type as T
@@ -32,7 +31,7 @@ open t
 s : ∀ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
   → {A : G.t d ℓᵒ ℓˢᵒ ℓˢʰ}
   → (a₀ a₁ : G.obj A)
-  → S.t Dir.≈ _ _
+  → S.t G.Dir.≈ _ _
 S.obj (s {A = A} a₀ a₁) =
   t {A = A} a₀ a₁
 S.homᵗ (s {A = A} _ _) (f , g) =
@@ -101,17 +100,17 @@ S.Π._$₁_ (G.cmpˢ (g d A)) {g₀ , f₀}{g₁ , f₁} =
   G.cmpˢ A S.Π.$₁_
 
 -- inv
-G.invˢ (g Dir.≤ A) =
+G.invˢ (g G.Dir.≤ A) =
   _
-fwd (S.Π._$₀_ (G.invˢ (g Dir.≈ A)) f) =
+fwd (S.Π._$₀_ (G.invˢ (g G.Dir.≈ A)) f) =
   bwd f
-bwd (S.Π._$₀_ (G.invˢ (g Dir.≈ A)) f) =
+bwd (S.Π._$₀_ (G.invˢ (g G.Dir.≈ A)) f) =
   fwd f
-iso-fwd (S.Π._$₀_ (G.invˢ (g Dir.≈ A)) f) =
+iso-fwd (S.Π._$₀_ (G.invˢ (g G.Dir.≈ A)) f) =
   iso-bwd f
-iso-bwd (S.Π._$₀_ (G.invˢ (g Dir.≈ A)) f) =
+iso-bwd (S.Π._$₀_ (G.invˢ (g G.Dir.≈ A)) f) =
   iso-fwd f
-S.Π._$₁_ (G.invˢ (g Dir.≈ A)) {f₀}{f₁} p =
+S.Π._$₁_ (G.invˢ (g G.Dir.≈ A)) {f₀}{f₁} p =
   S.cmpᵗ (G.homˢ A _)
     ( S.cmpᵗ (G.homˢ A _)
       ( S.cmpᵗ (G.homˢ A _)
@@ -136,11 +135,11 @@ G.idn-rhs (g d A) _ =
   G.idn-rhs A _
 G.cmp-ass (g d A) _ _ _ =
   G.cmp-ass A _ _ _
-G.inv-lhs (g Dir.≤ A) =
+G.inv-lhs (g G.Dir.≤ A) =
   _
-G.inv-lhs (g Dir.≈ A) f =
+G.inv-lhs (g G.Dir.≈ A) f =
   iso-fwd f
-G.inv-rhs (g Dir.≤ A) =
+G.inv-rhs (g G.Dir.≤ A) =
   _
-G.inv-rhs (g Dir.≈ A) f =
+G.inv-rhs (g G.Dir.≈ A) f =
   S.invᵗ (G.homˢ A _) (iso-bwd f)

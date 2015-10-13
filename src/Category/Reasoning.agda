@@ -1,7 +1,6 @@
 {-# OPTIONS --without-K #-}
 
 open import Agda.Primitive
-open import Common
 import Category.Core.Base as C
 import Setoid as S
 open import Type as T

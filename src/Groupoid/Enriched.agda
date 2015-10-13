@@ -3,7 +3,6 @@
 module Groupoid.Enriched where
 
 open import Agda.Primitive
-open import Common
 private
   module G where
     open import Groupoid public

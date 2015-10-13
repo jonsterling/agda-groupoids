@@ -4,7 +4,6 @@ module Category where
 
 open import Agda.Primitive
 import Groupoid.Core.Base
-open import Common public
 
 open import Category.Core.Base public
 import Groupoid.Closed
