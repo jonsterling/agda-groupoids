@@ -55,7 +55,7 @@ idn-rhs
   : ∀ ..{ℓ}
   → ∀ {A : Set ℓ} {a b : A}
   → (ϕ : t a b)
-  → t ϕ (cmp (ϕ , idn 𝟙.*))
+  → t (cmp (ϕ , idn 𝟙.*)) ϕ
 idn-rhs refl = refl
 
 cmp-ass

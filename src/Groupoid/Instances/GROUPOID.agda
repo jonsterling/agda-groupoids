@@ -90,13 +90,13 @@ G.TF.com₁ (G.≅.t.fwd (G.idn-lhs (c _ _ _ _) {_}{B} F)) =
   G.idnˢ B S.Π.$₀ _
 G.TF.nat₁ (G.≅.t.fwd (G.idn-lhs (c _ _ _ _) {_}{B} F)) _ =
   S.cmpᵗ (G.homˢ B _)
-    ( G.idn-rhs B _
+    ( S.invᵗ (G.homˢ B _) (G.idn-rhs B _)
     , G.idn-lhs B _ )
 G.TF.com₁ (G.≅.t.bwd (G.idn-lhs (c _ _ _ _) {_}{B} F)) =
   G.idnˢ B S.Π.$₀ _
 G.TF.nat₁ (G.≅.t.bwd (G.idn-lhs (c _ _ _ _) {_}{B} F)) _ =
   S.cmpᵗ (G.homˢ B _)
-    ( G.idn-rhs B _
+    ( S.invᵗ (G.homˢ B _) (G.idn-rhs B _)
     , G.idn-lhs B _ )
 G.TF.com₂ (G.≅.t.iso-fwd (G.idn-lhs (c _ _ _ _) {_}{B} F)) =
   G.idn-lhs B (G.idnˢ B S.Π.$₀ T.𝟙.*)
@@ -107,13 +107,13 @@ G.TF.com₁ (G.≅.t.fwd (G.idn-rhs (c _ _ _ _) {_}{B} F)) =
   G.idnˢ B S.Π.$₀ _
 G.TF.nat₁ (G.≅.t.fwd (G.idn-rhs (c _ _ _ _) {_}{B} F)) _ =
   S.cmpᵗ (G.homˢ B _)
-    ( G.idn-rhs B _
+    ( S.invᵗ (G.homˢ B _) (G.idn-rhs B _)
     , G.idn-lhs B _ )
 G.TF.com₁ (G.≅.t.bwd (G.idn-rhs (c _ _ _ _) {_}{B} F)) =
   G.idnˢ B S.Π.$₀ _
 G.TF.nat₁ (G.≅.t.bwd (G.idn-rhs (c _ _ _ _) {_}{B} F)) _ =
   S.cmpᵗ (G.homˢ B _)
-    ( G.idn-rhs B _
+    ( S.invᵗ (G.homˢ B _) (G.idn-rhs B _)
     , G.idn-lhs B _ )
 G.TF.com₂ (G.≅.t.iso-fwd (G.idn-rhs (c _ _ _ _) {_}{B} F)) =
   G.idn-lhs B (G.idnˢ B S.Π.$₀ T.𝟙.*)
@@ -125,13 +125,13 @@ G.TF.com₁ (G.≅.t.fwd (G.cmp-ass (c _ _ _ _) {_}{_}{_}{D} _ _ _)) =
   G.idnˢ D S.Π.$₀ _
 G.TF.nat₁ (G.≅.t.fwd (G.cmp-ass (c _ _ _ _) {_}{_}{_}{D} _ _ _)) _ =
   S.cmpᵗ (G.homˢ D _)
-    ( G.idn-rhs D _
+    ( S.invᵗ (G.homˢ D _) (G.idn-rhs D _)
     , G.idn-lhs D _ )
 G.TF.com₁ (G.≅.t.bwd (G.cmp-ass (c _ _ _ _) {_}{_}{_}{D} _ _ _)) =
   G.idnˢ D S.Π.$₀ _
 G.TF.nat₁ (G.≅.t.bwd (G.cmp-ass (c _ _ _ _) {_}{_}{_}{D} _ _ _)) _ =
   S.cmpᵗ (G.homˢ D _)
-    ( G.idn-rhs D _
+    ( S.invᵗ (G.homˢ D _) (G.idn-rhs D _)
     , G.idn-lhs D _ )
 G.TF.com₂ (G.≅.t.iso-fwd (G.cmp-ass (c _ _ _ _) {_}{_}{_}{D} _ _ _)) =
   G.idn-lhs D (G.idnˢ D S.Π.$₀ T.𝟙.*)

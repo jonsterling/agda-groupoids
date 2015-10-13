@@ -76,7 +76,7 @@ com₁ (S.Π._$₀_ (idn₁ˢ {B = B} F) _) =
   G.idnˢ B S.Π.$₀ _
 nat₁ (S.Π._$₀_ (idn₁ˢ {B = B} F) _) _ =
   S.cmpᵗ (G.homˢ B (F Π.$₀ _ , F Π.$₀ _))
-    ( G.idn-rhs B (F Π.$₁ _)
+    ( S.invᵗ (G.homˢ B _) (G.idn-rhs B (F Π.$₁ _))
     , G.idn-lhs B (F Π.$₁ _) )
 com₂ (S.Π._$₁_ (idn₁ˢ {B = B} F) _) =
   G.idnˢ B S.Π.$₁ _
@@ -141,7 +141,7 @@ nat₁ (S.Π._$₀_ (inv₁ˢ {A = A}{B = B}) α) _ =
             , S.invᵗ (G.homˢ B _) (G.cmp-ass B _ _ _) ) )
         , G.cmp-ass B _ _ _)
       , G.cmpˢ B S.Π.$₁ (S.idnᵗ (G.homˢ B _) _ , G.inv-rhs B _))
-    , G.idn-rhs B _)
+    , S.invᵗ (G.homˢ B _) (G.idn-rhs B _) )
 
 record _⇔₁ᵗ_
   {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}

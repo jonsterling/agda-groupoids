@@ -20,9 +20,9 @@ G.cmpˢ (g A) =
 G.invˢ (g A) =
   G.invˢ A
 G.idn-lhs (g A) = λ {b a} f →
-  S.invᵗ (G.homˢ A (a , b)) (G.idn-rhs A f)
+  G.idn-rhs A f
 G.idn-rhs (g A) = λ {b a} f →
-  S.invᵗ (G.homˢ A (a , b)) (G.idn-lhs A f)
+  G.idn-lhs A f
 G.cmp-ass (g A) = λ {d c b a} h g f →
   S.invᵗ (G.homˢ A (a , d)) (G.cmp-ass A f g h)
 G.inv-lhs (g {d = G.Dir.≤} A) = _

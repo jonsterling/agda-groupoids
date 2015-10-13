@@ -57,7 +57,7 @@ idn₀ᵍ
 TF.com₂ (Π.idn (idn₀ᵍ {A = A})) =
   S.idnᵗ (G.homˢ A _) _
 TF.com₂ (Π.cmp (idn₀ᵍ {A = A}) g f) =
-  G.idn-rhs A (G.idnˢ A S.Π.$₀ _)
+  S.invᵗ (G.homˢ A _) (G.idn-rhs A (G.idnˢ A S.Π.$₀ _))
 
 cmp₀ᵍ
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
@@ -72,7 +72,7 @@ cmp₀ᵍ
 TF.com₂ (Π.idn (cmp₀ᵍ {B = B}{C}) {g , _}) =
   S.cmpᵗ (G.homˢ C _)
     ( Π.idn g
-    , S.invᵗ (G.homˢ C _) (G.idn-rhs C (g Π.$₁ (G.idnˢ B S.Π.$₀ T.𝟙.*))) )
+    , G.idn-rhs C (g Π.$₁ (G.idnˢ B S.Π.$₀ T.𝟙.*)) )
 TF.com₂ (Π.cmp (cmp₀ᵍ {C = C}) {c = h₁ , _} (β₁ , _) _) =
   S.cmpᵗ (G.homˢ C _)
     ( S.cmpᵗ (G.homˢ C _)
@@ -98,6 +98,6 @@ TF.com₂ (Π.cmp (cmp₀ᵍ {C = C}) {c = h₁ , _} (β₁ , _) _) =
 Π._$₀_ (!ᵍ a) _ = a
 Π.-$₁ˢ- (!ᵍ {A = A} a) = S.Π.!ˢ (G.idnˢ A S.Π.$₀ _)
 Π.idn (!ᵍ {A = A} a) = S.idnᵗ (G.homˢ A _) _
-Π.cmp (!ᵍ {A = A} a) g f = G.idn-rhs A (G.idnˢ A S.Π.$₀ _)
+Π.cmp (!ᵍ {A = A} a) g f = S.invᵗ (G.homˢ A _) (G.idn-rhs A (G.idnˢ A S.Π.$₀ _))
 
 open import Groupoid.Core.Hom.Boot public

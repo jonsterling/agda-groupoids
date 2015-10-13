@@ -30,7 +30,7 @@ S.Π._$₁_ (S.Π._$₀_ (C.Π.-$₁ˢ- (C.Π._$₀_ (yo A) _)) _) φ =
 S.TF.com₁ (S.Π._$₁_ (C.Π.-$₁ˢ- (C.Π._$₀_ (yo A) _)) φ) =
   C.cmpˢ A S.Π.$₁ (S.idnᵗ (C.G.homˢ A _) _ , φ)
 S.TF.com₁ (C.Π.idn (C.Π._$₀_ (yo A) _)) =
-  S.invᵗ (C.G.homˢ A _) (C.idn-rhs A _)
+  C.idn-rhs A _
 S.TF.com₁ (C.Π.cmp (C.Π._$₀_ (yo A) _) _ _) =
   S.invᵗ (C.G.homˢ A _) (C.cmp-ass A _ _ _)
 S.Π._$₀_ (C.TF.com₁ (S.Π._$₀_ (C.Π.-$₁ˢ- (yo A)) _)) _ =
@@ -71,6 +71,6 @@ S.TF.com₁ (C.TF.nat₁ (S.Π._$₀_ (C.Π.-$₁ˢ- (oy A)) _) _) =
 S.TF.com₁ (C.TF.com₂ (S.Π._$₁_ (C.Π.-$₁ˢ- (oy A)) φ)) =
   C.cmpˢ A S.Π.$₁ (S.idnᵗ (C.G.homˢ A _) _ , φ)
 S.TF.com₁ (C.TF.com₂ (C.Π.idn (oy A))) =
-  S.invᵗ (C.homˢ A _) (C.idn-rhs A _)
+  C.idn-rhs A _
 S.TF.com₁ (C.TF.com₂ (C.Π.cmp (oy A) _ _)) =
   S.invᵗ (C.homˢ A _) (C.cmp-ass A _ _ _)

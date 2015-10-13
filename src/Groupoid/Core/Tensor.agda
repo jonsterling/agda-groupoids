@@ -126,7 +126,9 @@ ap-lhs₀
 Π.cmp (ap-lhs₀ {A = A}{B}{C} F a) g f =
   S.cmpᵗ (G.homˢ C _)
     ( Π.cmp F _ _
-    , F Π.$₂ (G.idn-rhs A _ , S.idnᵗ (G.homˢ B _) _) )
+    , F Π.$₂
+      ( S.invᵗ (G.homˢ A _) (G.idn-rhs A _)
+      , S.idnᵗ (G.homˢ B _) _) )
 
 ap-rhs₀
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
@@ -145,7 +147,9 @@ ap-rhs₀
 Π.cmp (ap-rhs₀ {A = A}{B}{C} F b) g f =
   S.cmpᵗ (G.homˢ C _)
     ( Π.cmp F _ _
-    , F Π.$₂ (S.idnᵗ (G.homˢ A _) _ , G.idn-rhs B _) )
+    , F Π.$₂
+        ( S.idnᵗ (G.homˢ A _) _
+        , S.invᵗ (G.homˢ B _) (G.idn-rhs B _)) )
 
 ⟨_,₀_⟩
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}

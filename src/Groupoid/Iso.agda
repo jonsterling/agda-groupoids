@@ -128,7 +128,7 @@ S.Π._$₁_ (G.invˢ (g Dir.≈ A)) {f₀}{f₁} p =
       , G.cmpˢ A S.Π.$₁
         ( S.idnᵗ (G.homˢ A _) _
         , S.invᵗ (G.homˢ A _) (iso-bwd f₁) ) )
-    , G.idn-rhs A _ )
+    , S.invᵗ (G.homˢ A _) (G.idn-rhs A _) )
 
 G.idn-lhs (g d A) _ =
   G.idn-lhs A _
