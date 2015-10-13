@@ -7,8 +7,8 @@ FLAGS=(--safe --without-K)
 SRC='script/../src'
 
 function main {
-    find "${SRC}" -name '*.agdai' -exec rm {} \;
     pushd "${SRC}"
+    find . -name '*.agdai' -exec rm {} \;
     time agda "${FLAGS[@]}" Everything.agda
     popd
     exit 0
