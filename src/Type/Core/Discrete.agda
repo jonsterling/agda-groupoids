@@ -13,8 +13,8 @@ data t ..{ℓ} {A : Set ℓ} (a : A) : A → Set ℓ where
 {-# BUILTIN EQUALITY t #-}
 {-# BUILTIN REFL refl #-}
 
-primitive
-  primTrustMe : ∀ {ℓ} {A : Set ℓ} {a b : A} → t a b
+-- primitive
+--   primTrustMe : ∀ {ℓ} {A : Set ℓ} {a b : A} → t a b
 
 idn
   : ∀ ..{ℓ} {A : Set ℓ} {a : A}
