@@ -4,12 +4,9 @@ module Category.Iso where
 
 open import Agda.Primitive
 open import Common
-import Groupoid as G
-module C where
-  open import Category public
-  module ≅ where
-    open import Groupoid.Iso {Dir.≤} public
 import Category as C
+import Groupoid as G
+import Groupoid.Iso as GI
 import Setoid as S
 open import Type as T
   using (_,_)
@@ -17,4 +14,14 @@ open import Type as T
 t : ∀ ..{ℓᵒ ℓˢᵒ ℓˢʰ}
   → {A : G.t Dir.≤ ℓᵒ ℓˢᵒ ℓˢʰ}
   → _
-t {A = A} = C.≅.t {A = A}
+t {A = A} = GI.t {A = A}
+
+s : ∀ ..{ℓᵒ ℓˢᵒ ℓˢʰ}
+  → {A : G.t Dir.≤ ℓᵒ ℓˢᵒ ℓˢʰ}
+  → _
+s {A = A} = GI.s {A = A}
+
+c : ∀ ..{ℓᵒ ℓˢᵒ ℓˢʰ}
+  → (A : G.t Dir.≤ ℓᵒ ℓˢᵒ ℓˢʰ)
+  → _
+c A = GI.g A
