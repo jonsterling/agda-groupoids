@@ -21,6 +21,8 @@ import Groupoid.Core.Hom
 import Groupoid.Core.Hom.Boot
 import Groupoid.Core.Homotopy
 import Groupoid.Core.Initial
+import Groupoid.Instances.GROUPOID
+import Groupoid.Instances.SETOID
 import Groupoid.Core.Op
 import Groupoid.Core.Tensor
 import Groupoid.Core.Tensor.Boot
