@@ -157,11 +157,11 @@ record _⇔₁ᵗ_
     .iso-fwd : S.homᵗ (F ⇒₁ˢ F) (cmp₁ˢ S.Π.$₀ (bwd , fwd) , idn₁ˢ F S.Π.$₀ _)
     .iso-bwd : S.homᵗ (G ⇒₁ˢ G) (cmp₁ˢ S.Π.$₀ (fwd , bwd) , idn₁ˢ G S.Π.$₀ _)
 
-  ₁⇒ : ∀ {a} → G.hom₀ B (F Π.$₀ a) (G Π.$₀ a)
-  ₁⇒ = com₁ fwd
+  ⟨_⇒⟩₁ : ∀ {a} → G.hom₀ B (F Π.$₀ a) (G Π.$₀ a)
+  ⟨_⇒⟩₁ = com₁ fwd
 
-  ₁⇐ : ∀ {a} → G.hom₀ B (G Π.$₀ a) (F Π.$₀ a)
-  ₁⇐ = com₁ bwd
+  ⟨_⇐⟩₁ : ∀ {a} → G.hom₀ B (G Π.$₀ a) (F Π.$₀ a)
+  ⟨_⇐⟩₁ = com₁ bwd
 open _⇔₁ᵗ_ public
 
 -- FIXME: cmp-w₀ and cmp-w₀ are problematic because of Hα/βF dependency
