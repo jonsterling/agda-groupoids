@@ -7,7 +7,7 @@ open import Agda.Primitive
 private
   module G where
     open import Groupoid public
-      hiding (module Π; module TF)
+      hiding (module Π)
     module Π where
       open Groupoid.Π public
       open import Groupoid.Bifunctor public

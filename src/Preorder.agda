@@ -7,7 +7,6 @@ import Setoid.Core.Base
 open import Common public
 
 open import Preorder.Core.Base public
-import Setoid.Closed
 import Setoid.Core.Discrete
 import Setoid.Core.Hom
 import Setoid.Core.Homotopy
@@ -15,7 +14,6 @@ import Setoid.Core.Initial
 import Setoid.Core.Op
 import Setoid.Core.Tensor
 import Setoid.Core.Terminal
-import Setoid.Monoidal
 
 module Discrete where
   open import Setoid.Core.Discrete public

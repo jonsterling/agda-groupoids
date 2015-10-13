@@ -28,10 +28,8 @@ import Groupoid.Core.Op
 import Groupoid.Core.Tensor
 import Groupoid.Core.Tensor.Boot
 import Groupoid.Core.Terminal
-import Groupoid.Implicits
 import Groupoid.Iso
 import Groupoid.Monoidal
-import Groupoid.Notation
 import Groupoid.Presheaf
 import Groupoid.Profunctor
 
@@ -40,7 +38,6 @@ import Preorder.Core.Base
 import Preorder.Reasoning
 
 import Setoid
-import Setoid.Closed
 import Setoid.Core.Base
 import Setoid.Core.Discrete
 import Setoid.Core.Hom
@@ -51,12 +48,8 @@ import Setoid.Core.Op
 import Setoid.Core.Tensor
 import Setoid.Core.Tensor.Boot
 import Setoid.Core.Terminal
-import Setoid.Implicits
-import Setoid.Monoidal
-import Setoid.Notation
 
 import Type
-import Type.Closed
 import Type.Core.Base
 import Type.Core.Discrete
 import Type.Core.Hom
@@ -67,6 +60,3 @@ import Type.Core.Op
 import Type.Core.Tensor
 import Type.Core.Tensor.Boot
 import Type.Core.Terminal
-import Type.Implicits
-import Type.Monoidal
-import Type.Notation
