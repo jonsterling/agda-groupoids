@@ -110,3 +110,13 @@ inv₀
   → ∀ (A : t Dir.≈ ℓᵒ ℓˢᵒ ℓˢʰ) {a b}
   → hom₀ A a b → hom₀ A b a
 inv₀ A = invˢ A S.Π.$₀_
+
+s : ∀ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
+  → (A : t d ℓᵒ ℓˢᵒ ℓˢʰ)
+  → S.t d _ _
+S.obj (s A) = obj A
+S.homᵗ (s A) (a , b) = hom₀ A a b
+S.idnᵗ (s A) {a} _ = idn₀ A
+S.cmpᵗ (s A ) (g , f) = cmp₀ A g f
+S.invᵗ (s {Dir.≤} A) = _
+S.invᵗ (s {Dir.≈} A) f = inv₀ A f
