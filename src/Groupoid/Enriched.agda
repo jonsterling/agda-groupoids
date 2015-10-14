@@ -6,11 +6,11 @@ open import Agda.Primitive
 private
   module G where
     open import Groupoid public
-      hiding (module Π)
+      hiding (module Map)
     module Mon where
       open import Groupoid.Monoidal public
-    module Π where
-      open Groupoid.Π public
+    module Map where
+      open Groupoid.Map public
       open import Groupoid.Bifunctor public
 import Setoid as S
 open import Type as T
@@ -22,12 +22,11 @@ record t {d} ..{ℓᵒ ℓᵉᵒ ℓᵉˢᵒ ℓᵉˢʰ}
     : Set (lsuc (ℓᵒ ⊔ ℓᵉᵒ ⊔ ℓᵉˢᵒ ⊔ ℓᵉˢʰ)) where
   no-eta-equality
   open G.Mon.t M
-  open G.TF
   field
     obj
       : Set ℓᵒ
     hom
-      : obj T.∐.⊗ obj → G.obj 𝒱
+      : obj T.Ten.⊗ obj → G.obj 𝒱
     idn
       : ∀ {a}
       → G.hom₀ 𝒱 𝟙 (hom (a , a))
@@ -42,7 +41,7 @@ record t {d} ..{ℓᵒ ℓᵉᵒ ℓᵉˢᵒ ℓᵉˢʰ}
           {hom (a , b)}
       G.⊢ 𝒱 [ cmp ∘₀ (idn ⊗₁ G.idn₀ 𝒱) ]
       ---------------------------------- ≃₁
-      ⟨ ƛ ⇔⟩₁
+      G.Map.⟨ ƛ ⇔⟩₁
 
     idn-rhs
       : ∀ {a b}
@@ -51,13 +50,13 @@ record t {d} ..{ℓᵒ ℓᵉᵒ ℓᵉˢᵒ ℓᵉˢʰ}
           {hom (a , b)}
       G.⊢ 𝒱 [ cmp ∘₀ (G.idn₀ 𝒱 ⊗₁ idn) ]
       ------- ≃₁
-      ⟨ ρ ⇔⟩₁
+      G.Map.⟨ ρ ⇔⟩₁
 
     cmp-ass
       : ∀ {a b c d}
       → G.hom₁ 𝒱
           {(hom (c , d) ⊗₀ hom (b , c)) ⊗₀ hom (a , b)}
           {hom (a , d)}
-      G.⊢ 𝒱 [ G.⊢ 𝒱 [ cmp ∘₀ (G.idn₀ 𝒱 ⊗₁ cmp) ] ∘₀ ⟨ α ⇔⟩₁ ]
-      ------------------------------------------------------- ≃₁
+      G.⊢ 𝒱 [ G.⊢ 𝒱 [ cmp ∘₀ (G.idn₀ 𝒱 ⊗₁ cmp) ] ∘₀ G.Map.⟨ α ⇔⟩₁ ]
+      ------------------------------------------------------------- ≃₁
       G.⊢ 𝒱 [ cmp ∘₀ (cmp ⊗₁ G.idn₀ 𝒱) ]

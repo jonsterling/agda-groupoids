@@ -5,14 +5,12 @@ module Groupoid.Closed where
 open import Agda.Primitive
 module G where
   open import Groupoid public
-    hiding (module Π; module TF)
-  module Π where
-    open Groupoid.Π public
+    hiding (module Map)
+  module Map where
+    open Groupoid.Map public
     open import Groupoid.Bifunctor public
     open import Groupoid.Presheaf public
     open import Groupoid.Profunctor public
-  module TF where
-    open Groupoid.TF public
     open import Groupoid.Dinatural public
 import Setoid as S
 open import Type as T
@@ -23,25 +21,24 @@ record t {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
     : Set (ℓᵒ ⊔ ℓˢᵒ ⊔ ℓˢʰ) where
   no-eta-equality
   open G
-  open TF
-  open ∐
+  open Ten
 
   field
-    ⊸ : A Π.:[ A ]⇏₀ᵗ A
+    ⊸ : A Map.:[ A ]⇏₀ᵗ A
     𝟙 : obj A
 
   _⊸₀_
     : (a₀ : obj A)
     → (a₁ : obj A)
     → obj A
-  _⊸₀_ = λ a₀ a₁ → ⊸ Π.$₀ (a₀ , a₁)
+  _⊸₀_ = λ a₀ a₁ → ⊸ Map.$₀ (a₀ , a₁)
 
   _⊸₁_
     : ∀ {a₀ a₁ a₂ a₃}
     → (f : hom₀ A a₁ a₀)
     → (g : hom₀ A a₂ a₃)
     → hom₀ A (a₀ ⊸₀ a₂) (a₁ ⊸₀ a₃)
-  _⊸₁_ = λ f g → ⊸ Π.$₁ (f , g)
+  _⊸₁_ = λ f g → ⊸ Map.$₁ (f , g)
 
   ._⊸₂_
     : ∀ {a₀ a₁ a₂ a₃}
@@ -50,14 +47,14 @@ record t {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
     → (p₀ : hom₁ A f₀ f₁)
     → (p₁ : hom₁ A g₀ g₁)
     → hom₁ A (f₀ ⊸₁ g₀) (f₁ ⊸₁ g₁)
-  _⊸₂_ = λ p₀ p₁ → ⊸ Π.$₂ (p₀ , p₁)
+  _⊸₂_ = λ p₀ p₁ → ⊸ Map.$₂ (p₀ , p₁)
 
-  lazy : A Π.⇒₀ᵗ A
-  lazy = ⟨ Π.!ᵍ 𝟙 [ ⊸ ],₀ - ⟩
+  lazy : A Map.⇒₀ᵗ A
+  lazy = ⟨ Map.!ᵍ 𝟙 [ ⊸ ],₀ - ⟩
 
-  dual : A Π.⇏₀ᵗ A
-  dual = ⟨ - [ ⊸ ],₀ Π.!ᵍ 𝟙 ⟩
+  dual : A Map.⇏₀ᵗ A
+  dual = ⟨ - [ ⊸ ],₀ Map.!ᵍ 𝟙 ⟩
 
   field
-    susp : - ⇔₁ᵗ lazy
-    idn : Π.!:[ A ]₀ 𝟙 :⇏₁ᵗ ⊸
+    susp : - Map.⇔₁ᵗ lazy
+    idn : Map.!:[ A ]₀ 𝟙 Map.:⇏₁ᵗ ⊸

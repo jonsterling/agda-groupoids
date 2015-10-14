@@ -2,7 +2,7 @@
 
 open import Agda.Primitive
 open import Common
-import Preorder.Core.Base as P
+import Ambient.Preorder.Base as P
 open import Type as T
   using (_,_)
 

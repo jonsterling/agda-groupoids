@@ -9,9 +9,9 @@ module C where
     module SETOID where
       open import Category.Instances.SETOID public
   open import Category public
-    hiding (module Π)
-  module Π where
-    open Category.Π public
+    hiding (module Map)
+  module Map where
+    open Category.Map public
     open import Groupoid.Presheaf {Dir.≤} public
 import Setoid as S
 open import Type as T
@@ -20,57 +20,57 @@ open import Type as T
 yo
   : ∀ ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
   → (A : C.t ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ)
-  → A C.Π.⇒₀ᵗ (A C.Π.⇏₀ᵍ C.I.SETOID.c _ _)
-C.Π._$₀_ (C.Π._$₀_ (yo A) b) a =
+  → A C.Map.⇒₀ᵗ (A C.Map.⇏₀ᵍ C.I.SETOID.c _ _)
+C.Map._$₀_ (C.Map._$₀_ (yo A) b) a =
   C.homˢ A (a , b)
-S.Π._$₀_ (S.Π._$₀_ (C.Π.-$₁ˢ- (C.Π._$₀_ (yo A) _)) f) g =
-  C.cmpˢ A S.Π.$₀ (g , f)
-S.Π._$₁_ (S.Π._$₀_ (C.Π.-$₁ˢ- (C.Π._$₀_ (yo A) _)) _) φ =
-  C.cmpˢ A S.Π.$₁ (φ , S.idnᵗ (C.G.homˢ A _) _)
-S.TF.com₁ (S.Π._$₁_ (C.Π.-$₁ˢ- (C.Π._$₀_ (yo A) _)) φ) =
-  C.cmpˢ A S.Π.$₁ (S.idnᵗ (C.G.homˢ A _) _ , φ)
-S.TF.com₁ (C.Π.idn (C.Π._$₀_ (yo A) _)) =
+S.Map._$₀_ (S.Map._$₀_ (C.Map.-$₁ˢ- (C.Map._$₀_ (yo A) _)) f) g =
+  C.cmpˢ A S.Map.$₀ (g , f)
+S.Map._$₁_ (S.Map._$₀_ (C.Map.-$₁ˢ- (C.Map._$₀_ (yo A) _)) _) φ =
+  C.cmpˢ A S.Map.$₁ (φ , S.idnᵗ (C.G.homˢ A _) _)
+S.Map.com₁ (S.Map._$₁_ (C.Map.-$₁ˢ- (C.Map._$₀_ (yo A) _)) φ) =
+  C.cmpˢ A S.Map.$₁ (S.idnᵗ (C.G.homˢ A _) _ , φ)
+S.Map.com₁ (C.Map.idn (C.Map._$₀_ (yo A) _)) =
   C.idn-rhs A _
-S.TF.com₁ (C.Π.cmp (C.Π._$₀_ (yo A) _) _ _) =
+S.Map.com₁ (C.Map.cmp (C.Map._$₀_ (yo A) _) _ _) =
   S.invᵗ (C.G.homˢ A _) (C.cmp-ass A _ _ _)
-S.Π._$₀_ (C.TF.com₁ (S.Π._$₀_ (C.Π.-$₁ˢ- (yo A)) _)) _ =
-  C.cmpˢ A S.Π.$₀ (_ , _)
-S.Π._$₁_ (C.TF.com₁ (S.Π._$₀_ (C.Π.-$₁ˢ- (yo A)) _)) φ =
-  C.cmpˢ A S.Π.$₁ (S.idnᵗ (C.G.homˢ A _) _ , φ)
-S.TF.com₁ (C.TF.nat₁ (S.Π._$₀_ (C.Π.-$₁ˢ- (yo A)) _) _) =
+S.Map._$₀_ (C.Map.com₁ (S.Map._$₀_ (C.Map.-$₁ˢ- (yo A)) _)) _ =
+  C.cmpˢ A S.Map.$₀ (_ , _)
+S.Map._$₁_ (C.Map.com₁ (S.Map._$₀_ (C.Map.-$₁ˢ- (yo A)) _)) φ =
+  C.cmpˢ A S.Map.$₁ (S.idnᵗ (C.G.homˢ A _) _ , φ)
+S.Map.com₁ (C.Map.nat₁ (S.Map._$₀_ (C.Map.-$₁ˢ- (yo A)) _) _) =
   S.invᵗ (C.G.homˢ A _) (C.cmp-ass A _ _ _)
-S.TF.com₁ (C.TF.com₂ (S.Π._$₁_ (C.Π.-$₁ˢ- (yo A)) φ)) =
-  C.cmpˢ A S.Π.$₁ (φ , S.idnᵗ (C.G.homˢ A _) _)
-S.TF.com₁ (C.TF.com₂ (C.Π.idn (yo A))) =
+S.Map.com₁ (C.Map.com₂ (S.Map._$₁_ (C.Map.-$₁ˢ- (yo A)) φ)) =
+  C.cmpˢ A S.Map.$₁ (φ , S.idnᵗ (C.G.homˢ A _) _)
+S.Map.com₁ (C.Map.com₂ (C.Map.idn (yo A))) =
   C.idn-lhs A _
-S.TF.com₁ (C.TF.com₂ (C.Π.cmp (yo A) _ _)) =
+S.Map.com₁ (C.Map.com₂ (C.Map.cmp (yo A) _ _)) =
   C.cmp-ass A _ _ _
 
 oy
   : ∀ ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
   → (A : C.t ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ)
-  → A C.Π.⇏₀ᵗ (A C.Π.⇒₀ᵍ C.I.SETOID.c _ _)
-C.Π._$₀_ (C.Π._$₀_ (oy A) a) b =
+  → A C.Map.⇏₀ᵗ (A C.Map.⇒₀ᵍ C.I.SETOID.c _ _)
+C.Map._$₀_ (C.Map._$₀_ (oy A) a) b =
   C.homˢ A (a , b)
-S.Π._$₀_ (S.Π._$₀_ (C.Π.-$₁ˢ- (C.Π._$₀_ (oy A) _)) g) f =
-  C.cmpˢ A S.Π.$₀ (g , f)
-S.Π._$₁_ (S.Π._$₀_ (C.Π.-$₁ˢ- (C.Π._$₀_ (oy A) _)) _) φ =
-  C.cmpˢ A S.Π.$₁ (S.idnᵗ (C.G.homˢ A _) _ , φ)
-S.TF.com₁ (S.Π._$₁_ (C.Π.-$₁ˢ- (C.Π._$₀_ (oy A) _)) φ) =
-  C.cmpˢ A S.Π.$₁ (φ , S.idnᵗ (C.G.homˢ A _) _)
-S.TF.com₁ (C.Π.idn (C.Π._$₀_ (oy A) _)) =
+S.Map._$₀_ (S.Map._$₀_ (C.Map.-$₁ˢ- (C.Map._$₀_ (oy A) _)) g) f =
+  C.cmpˢ A S.Map.$₀ (g , f)
+S.Map._$₁_ (S.Map._$₀_ (C.Map.-$₁ˢ- (C.Map._$₀_ (oy A) _)) _) φ =
+  C.cmpˢ A S.Map.$₁ (S.idnᵗ (C.G.homˢ A _) _ , φ)
+S.Map.com₁ (S.Map._$₁_ (C.Map.-$₁ˢ- (C.Map._$₀_ (oy A) _)) φ) =
+  C.cmpˢ A S.Map.$₁ (φ , S.idnᵗ (C.G.homˢ A _) _)
+S.Map.com₁ (C.Map.idn (C.Map._$₀_ (oy A) _)) =
   C.idn-lhs A _
-S.TF.com₁ (C.Π.cmp (C.Π._$₀_ (oy A) _) _ _) =
+S.Map.com₁ (C.Map.cmp (C.Map._$₀_ (oy A) _) _ _) =
   C.cmp-ass A _ _ _
-S.Π._$₀_ (C.TF.com₁ (S.Π._$₀_ (C.Π.-$₁ˢ- (oy A)) _)) _ =
-  C.cmpˢ A S.Π.$₀ (_ , _)
-S.Π._$₁_ (C.TF.com₁ (S.Π._$₀_ (C.Π.-$₁ˢ- (oy A)) _)) φ =
-  C.cmpˢ A S.Π.$₁ (φ , S.idnᵗ (C.G.homˢ A _) _)
-S.TF.com₁ (C.TF.nat₁ (S.Π._$₀_ (C.Π.-$₁ˢ- (oy A)) _) _) =
+S.Map._$₀_ (C.Map.com₁ (S.Map._$₀_ (C.Map.-$₁ˢ- (oy A)) _)) _ =
+  C.cmpˢ A S.Map.$₀ (_ , _)
+S.Map._$₁_ (C.Map.com₁ (S.Map._$₀_ (C.Map.-$₁ˢ- (oy A)) _)) φ =
+  C.cmpˢ A S.Map.$₁ (φ , S.idnᵗ (C.G.homˢ A _) _)
+S.Map.com₁ (C.Map.nat₁ (S.Map._$₀_ (C.Map.-$₁ˢ- (oy A)) _) _) =
   C.cmp-ass A _ _ _
-S.TF.com₁ (C.TF.com₂ (S.Π._$₁_ (C.Π.-$₁ˢ- (oy A)) φ)) =
-  C.cmpˢ A S.Π.$₁ (S.idnᵗ (C.G.homˢ A _) _ , φ)
-S.TF.com₁ (C.TF.com₂ (C.Π.idn (oy A))) =
+S.Map.com₁ (C.Map.com₂ (S.Map._$₁_ (C.Map.-$₁ˢ- (oy A)) φ)) =
+  C.cmpˢ A S.Map.$₁ (S.idnᵗ (C.G.homˢ A _) _ , φ)
+S.Map.com₁ (C.Map.com₂ (C.Map.idn (oy A))) =
   C.idn-rhs A _
-S.TF.com₁ (C.TF.com₂ (C.Π.cmp (oy A) _ _)) =
+S.Map.com₁ (C.Map.com₂ (C.Map.cmp (oy A) _ _)) =
   S.invᵗ (C.homˢ A _) (C.cmp-ass A _ _ _)

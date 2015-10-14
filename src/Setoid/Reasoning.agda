@@ -2,7 +2,7 @@
 
 open import Agda.Primitive
 open import Common
-import Setoid.Core.Base as S
+import Ambient.Setoid.Base as S
 open import Type as T
   using (_,_)
 

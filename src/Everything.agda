@@ -2,8 +2,41 @@
 
 module Everything where
 
+import Ambient.Category.Base
+
+import Ambient.Groupoid.Base
+import Ambient.Groupoid.Discrete
+import Ambient.Groupoid.Initial
+import Ambient.Groupoid.Map
+import Ambient.Groupoid.Map.Boot
+import Ambient.Groupoid.Op
+import Ambient.Groupoid.Tensor
+import Ambient.Groupoid.Tensor.Boot
+import Ambient.Groupoid.Terminal
+
+import Ambient.Preorder.Base
+
+import Ambient.Setoid.Base
+import Ambient.Setoid.Discrete
+import Ambient.Setoid.Initial
+import Ambient.Setoid.Map
+import Ambient.Setoid.Map.Boot
+import Ambient.Setoid.Op
+import Ambient.Setoid.Tensor
+import Ambient.Setoid.Tensor.Boot
+import Ambient.Setoid.Terminal
+
+import Ambient.Type.Base
+import Ambient.Type.Discrete
+import Ambient.Type.Initial
+import Ambient.Type.Map
+import Ambient.Type.Map.Boot
+import Ambient.Type.Op
+import Ambient.Type.Tensor
+import Ambient.Type.Tensor.Boot
+import Ambient.Type.Terminal
+
 import Category
-import Category.Core.Base
 import Category.Instances.SETOID
 import Category.Instances.SETOID.Closed
 import Category.Instances.SETOID.Monoidal
@@ -13,50 +46,19 @@ import Category.Yoneda
 
 import Groupoid
 import Groupoid.Bifunctor
-import Groupoid.Dinatural
 import Groupoid.Closed
-import Groupoid.Core.Base
-import Groupoid.Core.Discrete
-import Groupoid.Core.Hom
-import Groupoid.Core.Hom.Boot
-import Groupoid.Core.Homotopy
-import Groupoid.Core.Initial
+import Groupoid.Dinatural
 import Groupoid.Enriched
 import Groupoid.Instances.GROUPOID
 import Groupoid.Instances.SETOID
-import Groupoid.Core.Op
-import Groupoid.Core.Tensor
-import Groupoid.Core.Tensor.Boot
-import Groupoid.Core.Terminal
 import Groupoid.Iso
 import Groupoid.Monoidal
 import Groupoid.Presheaf
 import Groupoid.Profunctor
 
 import Preorder
-import Preorder.Core.Base
 import Preorder.Reasoning
 
 import Setoid
-import Setoid.Core.Base
-import Setoid.Core.Discrete
-import Setoid.Core.Hom
-import Setoid.Core.Hom.Boot
-import Setoid.Core.Homotopy
-import Setoid.Core.Initial
-import Setoid.Core.Op
-import Setoid.Core.Tensor
-import Setoid.Core.Tensor.Boot
-import Setoid.Core.Terminal
 
 import Type
-import Type.Core.Base
-import Type.Core.Discrete
-import Type.Core.Hom
-import Type.Core.Hom.Boot
-import Type.Core.Homotopy
-import Type.Core.Initial
-import Type.Core.Op
-import Type.Core.Tensor
-import Type.Core.Tensor.Boot
-import Type.Core.Terminal

@@ -5,10 +5,10 @@ module Category.Iso where
 open import Agda.Primitive
 import Category as C
 import Groupoid as G
-import Groupoid.Iso as GI
 import Setoid as S
 open import Type as T
   using (_,_)
+import Groupoid.Iso as GI
 
 t : ∀ ..{ℓᵒ ℓˢᵒ ℓˢʰ}
   → {A : G.t G.Dir.≤ ℓᵒ ℓˢᵒ ℓˢʰ}

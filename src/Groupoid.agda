@@ -3,35 +3,32 @@
 module Groupoid where
 
 open import Agda.Primitive
-open import Groupoid.Core.Base public
-import Groupoid.Core.Discrete
-import Groupoid.Core.Hom
-import Groupoid.Core.Homotopy
-import Groupoid.Core.Initial
-import Groupoid.Core.Op
-import Groupoid.Core.Tensor
-import Groupoid.Core.Terminal
+open import Ambient.Groupoid.Base public
+import Ambient.Groupoid.Discrete
+import Ambient.Groupoid.Map
+import Ambient.Groupoid.Initial
+import Ambient.Groupoid.Op
+import Ambient.Groupoid.Tensor
+import Ambient.Groupoid.Terminal
 import Type as T
 
 module ≡ where
-  open import Groupoid.Core.Discrete public
-module Π where
-  open import Groupoid.Core.Hom public
-  open import Groupoid.Core.Hom.Boot public
-module TF where
-  open import Groupoid.Core.Homotopy public
+  open import Ambient.Groupoid.Discrete public
 module 𝟘 where
-  open import Groupoid.Core.Initial public
-module Op where
-  open import Groupoid.Core.Op public
-module ∐ where
-  open import Groupoid.Core.Tensor public
-  open import Groupoid.Core.Tensor.Boot public
+  open import Ambient.Groupoid.Initial public
 module 𝟙 where
-  open import Groupoid.Core.Terminal public
+  open import Ambient.Groupoid.Terminal public
+module Op where
+  open import Ambient.Groupoid.Op public
+module Map where
+  open import Ambient.Groupoid.Map public
+  open import Ambient.Groupoid.Map.Boot public
+module Ten where
+  open import Ambient.Groupoid.Tensor public
+  open import Ambient.Groupoid.Tensor.Boot public
 
 -
   : ∀ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
   → {A : t d ℓᵒ ℓˢᵒ ℓˢʰ}
-  → A Π.⇒₀ᵗ A
-- = Π.idn₀ᵗ T.𝟙.*
+  → A Map.⇒₀ᵗ A
+- = Map.idn₀ᵗ T.𝟙.*

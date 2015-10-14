@@ -12,12 +12,12 @@ private
 private
   module G where
     open import Groupoid public
-      hiding (module TF)
+      hiding (module Map)
     module Clo where
       open import Groupoid.Closed public
         hiding (module G)
-    module TF where
-      open Groupoid.TF public
+    module Map where
+      open Groupoid.Map public
       open import Groupoid.Dinatural public
 import Setoid as S
 open import Type as T
@@ -29,17 +29,17 @@ clo
   → G.Clo.t (C.I.SETOID.c ℓ ℓ)
 
 -- ⊸
-G.Π._$₀_ (G.Clo.t.⊸ clo) (A , B) =
-  A S.Π.⇒₀ˢ B
-S.Π._$₀_ (S.Π._$₀_ (G.Π.-$₁ˢ- (G.Clo.t.⊸ clo)) (f , g)) h =
-  g S.Π.∘₀ h S.Π.∘₀ f
-S.TF.com₁ (S.Π._$₁_ (S.Π._$₀_ (G.Π.-$₁ˢ- (G.Clo.t.⊸ clo)) (_ , g)) α) =
-  g S.Π.$₁ S.TF.com₁ α
-S.TF.com₁ (S.TF.com₁ (S.Π._$₁_ (G.Π.-$₁ˢ- (G.Clo.t.⊸ clo) {_}{_ , D}) {_ , g₀} (α , β)) {h}) =
-  S.cmpᵗ D (S.TF.com₁ β , g₀ S.Π.$₁ h S.Π.$₁ S.TF.com₁ α)
-S.TF.com₁ (S.TF.com₁ (G.Π.idn (G.Clo.t.⊸ clo) {_ , B})) =
+G.Map._$₀_ (G.Clo.t.⊸ clo) (A , B) =
+  A S.Map.⇒₀ˢ B
+S.Map._$₀_ (S.Map._$₀_ (G.Map.-$₁ˢ- (G.Clo.t.⊸ clo)) (f , g)) h =
+  g S.Map.∘₀ h S.Map.∘₀ f
+S.Map.com₁ (S.Map._$₁_ (S.Map._$₀_ (G.Map.-$₁ˢ- (G.Clo.t.⊸ clo)) (_ , g)) α) =
+  g S.Map.$₁ S.Map.com₁ α
+S.Map.com₁ (S.Map.com₁ (S.Map._$₁_ (G.Map.-$₁ˢ- (G.Clo.t.⊸ clo) {_}{_ , D}) {_ , g₀} (α , β)) {h}) =
+  S.cmpᵗ D (S.Map.com₁ β , g₀ S.Map.$₁ h S.Map.$₁ S.Map.com₁ α)
+S.Map.com₁ (S.Map.com₁ (G.Map.idn (G.Clo.t.⊸ clo) {_ , B})) =
   S.idnᵗ B _
-S.TF.com₁ (S.TF.com₁ (G.Π.cmp (G.Clo.t.⊸ clo) {_}{_}{_ , R} _ _)) =
+S.Map.com₁ (S.Map.com₁ (G.Map.cmp (G.Clo.t.⊸ clo) {_}{_}{_ , R} _ _)) =
   S.idnᵗ R _
 
 -- 𝟙
@@ -47,27 +47,27 @@ G.Clo.t.𝟙 clo =
   S.𝟙.s
 
 -- susp
-S.Π._$₀_ (G.TF.com₁ (G.TF.fwd (G.Clo.t.susp clo)) {A}) a =
-  S.Π.!ˢ a
-S.TF.com₁ (S.Π._$₁_ (G.TF.com₁ (G.TF.fwd (G.Clo.t.susp clo)) {A}) {a}{b} f) =
+S.Map._$₀_ (G.Map.com₁ (G.Map.fwd (G.Clo.t.susp clo)) {A}) a =
+  S.Map.!ˢ a
+S.Map.com₁ (S.Map._$₁_ (G.Map.com₁ (G.Map.fwd (G.Clo.t.susp clo)) {A}) {a}{b} f) =
   f
-S.TF.com₁ (S.TF.com₁ (G.TF.nat₁ (G.TF.fwd (G.Clo.t.susp clo)) {_}{B} f)) =
+S.Map.com₁ (S.Map.com₁ (G.Map.nat₁ (G.Map.fwd (G.Clo.t.susp clo)) {_}{B} f)) =
   S.idnᵗ B _
-S.Π._$₀_ (G.TF.com₁ (G.TF.bwd (G.Clo.t.susp clo)) {A}) =
-  S.Π._$₀ T.𝟙.*
-S.Π._$₁_ (G.TF.com₁ (G.TF.bwd (G.Clo.t.susp clo)) {A}) {f₀}{f₁} α =
-  S.TF.com₁ α
-S.TF.com₁ (G.TF.nat₁ (G.TF.bwd (G.Clo.t.susp clo)) {_}{B} f) =
+S.Map._$₀_ (G.Map.com₁ (G.Map.bwd (G.Clo.t.susp clo)) {A}) =
+  S.Map._$₀ T.𝟙.*
+S.Map._$₁_ (G.Map.com₁ (G.Map.bwd (G.Clo.t.susp clo)) {A}) {f₀}{f₁} α =
+  S.Map.com₁ α
+S.Map.com₁ (G.Map.nat₁ (G.Map.bwd (G.Clo.t.susp clo)) {_}{B} f) =
   S.idnᵗ B _
-S.TF.com₁ (G.TF.com₂ (G.TF.iso-fwd (G.Clo.t.susp clo)) {A}) =
+S.Map.com₁ (G.Map.com₂ (G.Map.iso-fwd (G.Clo.t.susp clo)) {A}) =
   S.idnᵗ A _
-S.TF.com₁ (S.TF.com₁ (G.TF.com₂ (G.TF.iso-bwd (G.Clo.t.susp clo)) {A})) =
+S.Map.com₁ (S.Map.com₁ (G.Map.com₂ (G.Map.iso-bwd (G.Clo.t.susp clo)) {A})) =
   S.idnᵗ A _
 
 -- idn
-S.Π._$₀_ (G.TF._:⇏₁ᵗ_.com₁ (G.Clo.t.idn clo) {A}) _ =
-  S.Π.idn₀ᵗ _
-S.TF.com₁ (S.Π._$₁_ (G.TF._:⇏₁ᵗ_.com₁ (G.Clo.t.idn clo) {A}) _) {a} =
+S.Map._$₀_ (G.Map._:⇏₁ᵗ_.com₁ (G.Clo.t.idn clo) {A}) _ =
+  S.Map.idn₀ᵗ _
+S.Map.com₁ (S.Map._$₁_ (G.Map._:⇏₁ᵗ_.com₁ (G.Clo.t.idn clo) {A}) _) {a} =
   S.idnᵗ A {a} _
-S.TF.com₁ (S.TF.com₁ (G.TF._:⇏₁ᵗ_.nat₁ (G.Clo.t.idn clo) {_}{B} f)) =
+S.Map.com₁ (S.Map.com₁ (G.Map._:⇏₁ᵗ_.nat₁ (G.Clo.t.idn clo) {_}{B} f)) =
   S.idnᵗ B _

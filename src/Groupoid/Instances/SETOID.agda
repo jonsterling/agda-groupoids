@@ -16,16 +16,16 @@ c : ..(ℓᵒ ℓʰ : _) → G.t S.Dir.≤ _ _ _
 G.obj (c ℓᵒ ℓʰ) =
   S.t S.Dir.≈ ℓᵒ ℓʰ
 G.homˢ (c _ _) =
-  λ {(a , b) → a S.Π.⇒₀ˢ b}
+  λ {(a , b) → a S.Map.⇒₀ˢ b}
 G.idnˢ (c _ _) =
-  S.Π.idn₀ˢ
+  S.Map.idn₀ˢ
 G.cmpˢ (c _ _) =
-  S.Π.cmp₀ˢ
-S.TF.com₁ (G.idn-lhs (c _ _) {b = B} _) =
+  S.Map.cmp₀ˢ
+S.Map.com₁ (G.idn-lhs (c _ _) {b = B} _) =
   S.idnᵗ B _
-S.TF.com₁ (G.idn-rhs (c _ _) {b = B} _) =
+S.Map.com₁ (G.idn-rhs (c _ _) {b = B} _) =
   S.idnᵗ B _
-S.TF.com₁ (G.cmp-ass (c _ _) {d = D} _ _ _) =
+S.Map.com₁ (G.cmp-ass (c _ _) {d = D} _ _ _) =
   S.idnᵗ D _
 G.invˢ (c _ _) =
   _

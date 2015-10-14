@@ -3,31 +3,28 @@
 module Preorder where
 
 open import Agda.Primitive
-import Setoid.Core.Base
+import Ambient.Setoid.Base
 open import Common public
 
-open import Preorder.Core.Base public
-import Setoid.Core.Discrete
-import Setoid.Core.Hom
-import Setoid.Core.Homotopy
-import Setoid.Core.Initial
-import Setoid.Core.Op
-import Setoid.Core.Tensor
-import Setoid.Core.Terminal
+open import Ambient.Preorder.Base public
+import Ambient.Setoid.Discrete
+import Ambient.Setoid.Initial
+import Ambient.Setoid.Map
+import Ambient.Setoid.Op
+import Ambient.Setoid.Tensor
+import Ambient.Setoid.Terminal
 
-module Discrete where
-  open import Setoid.Core.Discrete public
-module Π where
-  open import Setoid.Core.Hom public
-  open import Setoid.Core.Hom.Boot public
-module TF where
-  open import Setoid.Core.Homotopy public
+module ≡ where
+  open import Ambient.Setoid.Discrete public
 module 𝟘 where
-  open import Setoid.Core.Initial public
-module Op where
-  open import Setoid.Core.Op public
-module ∐ where
-  open import Setoid.Core.Tensor public
-  open import Setoid.Core.Tensor.Boot public
+  open import Ambient.Setoid.Initial public
 module 𝟙 where
-  open import Setoid.Core.Terminal public
+  open import Ambient.Setoid.Terminal public
+module Op where
+  open import Ambient.Setoid.Op public
+module Map where
+  open import Ambient.Setoid.Map public
+  open import Ambient.Setoid.Map.Boot public
+module Ten where
+  open import Ambient.Setoid.Tensor public
+  open import Ambient.Setoid.Tensor.Boot public

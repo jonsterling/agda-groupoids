@@ -1,7 +1,7 @@
 {-# OPTIONS --without-K #-}
 
 open import Agda.Primitive
-import Category.Core.Base as C
+import Ambient.Category.Base as C
 import Setoid as S
 open import Type as T
   using (_,_)
@@ -19,7 +19,7 @@ module Category.Reasoning ..{ℓᵒ ℓˢᵒ ℓˢʰ} (A : C.t ℓᵒ ℓˢᵒ �
   proof [ a≤b ] = a≤b
 
   _∎ : ∀ a → a ⊢≤ a
-  _∎ _ = [ C.idnˢ A S.Π.$₀ T.𝟙.* ]
+  _∎ _ = [ C.idnˢ A S.Map.$₀ T.𝟙.* ]
 
   _≤⟨_⟩_ : ∀ a {b c} → S.obj (C.homˢ A (a , b)) → b ⊢≤ c → a ⊢≤ c
-  _ ≤⟨ a≤b ⟩ [ b≤c ] = [ C.cmpˢ A S.Π.$₀ (b≤c , a≤b) ]
+  _ ≤⟨ a≤b ⟩ [ b≤c ] = [ C.cmpˢ A S.Map.$₀ (b≤c , a≤b) ]
