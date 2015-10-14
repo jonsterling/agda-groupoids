@@ -111,12 +111,62 @@ inv₀
   → hom₀ A a b → hom₀ A b a
 inv₀ A = invˢ A S.Π.$₀_
 
-s : ∀ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
+S↑G : ∀ {d} ..{ℓᵒ ℓʰ}
+  → (A : S.t d ℓᵒ ℓʰ)
+  → t d _ _ lzero
+obj (S↑G A) =
+  S.obj A
+S.obj (homˢ (S↑G A) (a , b)) =
+  S.homᵗ A (a , b)
+S.homᵗ (homˢ (S↑G A) (a , b)) _ =
+  T.𝟙.t
+S.idnᵗ (homˢ (S↑G A) (a , b)) =
+  _
+S.cmpᵗ (homˢ (S↑G A) (a , b)) =
+  _
+S.invᵗ (homˢ (S↑G A) (a , b)) =
+  _
+S.Π._$₀_ (idnˢ (S↑G A)) =
+  S.idnᵗ A
+S.Π._$₁_ (idnˢ (S↑G A)) =
+  _
+S.Π._$₀_ (cmpˢ (S↑G A)) =
+  S.cmpᵗ A
+S.Π._$₁_ (cmpˢ (S↑G {ℓʰ = ℓʰ} A) ) =
+  _
+invˢ (S↑G {Dir.≤} A) =
+  _
+S.Π._$₀_ (invˢ (S↑G {Dir.≈} A)) =
+  S.invᵗ A
+S.Π._$₁_ (invˢ (S↑G {Dir.≈} {ℓʰ = ℓʰ} A)) =
+  _
+idn-lhs (S↑G A) =
+  _
+idn-rhs (S↑G A) =
+  _
+cmp-ass (S↑G A) =
+  _
+inv-lhs (S↑G {Dir.≤} A) =
+  _
+inv-lhs (S↑G {Dir.≈} A) =
+  _
+inv-rhs (S↑G {Dir.≤} A) =
+  _
+inv-rhs (S↑G {Dir.≈} A) =
+  _
+
+G↓S : ∀ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
   → (A : t d ℓᵒ ℓˢᵒ ℓˢʰ)
   → S.t d _ _
-S.obj (s A) = obj A
-S.homᵗ (s A) (a , b) = hom₀ A a b
-S.idnᵗ (s A) {a} _ = idn₀ A
-S.cmpᵗ (s A ) (g , f) = cmp₀ A g f
-S.invᵗ (s {Dir.≤} A) = _
-S.invᵗ (s {Dir.≈} A) f = inv₀ A f
+S.obj (G↓S A) =
+  obj A
+S.homᵗ (G↓S A) (a , b) =
+  hom₀ A a b
+S.idnᵗ (G↓S A) {a} _ =
+  idn₀ A
+S.cmpᵗ (G↓S A ) (g , f) =
+  cmp₀ A g f
+S.invᵗ (G↓S {Dir.≤} A) =
+  _
+S.invᵗ (G↓S {Dir.≈} A) f =
+  inv₀ A f

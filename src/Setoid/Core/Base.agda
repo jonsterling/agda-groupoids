@@ -24,3 +24,24 @@ record t d ..(ℓᵒ ℓʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓʰ)) where
       : ∀ {a b}
       → Dir.el d T.𝟙.t (homᵗ (a , b) T.Π.⇒₀ homᵗ (b , a))
 open t public
+
+T↑S : ∀ {d} ..{ℓᵒ}
+  → (A : T.t ℓᵒ )
+  → t d _ lzero
+obj (T↑S A) =
+  A
+homᵗ (T↑S A) _ =
+  T.𝟙.t
+idnᵗ (T↑S A) =
+  _
+cmpᵗ (T↑S A) =
+  _
+invᵗ (T↑S {Dir.≤} A) =
+  _
+invᵗ (T↑S {Dir.≈} A) =
+  _
+
+S↓T : ∀ {d} ..{ℓᵒ ℓʰ}
+  → (A : t d ℓᵒ ℓʰ)
+  → T.t _
+S↓T = obj

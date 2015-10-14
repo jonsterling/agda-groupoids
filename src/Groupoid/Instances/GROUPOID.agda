@@ -18,7 +18,7 @@ G.obj (c d ℓᵒ ℓˢᵒ ℓˢʰ) =
   G.t d ℓᵒ ℓˢᵒ ℓˢʰ
 -- hom
 G.homˢ (c _ _ _ _) (a , b) =
-  G.s (G.≅.g G.Dir.≈ (a G.Π.⇒₀ᵍ b))
+  G.G↓S (G.≅.g G.Dir.≈ (a G.Π.⇒₀ᵍ b))
 -- idn
 S.Π._$₀_ (G.idnˢ (c _ _ _ _)) =
   G.Π.idn₀ᵗ
