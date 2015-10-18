@@ -8,24 +8,33 @@ import Ambient.Type.Discrete
 import Ambient.Type.Map
 import Ambient.Type.Initial
 import Ambient.Type.Op
-import Ambient.Type.Tensor
+import Ambient.Type.Product
 import Ambient.Type.Terminal
 
-module ≡ where
+module ≡₀ where
   open import Ambient.Type.Discrete public
-    renaming (t to _t_)
-module 𝟘 where
+module 𝟘₀ where
   open import Ambient.Type.Initial public
-module 𝟙 where
+module 𝟙₀ where
   open import Ambient.Type.Terminal public
-module Op where
+module Op₀ where
   open import Ambient.Type.Op public
-module Map where
+module ⇒₀ where
   open import Ambient.Type.Map public
   open import Ambient.Type.Map.Boot public
-module Ten where
-  open import Ambient.Type.Tensor public
-  open import Ambient.Type.Tensor.Boot public
+module ×₀ where
+  open import Ambient.Type.Product public
+  open import Ambient.Type.Product.Boot public
 
-open Ambient.Type.Tensor public
-  using (_,_)
+open ≡₀ public
+  using (_≡₀_)
+open 𝟘₀ public
+  using (𝟘₀)
+open 𝟙₀ public
+  using (𝟙₀; *)
+open Op₀ public
+  using (Op₀)
+open ⇒₀ public
+  using (_⇒₀,₀_; _⇒₀,₁_)
+open ×₀ public
+  using (_,_; π⁰₀; π¹₀; _×₀_; ⟨_,₀_⟩; ⟨_×₀_⟩)

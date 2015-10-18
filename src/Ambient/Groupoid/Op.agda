@@ -6,13 +6,14 @@ open import Agda.Primitive
 import Ambient.Groupoid.Base as G
 import Setoid as S
 open import Type as T
-  using (_,_)
 
-g : ∀ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ} → G.t d ℓᵒ ℓˢᵒ ℓˢʰ → G.t d ℓᵒ ℓˢᵒ ℓˢʰ
+g : ∀ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
+  → (A : G.𝔊₂,₀ d ℓᵒ ℓˢᵒ ℓˢʰ)
+  → G.𝔊₂,₀ d ℓᵒ ℓˢᵒ ℓˢʰ
 G.obj (g A) =
-  T.Op.t (G.t.obj A)
+  Op₀ (G.𝔊₂,₀.obj A)
 G.homˢ (g A) =
-  G.homˢ A T.Map.∘  T.Ten.⟨ T.Ten.π₁ , T.Ten.π₀ ⟩
+  G.homˢ A ⇒₀.∘₀  ⟨ π¹₀ ,₀ π⁰₀ ⟩
 G.idnˢ (g A) =
   G.idnˢ A
 G.cmpˢ (g A) =
@@ -24,10 +25,10 @@ G.idn-lhs (g A) = λ {b a} f →
 G.idn-rhs (g A) = λ {b a} f →
   G.idn-lhs A f
 G.cmp-ass (g A) = λ {d c b a} h g f →
-  S.invᵗ (G.homˢ A (a , d)) (G.cmp-ass A f g h)
+  S.inv (G.homˢ A (a , d)) (G.cmp-ass A f g h)
 G.inv-lhs (g {d = G.Dir.≤} A) = _
 G.inv-lhs (g {d = G.Dir.≈} A) = λ {b a} f →
-  S.invᵗ (G.homˢ A (b , b)) (G.inv-rhs A f)
+  S.inv (G.homˢ A (b , b)) (G.inv-rhs A f)
 G.inv-rhs (g {d = G.Dir.≤} A) = _
 G.inv-rhs (g {d = G.Dir.≈} A) = λ {b a} f →
-  S.invᵗ (G.homˢ A (a , a)) (G.inv-lhs A f)
+  S.inv (G.homˢ A (a , a)) (G.inv-lhs A f)

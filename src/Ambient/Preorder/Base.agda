@@ -9,8 +9,8 @@ module S where
   open import Setoid public
 
 module t where
-  open S.t {Dir.≤} public
+  open S.𝔊₁ {Dir.≤} public
 open t public
 
 t : ∀ ..(ℓᵒ ℓʰ : _) → Set _
-t = S.t Dir.≤
+t = S.𝔊₁ Dir.≤

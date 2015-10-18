@@ -4,44 +4,43 @@ module Ambient.Setoid.Base where
 
 open import Agda.Primitive
 open import Common public
-open import Type as T
-  using (_,_)
+open import Type
 
-record t d ..(ℓᵒ ℓʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓʰ)) where
+record 𝔊₁ d ..(ℓᵒ ℓʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓʰ)) where
   no-eta-equality
   field
-    obj
+    cell₀
       : Set ℓᵒ
-    homᵗ
-      : obj T.Ten.⊗ obj → Set ℓʰ
-    idnᵗ
+    cell₁
+      : cell₀ ×₀ cell₀ → Set ℓʰ
+    idn
       : ∀ {a}
-      → T.𝟙.t⁰ T.Map.⇒₀ homᵗ (a , a)
-    cmpᵗ
+      → 𝟙₀ {lzero} ⇒₀,₀ cell₁ (a , a)
+    cmp
       : ∀ {a b c}
-      → homᵗ (b , c) T.Ten.⊗ homᵗ (a , b) T.Map.⇒₀ homᵗ (a , c)
-    {invᵗ}
+      → cell₁ (b , c) ×₀ cell₁ (a , b) ⇒₀,₀ cell₁ (a , c)
+    {inv}
       : ∀ {a b}
-      → Dir.el d T.𝟙.t (homᵗ (a , b) T.Map.⇒₀ homᵗ (b , a))
-open t public
+      → Dir.el d 𝟙₀ (cell₁ (a , b) ⇒₀,₀ cell₁ (b , a))
+open 𝔊₁ public
 
 T↑S : ∀ {d} ..{ℓᵒ}
-  → (A : T.t ℓᵒ )
-  → t d _ lzero
-obj (T↑S A) =
+  → (A : 𝔊₀ ℓᵒ )
+  → 𝔊₁ d _ lzero
+cell₀ (T↑S A) =
   A
-homᵗ (T↑S A) _ =
-  T.𝟙.t
-idnᵗ (T↑S A) =
+cell₁ (T↑S A) _ =
+  𝟙₀
+idn (T↑S A) =
   _
-cmpᵗ (T↑S A) =
+cmp (T↑S A) =
   _
-invᵗ (T↑S {Dir.≤} A) =
+inv (T↑S {Dir.≤} A) =
   _
-invᵗ (T↑S {Dir.≈} A) =
+inv (T↑S {Dir.≈} A) =
   _
 
 S↓T : ∀ {d} ..{ℓᵒ ℓʰ}
-  → (A : t d ℓᵒ ℓʰ)
-  → T.t _
-S↓T = obj
+  → (A : 𝔊₁ d ℓᵒ ℓʰ)
+  → 𝔊₀ _
+S↓T = cell₀

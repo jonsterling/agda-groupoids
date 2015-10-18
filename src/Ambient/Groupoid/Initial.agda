@@ -5,10 +5,10 @@ module Ambient.Groupoid.Initial where
 open import Agda.Primitive
 import Ambient.Groupoid.Base as G
 import Setoid as S
-import Type as T
+open import Type as T
 
-g : ∀ {d} → G.t d lzero lzero lzero
-G.obj g = T.𝟘.t
+g : ∀ {d} → G.𝔊₂,₀ d lzero lzero lzero
+G.obj g = 𝟘₀
 G.homˢ g = λ { (() T., _) }
 G.idnˢ g = λ {}
 G.cmpˢ g = λ {}

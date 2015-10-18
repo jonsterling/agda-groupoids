@@ -34,11 +34,11 @@ S.Map.com₁ (S.Map._$₁_ (C.Map.-$₁ˢ- (G.Mon.t.⊗ mon)) (p , q))
   = S.Map.com₁ p
   , S.Map.com₁ q
 S.Map.com₁ (C.Map.idn (G.Mon.t.⊗ mon) {A , B})
-  = S.idnᵗ A _
-  , S.idnᵗ B _
+  = S.idn A _
+  , S.idn B _
 S.Map.com₁ (C.Map.cmp (G.Mon.t.⊗ mon) {_}{_}{A , B} _ _)
-  = S.idnᵗ A _
-  , S.idnᵗ B _
+  = S.idn A _
+  , S.idn B _
 
 -- 𝟙
 G.Mon.t.𝟙 mon =
@@ -50,17 +50,17 @@ S.Map._$₀_ (C.Map.com₁ (C.Map.fwd (G.Mon.t.ƛ mon))) (_ , a) =
 S.Map._$₁_ (C.Map.com₁ (C.Map.fwd (G.Mon.t.ƛ mon))) (_ , f) =
   f
 S.Map.com₁ (C.Map.nat₁ (C.Map.fwd (G.Mon.t.ƛ mon)) {_}{A} _) =
-  S.idnᵗ A _
+  S.idn A _
 S.Map._$₀_ (C.Map.com₁ (C.Map.bwd (G.Mon.t.ƛ mon))) a =
   _ , a
 S.Map._$₁_ (C.Map.com₁ (C.Map.bwd (G.Mon.t.ƛ mon))) f =
   _ , f
 S.Map.com₁ (C.Map.nat₁ (C.Map.bwd (G.Mon.t.ƛ mon)) {_}{A} g) =
-  _ , S.idnᵗ A _
+  _ , S.idn A _
 S.Map.com₁ (C.Map.com₂ (C.Map.iso-fwd (G.Mon.t.ƛ mon)) {A}) =
-  _ , S.idnᵗ A _
+  _ , S.idn A _
 S.Map.com₁ (C.Map.com₂ (C.Map.iso-bwd (G.Mon.t.ƛ mon)) {A}) =
-  S.idnᵗ A _
+  S.idn A _
 
 -- ρ
 S.Map._$₀_ (C.Map.com₁ (C.Map.fwd (G.Mon.t.ρ mon))) (a , _) =
@@ -68,40 +68,40 @@ S.Map._$₀_ (C.Map.com₁ (C.Map.fwd (G.Mon.t.ρ mon))) (a , _) =
 S.Map._$₁_ (C.Map.com₁ (C.Map.fwd (G.Mon.t.ρ mon))) (f , _) =
   f
 S.Map.com₁ (C.Map.nat₁ (C.Map.fwd (G.Mon.t.ρ mon)) {_}{A} _) =
-  S.idnᵗ A _
+  S.idn A _
 S.Map._$₀_ (C.Map.com₁ (C.Map.bwd (G.Mon.t.ρ mon))) a =
   a , _
 S.Map._$₁_ (C.Map.com₁ (C.Map.bwd (G.Mon.t.ρ mon))) f =
   f , _
 S.Map.com₁ (C.Map.nat₁ (C.Map.bwd (G.Mon.t.ρ mon)) {_}{A} _) =
-  S.idnᵗ A _ , _
+  S.idn A _ , _
 S.Map.com₁ (C.Map.com₂ (C.Map.iso-fwd (G.Mon.t.ρ mon)) {A}) =
-  S.idnᵗ A _ , _
+  S.idn A _ , _
 S.Map.com₁ (C.Map.com₂ (C.Map.iso-bwd (G.Mon.t.ρ mon)) {A}) =
-  S.idnᵗ A _
+  S.idn A _
 
--- α 
+-- α
 S.Map._$₀_ (C.Map.com₁ (C.Map.fwd (G.Mon.t.α mon))) ((a , b) , c) =
   (a , (b , c))
 S.Map._$₁_ (C.Map.com₁ (C.Map.fwd (G.Mon.t.α mon))) ((f , g) , h) =
   (f , (g , h))
 S.Map.com₁ (C.Map.nat₁ (C.Map.fwd (G.Mon.t.α mon)) {_}{((A , B) , C)} _) =
-  (S.idnᵗ A _ , (S.idnᵗ B _ , S.idnᵗ C _))
+  (S.idn A _ , (S.idn B _ , S.idn C _))
 S.Map._$₀_ (C.Map.com₁ (C.Map.bwd (G.Mon.t.α mon))) (a , (b , c)) =
   ((a , b) , c)
 S.Map._$₁_ (C.Map.com₁ (C.Map.bwd (G.Mon.t.α mon))) (f , (g , h)) =
   ((f , g) , h)
 S.Map.com₁ (C.Map.nat₁ (C.Map.bwd (G.Mon.t.α mon)) {_}{((A , B) , C)} _) =
-  (S.idnᵗ A _ , S.idnᵗ B _) , S.idnᵗ C _
+  (S.idn A _ , S.idn B _) , S.idn C _
 S.Map.com₁ (C.Map.com₂ (C.Map.iso-fwd (G.Mon.t.α mon)) {((A , B) , C)}) =
-  (S.idnᵗ A _ , S.idnᵗ B _) , S.idnᵗ C _
+  (S.idn A _ , S.idn B _) , S.idn C _
 S.Map.com₁ (C.Map.com₂ (C.Map.iso-bwd (G.Mon.t.α mon)) {((A , B) , C)}) =
-  S.idnᵗ A _ , (S.idnᵗ B _ , S.idnᵗ C _)
+  S.idn A _ , (S.idn B _ , S.idn C _)
 
 -- triangle law
 S.Map.com₁ (G.Mon.t.tri mon {A}{B}) =
-  S.idnᵗ A _ , S.idnᵗ B _
+  S.idn A _ , S.idn B _
 
 -- pentagon law
 S.Map.com₁ (G.Mon.t.pnt mon {A}{B}{C}{D}) =
-  S.idnᵗ A _ , (S.idnᵗ B _ , (S.idnᵗ C _ , S.idnᵗ D _))
+  S.idn A _ , (S.idn B _ , (S.idn C _ , S.idn D _))

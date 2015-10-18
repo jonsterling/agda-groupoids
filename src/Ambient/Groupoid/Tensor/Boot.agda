@@ -6,17 +6,16 @@ open import Agda.Primitive
 import Ambient.Groupoid.Base as G
 import Setoid as S
 open import Type as T
-  using (_,_)
 
 infixr 3 _⊗_
 
 _⊗_
   : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
-  → (A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ)
-  → (B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ)
-  → G.t d _ _ _
+  → (A : G.𝔊₂,₀ d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ)
+  → (B : G.𝔊₂,₀ d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ)
+  → G.𝔊₂,₀ d _ _ _
 G.obj (A ⊗ B) =
-  G.obj A T.Ten.⊗ G.obj B
+  G.obj A ×₀ G.obj B
 G.homˢ (A ⊗ B) =
   λ {((a₀ , b₀) , (a₁ , b₁)) →
     G.homˢ A (a₀ , a₁) S.Ten.⊗ G.homˢ B (b₀ , b₁)

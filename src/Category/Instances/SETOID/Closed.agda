@@ -21,7 +21,6 @@ private
       open import Groupoid.Dinatural public
 import Setoid as S
 open import Type as T
-  using (_,_)
 
 -- SETOID is a closed category (incomplete)
 clo
@@ -36,11 +35,11 @@ S.Map._$₀_ (S.Map._$₀_ (G.Map.-$₁ˢ- (G.Clo.t.⊸ clo)) (f , g)) h =
 S.Map.com₁ (S.Map._$₁_ (S.Map._$₀_ (G.Map.-$₁ˢ- (G.Clo.t.⊸ clo)) (_ , g)) α) =
   g S.Map.$₁ S.Map.com₁ α
 S.Map.com₁ (S.Map.com₁ (S.Map._$₁_ (G.Map.-$₁ˢ- (G.Clo.t.⊸ clo) {_}{_ , D}) {_ , g₀} (α , β)) {h}) =
-  S.cmpᵗ D (S.Map.com₁ β , g₀ S.Map.$₁ h S.Map.$₁ S.Map.com₁ α)
+  S.cmp D (S.Map.com₁ β , g₀ S.Map.$₁ h S.Map.$₁ S.Map.com₁ α)
 S.Map.com₁ (S.Map.com₁ (G.Map.idn (G.Clo.t.⊸ clo) {_ , B})) =
-  S.idnᵗ B _
+  S.idn B *
 S.Map.com₁ (S.Map.com₁ (G.Map.cmp (G.Clo.t.⊸ clo) {_}{_}{_ , R} _ _)) =
-  S.idnᵗ R _
+  S.idn R *
 
 -- 𝟙
 G.Clo.t.𝟙 clo =
@@ -52,22 +51,22 @@ S.Map._$₀_ (G.Map.com₁ (G.Map.fwd (G.Clo.t.susp clo)) {A}) a =
 S.Map.com₁ (S.Map._$₁_ (G.Map.com₁ (G.Map.fwd (G.Clo.t.susp clo)) {A}) {a}{b} f) =
   f
 S.Map.com₁ (S.Map.com₁ (G.Map.nat₁ (G.Map.fwd (G.Clo.t.susp clo)) {_}{B} f)) =
-  S.idnᵗ B _
+  S.idn B *
 S.Map._$₀_ (G.Map.com₁ (G.Map.bwd (G.Clo.t.susp clo)) {A}) =
-  S.Map._$₀ T.𝟙.*
+  S.Map._$₀ *
 S.Map._$₁_ (G.Map.com₁ (G.Map.bwd (G.Clo.t.susp clo)) {A}) {f₀}{f₁} α =
   S.Map.com₁ α
 S.Map.com₁ (G.Map.nat₁ (G.Map.bwd (G.Clo.t.susp clo)) {_}{B} f) =
-  S.idnᵗ B _
+  S.idn B *
 S.Map.com₁ (G.Map.com₂ (G.Map.iso-fwd (G.Clo.t.susp clo)) {A}) =
-  S.idnᵗ A _
+  S.idn A *
 S.Map.com₁ (S.Map.com₁ (G.Map.com₂ (G.Map.iso-bwd (G.Clo.t.susp clo)) {A})) =
-  S.idnᵗ A _
+  S.idn A *
 
 -- idn
 S.Map._$₀_ (G.Map._:⇏₁ᵗ_.com₁ (G.Clo.t.idn clo) {A}) _ =
-  S.Map.idn₀ᵗ _
+  S.Map.idn₀ᵗ *
 S.Map.com₁ (S.Map._$₁_ (G.Map._:⇏₁ᵗ_.com₁ (G.Clo.t.idn clo) {A}) _) {a} =
-  S.idnᵗ A {a} _
+  S.idn A {a} *
 S.Map.com₁ (S.Map.com₁ (G.Map._:⇏₁ᵗ_.nat₁ (G.Clo.t.idn clo) {_}{B} f)) =
-  S.idnᵗ B _
+  S.idn B *

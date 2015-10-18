@@ -2,7 +2,10 @@
 
 module Ambient.Type.Op where
 
-import Ambient.Type.Base as T
+open import Ambient.Type.Base
 
-t : ∀ ..{ℓᵒ} → T.t ℓᵒ → T.t ℓᵒ
-t A = A
+Op₀
+  : ∀ ..{ℓᵒ}
+  → (A : 𝔊₀ ℓᵒ)
+  → 𝔊₀ ℓᵒ
+Op₀ A = A
