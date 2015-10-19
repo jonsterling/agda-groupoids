@@ -17,7 +17,7 @@ open import Type as T
   using (_,_)
 
 record t {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
-  (A : G.𝔊₂,₀ d ℓᵒ ℓˢᵒ ℓˢʰ)
+  (A : G.t d ℓᵒ ℓˢᵒ ℓˢʰ)
     : Set (ℓᵒ ⊔ ℓˢᵒ ⊔ ℓˢʰ) where
   no-eta-equality
   open G

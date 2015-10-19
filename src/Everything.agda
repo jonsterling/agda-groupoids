@@ -32,8 +32,8 @@ import Ambient.Type.Initial
 import Ambient.Type.Map
 import Ambient.Type.Map.Boot
 import Ambient.Type.Op
-import Ambient.Type.Product
-import Ambient.Type.Product.Boot
+import Ambient.Type.Tensor
+import Ambient.Type.Tensor.Boot
 import Ambient.Type.Terminal
 
 import Category

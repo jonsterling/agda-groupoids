@@ -4,10 +4,10 @@ module Ambient.Type.Initial where
 
 open import Agda.Primitive
 
-data 𝟘₀ ..{ℓ} : Set ℓ where
+data t ..{ℓ} : Set ℓ where
 
-¡₀ : ∀ ..{ℓ} {A : Set ℓ} → 𝟘₀ {lzero} → A
-¡₀ ()
+¡ : ∀ ..{ℓ} {A : Set ℓ} → t {lzero} → A
+¡ ()
 
-¬₀_ : ∀ ..{ℓ} → Set ℓ → Set ℓ
-¬₀_ A = A → 𝟘₀ {lzero}
+¬_ : ∀ ..{ℓ} → Set ℓ → Set ℓ
+¬_ A = A → t {lzero}

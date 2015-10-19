@@ -14,9 +14,10 @@ private
       open import Groupoid.Bifunctor public
 import Setoid as S
 open import Type as T
+  using (_,_)
 
 record t {d} ..{ℓᵒ ℓᵉᵒ ℓᵉˢᵒ ℓᵉˢʰ}
-  {𝒱 : G.𝔊₂,₀ d ℓᵉᵒ ℓᵉˢᵒ ℓᵉˢʰ}
+  {𝒱 : G.t d ℓᵉᵒ ℓᵉˢᵒ ℓᵉˢʰ}
   (M : G.Mon.t 𝒱)
     : Set (lsuc (ℓᵒ ⊔ ℓᵉᵒ ⊔ ℓᵉˢᵒ ⊔ ℓᵉˢʰ)) where
   no-eta-equality
@@ -25,7 +26,7 @@ record t {d} ..{ℓᵒ ℓᵉᵒ ℓᵉˢᵒ ℓᵉˢʰ}
     obj
       : Set ℓᵒ
     hom
-      : obj ×₀ obj → G.obj 𝒱
+      : obj T.Ten.⊗ obj → G.obj 𝒱
     idn
       : ∀ {a}
       → G.hom₀ 𝒱 𝟙 (hom (a , a))

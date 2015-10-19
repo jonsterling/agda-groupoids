@@ -10,7 +10,7 @@ import Ambient.Groupoid.Initial
 import Ambient.Groupoid.Op
 import Ambient.Groupoid.Tensor
 import Ambient.Groupoid.Terminal
-open import Type as T
+import Type as T
 
 module ≡ where
   open import Ambient.Groupoid.Discrete public
@@ -29,6 +29,6 @@ module Ten where
 
 -
   : ∀ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
-  → {A : 𝔊₂,₀ d ℓᵒ ℓˢᵒ ℓˢʰ}
+  → {A : t d ℓᵒ ℓˢᵒ ℓˢʰ}
   → A Map.⇒₀ᵗ A
-- = Map.idn₀ᵗ *
+- = Map.idn₀ᵗ T.𝟙.*

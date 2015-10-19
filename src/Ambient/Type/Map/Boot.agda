@@ -3,45 +3,38 @@
 module Ambient.Type.Map.Boot where
 
 open import Agda.Primitive
-open import Ambient.Type.Product.Boot
+open import Ambient.Type.Tensor.Boot as Ten
+  using (_,_)
 
-infixr 0 _⇒₀,₀_
-infixl 0 _·₀,₀_
-infixr 1 _∘₀_
+infixr 0 _⇒₀_
+infixr 1 _∘_
 
-_⇒₀,₀_
+_⇒₀_
   : ∀ ..{ℓ₀ ℓ₁}
   → (A : Set ℓ₀) (B : Set ℓ₁) → Set (ℓ₀ ⊔ ℓ₁)
-A ⇒₀,₀ B = A → B
+A ⇒₀ B = A → B
 
-_·₀,₀_
-  : ∀ ..{ℓ₀ ℓ₁}
-  → {A : Set ℓ₀} {B : Set ℓ₁}
-  → A ⇒₀,₀ B
-  → ((x : A) → B)
-f ·₀,₀ x = f x
-
-idn₀
+idn
   : ∀ {ℓ} {A : Set ℓ}
-  → A ⇒₀,₀ A
-idn₀ x = x
+  → A ⇒₀ A
+idn x = x
 
-cmp₀
+cmp
   : ∀ ..{ℓ₀ ℓ₁ ℓ₂}
   → {A : Set ℓ₀} {B : Set ℓ₁} {C : Set ℓ₂}
-  → (GF : (B ⇒₀,₀ C) ×₀ (A ⇒₀,₀ B))
-  → (A ⇒₀,₀ C)
-cmp₀ (g , f) x = g (f x)
+  → (GF : (B ⇒₀ C) Ten.⊗ (A ⇒₀ B))
+  → (A ⇒₀ C)
+cmp (g , f) x = g (f x)
 
-elm₀ : ∀ ..{ℓ₀ ℓ₁}
+elm : ∀ ..{ℓ₀ ℓ₁}
   → {A : Set ℓ₀} {B : Set ℓ₁}
-  → A → (B ⇒₀,₀ A)
-elm₀ x _ = x
+  → A → (B ⇒₀ A)
+elm x _ = x
 
-_∘₀_
+_∘_
   : ∀ ..{ℓ₀ ℓ₁ ℓ₂}
   → {A : Set ℓ₀} {B : Set ℓ₁} {C : Set ℓ₂}
-  → (g : B ⇒₀,₀ C)
-  → (f : A ⇒₀,₀ B)
-  → (A ⇒₀,₀ C)
-g ∘₀ f = cmp₀ (g , f)
+  → (g : B ⇒₀ C)
+  → (f : A ⇒₀ B)
+  → (A ⇒₀ C)
+g ∘ f = cmp (g , f)

@@ -6,45 +6,46 @@ open import Agda.Primitive
 import Ambient.Groupoid.Base as G
 import Setoid as S
 open import Type as T
+  using (_,_)
 
 -- FIXME: separate out the setoid morphisms
 
 g : ∀ {d} ..{ℓᵒ}
-  → (A : T.𝔊₀ ℓᵒ)
-  → G.𝔊₂,₀ d _ _ _
+  → (A : T.t ℓᵒ)
+  → G.t d _ _ _
 G.obj (g A) =
   A
 G.homˢ (g A) =
-  λ {(a , b) → S.≡.s (a T.≡₀ b)}
+  λ {(a , b) → S.≡.s (a T.≡.t b)}
 S.Map._$₀_ (G.idnˢ (g A)) =
-  ≡₀.idn
+  T.≡.idn
 S.Map._$₁_ (G.idnˢ (g A)) =
-  ≡₀.idn
+  T.≡.idn
 S.Map._$₀_ (G.cmpˢ (g A)) =
-  ≡₀.cmp
+  T.≡.cmp
 S.Map._$₁_ (G.cmpˢ (g {ℓᵒ = ℓᵒ} A)) = λ { {(_ , _)} (g , f) →
-    ≡₀.subst {ℓ₁ = ℓᵒ} (λ _ → _ T.≡₀ _) g
-   (≡₀.subst {ℓ₁ = ℓᵒ} (λ _ → _ T.≡₀ _) f
-    ≡₀.refl)
+    T.≡.subst {ℓ₁ = ℓᵒ} (λ _ → _ T.≡.t _) g
+   (T.≡.subst {ℓ₁ = ℓᵒ} (λ _ → _ T.≡.t _) f
+    T.≡.refl)
   }
 G.invˢ (g {G.Dir.≤} A) =
   _
 S.Map._$₀_ (G.invˢ (g {G.Dir.≈} A)) =
-  ≡₀.inv
+  T.≡.inv
 S.Map._$₁_ (G.invˢ (g {G.Dir.≈} {ℓᵒ = ℓᵒ} A)) = λ α →
-    ≡₀.subst {ℓ₁ = ℓᵒ} (λ _ → _ T.≡₀ _) α
-    ≡₀.refl
+    T.≡.subst {ℓ₁ = ℓᵒ} (λ _ → _ T.≡.t _) α
+    T.≡.refl
 G.idn-lhs (g A) =
-  ≡₀.idn-lhs
+  T.≡.idn-lhs
 G.idn-rhs (g A) =
-  ≡₀.idn-rhs
+  T.≡.idn-rhs
 G.cmp-ass (g A) =
-  ≡₀.cmp-ass
+  T.≡.cmp-ass
 G.inv-lhs (g {G.Dir.≤} A) =
   _
 G.inv-lhs (g {G.Dir.≈} A) =
-  ≡₀.inv-lhs
+  T.≡.inv-lhs
 G.inv-rhs (g {G.Dir.≤} A) =
   _
 G.inv-rhs (g {G.Dir.≈} A) =
-  ≡₀.inv-rhs
+  T.≡.inv-rhs
