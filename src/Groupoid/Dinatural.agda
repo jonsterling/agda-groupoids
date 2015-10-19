@@ -25,24 +25,25 @@ record _:⇏₁ᵗ_
     : Set ((ℓ₀ᵒ ⊔ ℓ₀ˢᵒ) ⊔ (ℓ₁ˢᵒ ⊔ ℓ₁ˢʰ)) where
   no-eta-equality
   field
-    com₁
+    :com₁
       : ∀ {a}
       → S.obj (G.homˢ B (F G.Map.$₀ (a , a) , G G.Map.$₀ (a , a)))
   field
-    .nat₁
+    .:nat₁
       : ∀ {a b}
       → (f : S.obj (G.homˢ A (a , b)))
       → S.homᵗ (G.homˢ B (F G.Map.$₀ (b , a) , G G.Map.$₀ (a , b)))
           ( G.cmpˢ B S.Map.$₀
             ( G G.Map.$₁ (G.idnˢ (G.Op.g A) S.Map.$₀ _ , f)
             , G.cmpˢ B S.Map.$₀
-              ( com₁ {a}
+              ( :com₁ {a}
               , F G.Map.$₁ (f , G.idnˢ A S.Map.$₀ _) ) )
           , G.cmpˢ B S.Map.$₀
             ( G G.Map.$₁ (f , G.idnˢ A S.Map.$₀ _)
             , G.cmpˢ B S.Map.$₀
-              ( com₁ {b}
+              ( :com₁ {b}
               , F G.Map.$₁ (G.idnˢ (G.Op.g A) S.Map.$₀ _ , f) ) ) )
+open _:⇏₁ᵗ_ public
 
 _:Δ⇏₁ᵗ_
   : ∀ ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}

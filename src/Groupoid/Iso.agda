@@ -10,7 +10,7 @@ open import Type as T
 
 record t
   {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
-  {A : G.t d ℓᵒ ℓˢᵒ ℓˢʰ}
+  (A : G.t d ℓᵒ ℓˢᵒ ℓˢʰ)
   (a₀ a₁ : G.obj A)
     : Set (ℓˢᵒ ⊔ ℓˢʰ)
   where
@@ -33,7 +33,7 @@ s : ∀ {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
   → (a₀ a₁ : G.obj A)
   → S.t G.Dir.≈ _ _
 S.obj (s {A = A} a₀ a₁) =
-  t {A = A} a₀ a₁
+  t A a₀ a₁
 S.homᵗ (s {A = A} _ _) (f , g) =
   G.hom₁ A (fwd f) (fwd g)
 S.idnᵗ (s {A = A} _ _) =

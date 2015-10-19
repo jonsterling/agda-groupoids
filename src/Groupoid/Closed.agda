@@ -6,6 +6,9 @@ open import Agda.Primitive
 module G where
   open import Groupoid public
     hiding (module Map)
+  module I where
+    module SETOID where
+      open import Groupoid.Instances.SETOID public
   module Map where
     open Groupoid.Map public
     open import Groupoid.Bifunctor public
@@ -20,7 +23,8 @@ record t {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
   (A : G.t d ℓᵒ ℓˢᵒ ℓˢʰ)
     : Set (ℓᵒ ⊔ ℓˢᵒ ⊔ ℓˢʰ) where
   no-eta-equality
-  open G
+  open G hiding
+    (idn₀; cmp₀)
   open Map hiding
     (idn; cmp)
   open Ten
@@ -76,3 +80,50 @@ record t {d} ..{ℓᵒ ℓˢᵒ ℓˢʰ}
 
   ♭ : ∀ {a} → hom₀ A (𝟙 ⊸₀ a) a
   ♭ = ⟨⇔ susp ⟩₁
+
+  idn₀ : ∀ {a} → hom₀ A 𝟙 (a ⊸₀ a)
+  idn₀ = :com₁ idn
+
+  cmp₀ : ∀ {a b c} → hom₀ A (b ⊸₀ c) ((a ⊸₀ b) ⊸₀ (a ⊸₀ c))
+  cmp₀ {a}{b}{c} = com₁ (:com₁ cmp {a}) {b , c}
+
+  field
+    .coh₀
+      : ∀ {a b}
+      → hom₁ A
+          {𝟙}
+          {(a ⊸₀ b) ⊸₀ (a ⊸₀ b)}
+      ⊢ A [ cmp₀ ∘₀ idn₀ ]
+      -------------------- ≃₁
+      idn₀
+
+    .coh₁
+      : ∀ {a b}
+      → hom₁ A
+          {a ⊸₀ b}
+          {𝟙 ⊸₀ (a ⊸₀ b)}
+      ⊢ A [ (idn₀ ⊸₁ G.idn₀ A) ∘₀ cmp₀ ]
+      ---------------------------------- ≃₁
+      ♯
+
+    .coh₂
+      : ∀ {b c}
+      → hom₁ A
+          {b ⊸₀ c}
+          {b ⊸₀ (𝟙 ⊸₀ c)}
+      ⊢ A [ (♯ ⊸₁ G.idn₀ A) ∘₀ cmp₀ ]
+      ------------------------------- ≃₁
+      (G.idn₀ A ⊸₁ ♯)
+
+    .coh₃
+      : ∀ {a b c d}
+      → hom₁ A
+          {c ⊸₀ d}
+          {(b ⊸₀ c) ⊸₀ ((a ⊸₀ b) ⊸₀ (a ⊸₀ d))}
+      ⊢ A [ (G.idn₀ A ⊸₁ cmp₀) ∘₀ cmp₀ ]
+      ------------------------------------------------- ≃₁
+      ⊢ A [ (cmp₀ ⊸₁ G.idn₀ A) ∘₀ ⊢ A [ cmp₀ ∘₀ cmp₀ ] ]
+
+    .coh₄
+      : ∀ {a b}
+      → hom₀ (I.SETOID.g d _ _) (homˢ A (a , b)) (homˢ A (𝟙 , a ⊸₀ b))

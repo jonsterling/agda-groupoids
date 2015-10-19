@@ -13,7 +13,7 @@ import Groupoid.Iso as GI
 t : ∀ ..{ℓᵒ ℓˢᵒ ℓˢʰ}
   → {A : G.t G.Dir.≤ ℓᵒ ℓˢᵒ ℓˢʰ}
   → _
-t {A = A} = GI.t {A = A}
+t {A = A} = GI.t A
 
 s : ∀ ..{ℓᵒ ℓˢᵒ ℓˢʰ}
   → {A : G.t G.Dir.≤ ℓᵒ ℓˢᵒ ℓˢʰ}
