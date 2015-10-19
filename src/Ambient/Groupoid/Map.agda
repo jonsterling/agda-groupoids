@@ -342,4 +342,48 @@ Map.-$₁ˢ- (!ᵍ {A = A} a) = S.Map.!ˢ (G.idnˢ A S.Map.$₀ _)
 Map.idn (!ᵍ {A = A} a) = S.idnᵗ (G.homˢ A _) _
 Map.cmp (!ᵍ {A = A} a) g f = S.invᵗ (G.homˢ A _) (G.idn-rhs A (G.idnˢ A S.Map.$₀ _))
 
+curry
+  : ∀ {d} ..{ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
+  → {A : G.t d ℓ₀ᵒ ℓ₀ˢᵒ ℓ₀ˢʰ}
+  → {B : G.t d ℓ₁ᵒ ℓ₁ˢᵒ ℓ₁ˢʰ}
+  → {C : G.t d ℓ₂ᵒ ℓ₂ˢᵒ ℓ₂ˢʰ}
+  → (F : (A Ten.⊗ B) Map.⇒₀ᵗ C)
+  → A Map.⇒₀ᵗ (B ⇒₀ᵍ C)
+curry {A = A}{B = B}{C = C} F = record
+  { _$₀_ = λ a → record
+    { _$₀_ = λ b → F Map.$₀ (a , b)
+    ; -$₁ˢ- = λ {b₀}{b₁} → record
+      { _$₀_ = λ f → F Map.$₁ (G.idn₀ A , f)
+      ; _$₁_ = λ {f₀}{f₁} p → F Map.$₂ (S.idnᵗ (G.homˢ A _) _ , p) }
+    ; idn = λ {b} → Map.idn F
+    ; cmp = λ {b₀}{b₁}{b₂} g f →
+      S.cmpᵗ (G.homˢ C _)
+        ( Map.cmp F _ _
+        , F Map.$₂ (S.invᵗ (G.homˢ A _) (G.idn-rhs A (G.idn₀ A)) , S.idnᵗ (G.homˢ B _) _) )
+    }
+  ; -$₁ˢ- = λ {a₀}{a₁} → record
+    { _$₀_ = λ f → record
+      { com₁ = λ {b} → F Map.$₁ (f , G.idn₀ B)
+      ; nat₁ = λ {b₀}{b₁} g →
+        S.cmpᵗ (G.homˢ C _)
+          ( S.cmpᵗ (G.homˢ C _)
+            ( Map.cmp F _ _
+            , F Map.$₂
+              ( S.cmpᵗ (G.homˢ A _) (S.invᵗ (G.homˢ A _) (G.idn-lhs A _) , G.idn-rhs A _)
+              , S.cmpᵗ (G.homˢ B _) (S.invᵗ (G.homˢ B _) (G.idn-rhs B _) , G.idn-lhs B _) ) )
+          , S.invᵗ (G.homˢ C _) (Map.cmp F _ _) )
+      }
+    ; _$₁_ = λ {f₀}{f₁} p → record
+      { com₂ = λ {b} → F Map.$₂ (p , S.idnᵗ (G.homˢ B _) _) }
+    }
+  ; idn = λ {a} → record
+    { com₂ = λ {b} → Map.idn F }
+  ; cmp = λ {a₀}{a₁}{a₂} g f → record
+    { com₂ = λ {b} →
+      S.cmpᵗ (G.homˢ C _)
+        ( Map.cmp F _ _
+        , F Map.$₂ (S.idnᵗ (G.homˢ A _) _ , S.invᵗ (G.homˢ B _) (G.idn-rhs B _)) )
+    }
+  }
+
 open import Ambient.Groupoid.Map.Boot public
