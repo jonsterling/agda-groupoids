@@ -71,3 +71,34 @@ S.Map.com₁ (S.Map._$₁_ (G.Map._:⇏₁ᵗ_.com₁ (G.Clo.t.idn clo) {A}) _) 
   S.idnᵗ A {a} _
 S.Map.com₁ (S.Map.com₁ (G.Map._:⇏₁ᵗ_.nat₁ (G.Clo.t.idn clo) {_}{B} f)) =
   S.idnᵗ B _
+
+-- cmp
+G.Clo.t.cmp clo = record
+  { com₁ = λ {A} → record
+    { com₁ = λ { {B , C} → record
+      { _$₀_ = λ G → record
+        { _$₀_ = G S.Map.∘₀_
+        ; _$₁_ = λ α → S.Map.cmp₁ᵗ-w₀ (G , α)
+        }
+      ; _$₁_ = λ α → record
+        { com₁ = λ {F} → S.Map.cmp₁ᵗ-w₁ (α , F) }
+      }
+    }
+    ; nat₁ = λ { {C , D}{B , E} (G , K) → record
+        { com₁ = λ {H} → record
+          { com₁ = λ {F} → record
+            { com₁ = λ {a} → S.idnᵗ E {K S.Map.$₀ H S.Map.$₀ G S.Map.$₀ F S.Map.$₀ a} _ }
+          }
+        }
+      }
+    }
+  ; nat₁ = λ {A}{B} F → record
+      { com₂ = λ { {C , D} → record
+        { com₁ = λ {H} → record
+          { com₁ = λ {G} → record
+            { com₁ = λ {A} → S.idnᵗ D {H S.Map.$₀ G S.Map.$₀ F S.Map.$₀ A} _ }
+          }
+        }
+      }
+    }
+  }
