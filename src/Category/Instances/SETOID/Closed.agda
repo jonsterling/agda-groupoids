@@ -23,7 +23,7 @@ import Setoid as S
 open import Type as T
   using (_,_)
 
--- SETOID is a closed category (incomplete)
+-- SETOID is a closed category
 clo
   : ∀ ..{ℓ}
   → G.Clo.t (C.I.SETOID.c ℓ ℓ)
