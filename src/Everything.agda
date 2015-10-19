@@ -60,5 +60,6 @@ import Preorder
 import Preorder.Reasoning
 
 import Setoid
+import Setoid.Reasoning
 
 import Type
