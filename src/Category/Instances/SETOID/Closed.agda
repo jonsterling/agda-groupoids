@@ -65,40 +65,81 @@ S.Map.com₁ (S.Map.com₁ (G.Map.com₂ (G.Map.iso-bwd (G.Clo.t.susp clo)) {A})
   S.idnᵗ A _
 
 -- idn
-S.Map._$₀_ (G.Map._:⇏₁ᵗ_.com₁ (G.Clo.t.idn clo) {A}) _ =
+S.Map._$₀_ (G.Map._:⇏₁ᵗ_.:com₁ (G.Clo.t.idn clo) {A}) _ =
   S.Map.idn₀ᵗ _
-S.Map.com₁ (S.Map._$₁_ (G.Map._:⇏₁ᵗ_.com₁ (G.Clo.t.idn clo) {A}) _) {a} =
+S.Map.com₁ (S.Map._$₁_ (G.Map._:⇏₁ᵗ_.:com₁ (G.Clo.t.idn clo) {A}) _) {a} =
   S.idnᵗ A {a} _
-S.Map.com₁ (S.Map.com₁ (G.Map._:⇏₁ᵗ_.nat₁ (G.Clo.t.idn clo) {_}{B} f)) =
+S.Map.com₁ (S.Map.com₁ (G.Map._:⇏₁ᵗ_.:nat₁ (G.Clo.t.idn clo) {_}{B} f)) =
   S.idnᵗ B _
 
 -- cmp
 G.Clo.t.cmp clo = record
-  { com₁ = λ {A} → record
-    { com₁ = λ { {B , C} → record
+  { :com₁ = record
+    { com₁ = record
       { _$₀_ = λ G → record
         { _$₀_ = G S.Map.∘₀_
         ; _$₁_ = λ α → S.Map.cmp₁ᵗ-w₀ (G , α)
         }
       ; _$₁_ = λ α → record
-        { com₁ = λ {F} → S.Map.cmp₁ᵗ-w₁ (α , F) }
+        { com₁ = S.Map.cmp₁ᵗ-w₁ (α , _) }
       }
-    }
-    ; nat₁ = λ { {C , D}{B , E} (G , K) → record
-        { com₁ = λ {H} → record
-          { com₁ = λ {F} → record
-            { com₁ = λ {a} → S.idnᵗ E {K S.Map.$₀ H S.Map.$₀ G S.Map.$₀ F S.Map.$₀ a} _ }
+    ; nat₁ = λ { {_}{_ , E} (_ , K) → record
+        { com₁ = record
+          { com₁ = record
+            { com₁ = S.idnᵗ E {K S.Map.$₀ _} _ }
           }
         }
       }
     }
-  ; nat₁ = λ {A}{B} F → record
-      { com₂ = λ { {C , D} → record
+  ; :nat₁ = λ _ → record
+      { com₂ = λ { {_ , D} → record
         { com₁ = λ {H} → record
           { com₁ = λ {G} → record
-            { com₁ = λ {A} → S.idnᵗ D {H S.Map.$₀ G S.Map.$₀ F S.Map.$₀ A} _ }
+            { com₁ = S.idnᵗ D {H S.Map.$₀ G S.Map.$₀ _} _ }
           }
         }
       }
     }
+  }
+
+-- coherence laws
+G.Clo.t.coh₀ clo {_}{B} = record
+  { com₁ = record
+    { com₁ = record
+      { com₁ = S.idnᵗ B _ } } }
+
+G.Clo.t.coh₁ clo {_}{B} = record
+  { com₁ = record
+    { com₁ = record
+      { com₁ = S.idnᵗ B _ } } }
+
+G.Clo.t.coh₂ clo {_}{C} = record
+  { com₁ = record
+    { com₁ = record
+      { com₁ = S.idnᵗ C _ } } }
+
+G.Clo.t.coh₃ clo {_}{_}{_}{D} = record
+  { com₁ = record
+    { com₁ = record
+      { com₁ = record
+        { com₁ = S.idnᵗ D _ } } } }
+
+G.Clo.t.coh₄ clo {_}{B} = record
+  { fwd = record
+    { _$₀_ = S.Map.!ˢ
+    ; _$₁_ = λ F → record
+      { com₁ = F }
+    }
+  ; bwd = record
+    { _$₀_ = S.Map._$₀ T.𝟙.*
+    ; _$₁_ = λ α → record
+      { com₁ = S.Map.com₁ (S.Map.com₁ α) }
+    }
+  ; iso-fwd = record
+    { com₁ = record
+      { com₁ = S.idnᵗ B _ } }
+  ; iso-bwd = record
+    { com₁ = record
+      { com₁ = record
+        { com₁ = S.idnᵗ B _ } } }
   }
