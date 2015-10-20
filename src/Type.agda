@@ -29,3 +29,5 @@ module Ten where
 
 open Ambient.Type.Tensor public
   using (_,_)
+open Ambient.Type.Terminal public
+  using (*)
