@@ -55,6 +55,7 @@ import Groupoid.Iso
 import Groupoid.Monoidal
 import Groupoid.Presheaf
 import Groupoid.Profunctor
+import Groupoid.VirtualDouble
 
 import Preorder
 import Preorder.Reasoning
