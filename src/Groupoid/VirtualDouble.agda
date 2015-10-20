@@ -133,7 +133,7 @@ record t ..{ℓ₀ᵒ ℓ₁ᵒ ℓ₁ʰ ℓ₂ᵒ ℓ₂ʰ ℓ₃ᵒ ℓ₃ʰ}
     → {f₀ f₁ : cell₁↕₀ a b}
     → (q : cell₁↕₁ g₀ g₁)
     → (p : cell₁↕₁ f₀ f₁)
-    → cell₁↕₁ (cmp₁↕ S.Map.$₀ (g₀ , f₀)) (cmp₁↕ S.Map.$₀ (g₁ , f₁))
+    → cell₁↕₁ (cmp₁↕₀ g₀ f₀) (cmp₁↕₀ g₁ f₁)
   cmp₁↕₁ q p = cmp₁↕ S.Map.$₁ (q , p)
 
   field
@@ -168,7 +168,7 @@ record t ..{ℓ₀ᵒ ℓ₁ᵒ ℓ₁ʰ ℓ₂ᵒ ℓ₂ʰ ℓ₃ᵒ ℓ₃ʰ}
     idn₂
       : ∀ {a b}
       → {p : cell₁↔₀ a b}
-      → S.obj (cell₂⇓ˢ idn₁↕₀ idn₁↕₀ (p ∷ []) p)
+      → cell₂⇓₀ idn₁↕₀ idn₁↕₀ (p ∷ []) p
     cmp₂
       : ∀ {d↖ d← d↙ c↗ c→ c↘}
       → {dom↖  : cell₁↕₀ d↖ d←}
@@ -179,5 +179,5 @@ record t ..{ℓ₀ᵒ ℓ₁ᵒ ℓ₁ʰ ℓ₂ᵒ ℓ₂ʰ ℓ₃ᵒ ℓ₃ʰ}
       → {cod↔* : cell₁↔* cell₁↔₀ d← c→}
       → {ret↔  : cell₁↔₀ d↙ c↘}
       → (β⇓    : cell₂⇓₀ dom↙ cod↘ cod↔* ret↔)
-      → (α⇓    : cell₂⇓* cell₁↔₀ cell₁↕₀ cell₂⇓₀ dom↖ cod↗ dom↔* cod↔*)
+      → (α⇓*   : cell₂⇓* cell₁↔₀ cell₁↕₀ cell₂⇓₀ dom↖ cod↗ dom↔* cod↔*)
       → cell₂⇓₀ (cmp₁↕₀ dom↙ dom↖) (cmp₁↕₀ cod↘ cod↗) dom↔* ret↔
