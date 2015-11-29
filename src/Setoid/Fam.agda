@@ -32,7 +32,7 @@ record Fam₀
   coe
     : ∀ {i₀ i₁}
     → (ρ : S.homᵗ I (i₀ , i₁))
-    → G.hom₀ (G.I.SETOID.c _ _) (fib i₁) (fib i₀)
+    → fib i₁ S.Map.⇒₀ᵗ fib i₀
   coe ρ = G.Map._$₁_ fam ρ
 
   field
@@ -50,6 +50,7 @@ record Fam₁
   (Ψ₁ : Fam₀ I₁ ℓ₁₁ᵒ ℓ₁₁ʰ)
     : Set (((ℓ₀₀ᵒ ⊔ ℓ₀₀ʰ) ⊔ (ℓ₀₁ᵒ ⊔ ℓ₀₁ʰ))
          ⊔ ((ℓ₁₀ᵒ ⊔ ℓ₁₀ʰ) ⊔ (ℓ₁₁ᵒ ⊔ ℓ₁₁ʰ))) where
+  no-eta-equality
   field
     idx
       : I₀ S.Map.⇒₀ᵗ I₁
