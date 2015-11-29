@@ -18,11 +18,11 @@ record t
       fwd : S.obj (G.homˢ A (a₀ , a₁))
       bwd : S.obj (G.homˢ A (a₁ , a₀))
     field
-      .iso-fwd :
+      iso-fwd :
           S.homᵗ (G.homˢ A (a₀ , a₀))
             ( G.cmpˢ A S.Map.$₀ (bwd , fwd)
             , G.idnˢ A S.Map.$₀ T.𝟙.* )
-      .iso-bwd :
+      iso-bwd :
           S.homᵗ (G.homˢ A (a₁ , a₁))
             ( G.cmpˢ A S.Map.$₀ (fwd , bwd)
             , G.idnˢ A S.Map.$₀ T.𝟙.* )

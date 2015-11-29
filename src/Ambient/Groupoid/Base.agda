@@ -36,21 +36,21 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
         invˢ
 
   field
-    .idn-lhs
+    idn-lhs
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
       → S.homᵗ (homˢ (a , b))
           ( cmpˢ S.Map.$₀ (idnˢ S.Map.$₀ T.𝟙.* , f)
           , f
           )
-    .idn-rhs
+    idn-rhs
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
       → S.homᵗ (homˢ (a , b))
           ( cmpˢ S.Map.$₀ (f , idnˢ S.Map.$₀ T.𝟙.*)
           , f
           )
-    .cmp-ass
+    cmp-ass
       : ∀ {a b c d}
       → (f : S.obj (homˢ (a , b)))
       → (g : S.obj (homˢ (b , c)))
@@ -59,7 +59,7 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
           ( cmpˢ S.Map.$₀ (cmpˢ S.Map.$₀ (h , g) , f)
           , cmpˢ S.Map.$₀ (h , cmpˢ S.Map.$₀ (g , f))
           )
-    .{inv-lhs}
+    {inv-lhs}
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
       → Dir.el {Φ = λ d′ → d T.≡.t d′ → Set _} d (T.Map.elm T.𝟙.t) (λ ϕ →
@@ -68,7 +68,7 @@ record t d ..(ℓᵒ ℓˢᵒ ℓˢʰ : _) : Set (lsuc (ℓᵒ ⊔ ℓˢᵒ ⊔ 
             , idnˢ S.Map.$₀ T.𝟙.*
             ))
         T.≡.refl
-    .{inv-rhs}
+    {inv-rhs}
       : ∀ {a b}
       → (f : S.obj (homˢ (a , b)))
       → Dir.el {Φ = λ d′ → d T.≡.t d′ → Set _} d (T.Map.elm T.𝟙.t) (λ ϕ →

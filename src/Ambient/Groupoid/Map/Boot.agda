@@ -29,7 +29,7 @@ record _⇒₀ᵗ_
     T.Map.⇒₀ S.obj (G.homˢ B (_$₀_ a , _$₀_ b))
   _$₁_ = λ {_ _} → S.Map._$₀_ -$₁ˢ-
 
-  ._$₂_
+  _$₂_
     : ∀ {a b} {f g : S.obj (G.homˢ A (a , b))}
     → S.homᵗ (G.homˢ A (a , b)) (f , g)
     T.Map.⇒₀ S.homᵗ (G.homˢ B (_$₀_ a , _$₀_ b)) (-$₁ˢ- S.Map.$₀ f , -$₁ˢ- S.Map.$₀ g)
