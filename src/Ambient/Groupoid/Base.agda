@@ -170,3 +170,39 @@ S.invᵗ (G↓S {Dir.≤} A) =
   _
 S.invᵗ (G↓S {Dir.≈} A) f =
   inv₀ A f
+
+S↑G≤ : ∀ {d} ..{ℓᵒ ℓʰ}
+  → (A : S.t d ℓᵒ ℓʰ)
+  → t Dir.≤ _ _ lzero
+obj (S↑G≤ A) =
+  S.obj A
+S.obj (homˢ (S↑G≤ A) (a , b)) =
+  S.homᵗ A (a , b)
+S.homᵗ (homˢ (S↑G≤ A) (a , b)) _ =
+  T.𝟙.t
+S.idnᵗ (homˢ (S↑G≤ A) (a , b)) =
+  _
+S.cmpᵗ (homˢ (S↑G≤ A) (a , b)) =
+  _
+S.invᵗ (homˢ (S↑G≤ A) (a , b)) =
+  _
+S.Map._$₀_ (idnˢ (S↑G≤ A)) =
+  S.idnᵗ A
+S.Map._$₁_ (idnˢ (S↑G≤ A)) =
+  _
+S.Map._$₀_ (cmpˢ (S↑G≤ A)) =
+  S.cmpᵗ A
+S.Map._$₁_ (cmpˢ (S↑G≤ {ℓʰ = ℓʰ} A) ) =
+  _
+invˢ (S↑G≤ A) =
+  _
+idn-lhs (S↑G≤ A) =
+  _
+idn-rhs (S↑G≤ A) =
+  _
+cmp-ass (S↑G≤ A) =
+  _
+inv-lhs (S↑G≤ A) =
+  _
+inv-rhs (S↑G≤ A) =
+  _
