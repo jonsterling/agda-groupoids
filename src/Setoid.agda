@@ -17,8 +17,6 @@ module 𝟘 where
   open import Ambient.Setoid.Initial public
 module 𝟙 where
   open import Ambient.Setoid.Terminal public
-module Triv where
-  open import Ambient.Setoid.Trivial public
 module Op where
   open import Ambient.Setoid.Op public
 module Map where
