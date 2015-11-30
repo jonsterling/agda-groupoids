@@ -77,6 +77,21 @@ record ∏₀ {ιˢ} ..{ℓ₀ᵒ ℓ₀ʰ} {I : S.t ιˢ ℓ₀ᵒ ℓ₀ʰ} ..
       → (ρ : S.homᵗ I (i , j))
       → S.homᵗ (fib Ψ i) (act i , coe Ψ ρ $₀ act j)
 
+∏₁
+  : {ιˢ : _} ..{ℓ₀ᵒ ℓ₀ʰ : _} {I : S.t ιˢ ℓ₀ᵒ ℓ₀ʰ} ..{ℓ₁ᵒ ℓ₁ʰ : _}
+  → {Ψ : Fam₀ I ℓ₁ᵒ ℓ₁ʰ}
+  → (f g : ∏₀ Ψ)
+  → Set (ℓ₀ᵒ ⊔ ℓ₀ʰ ⊔ ℓ₁ʰ)
+∏₁ {I = I} {Ψ = Ψ} f g =
+  ∀ i j
+    → (ρ : S.homᵗ I (i , j))
+    → (open Fam₀) (open S.Map) (open ∏₀)
+    → S.homᵗ
+        (fib Ψ i)
+        ( act f i
+        , coe Ψ ρ $₀ act g j
+        )
+
 record ∐₀ {ιˢ} ..{ℓ₀ᵒ ℓ₀ʰ} {I : S.t ιˢ ℓ₀ᵒ ℓ₀ʰ} ..{ℓ₁ᵒ ℓ₁ʰ} (Ψ : Fam₀ I ℓ₁ᵒ ℓ₁ʰ) : Set (ℓ₀ᵒ ⊔ ℓ₀ʰ ⊔ ℓ₁ᵒ ⊔ ℓ₁ʰ) where
   constructor _,_
   field
