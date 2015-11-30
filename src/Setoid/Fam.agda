@@ -65,3 +65,20 @@ record Fam₁
       → (ρ : S.homᵗ I₀ (i₀ , i₁))
       →  fib i₀ ∘₀ coe Ψ₀ ρ
       ⇒₁ coe Ψ₁ (idx $₁ ρ) ∘₀ fib i₁
+
+record ∏₀ {ιˢ} ..{ℓ₀ᵒ ℓ₀ʰ} {I : S.t ιˢ ℓ₀ᵒ ℓ₀ʰ} ..{ℓ₁ᵒ ℓ₁ʰ} (Ψ : Fam₀ I ℓ₁ᵒ ℓ₁ʰ) : Set (ℓ₀ᵒ ⊔ ℓ₀ʰ ⊔ ℓ₁ᵒ ⊔ ℓ₁ʰ) where
+  field
+    act
+      : ∀ i
+      → S.obj (Fam₀.fib Ψ i)
+    coh
+      : (open S.Map) (open Fam₀)
+      → ∀ i j
+      → (ρ : S.homᵗ I (i , j))
+      → S.homᵗ (fib Ψ i) (act i , coe Ψ ρ $₀ act j)
+
+record ∐₀ {ιˢ} ..{ℓ₀ᵒ ℓ₀ʰ} {I : S.t ιˢ ℓ₀ᵒ ℓ₀ʰ} ..{ℓ₁ᵒ ℓ₁ʰ} (Ψ : Fam₀ I ℓ₁ᵒ ℓ₁ʰ) : Set (ℓ₀ᵒ ⊔ ℓ₀ʰ ⊔ ℓ₁ᵒ ⊔ ℓ₁ʰ) where
+  constructor _,_
+  field
+    fst : S.obj I
+    snd : S.obj (Fam₀.fib Ψ fst)
