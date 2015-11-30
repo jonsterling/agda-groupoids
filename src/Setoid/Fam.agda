@@ -101,5 +101,12 @@ record ∐₀ {ιˢ} ..{ℓ₀ᵒ ℓ₀ʰ} {I : S.t ιˢ ℓ₀ᵒ ℓ₀ʰ} ..
 record ∐₁ {ιˢ} ..{ℓ₀ᵒ ℓ₀ʰ} {I : S.t ιˢ ℓ₀ᵒ ℓ₀ʰ} ..{ℓ₁ᵒ ℓ₁ʰ} {Ψ : Fam₀ I ℓ₁ᵒ ℓ₁ʰ} (p q : ∐₀ Ψ) : Set (ℓ₀ᵒ ⊔ ℓ₀ʰ ⊔ ℓ₁ʰ) where
   constructor _,_
   field
-    fst : S.homᵗ I ((∐₀.fst p) , (∐₀.fst q))
-    snd : S.homᵗ (Fam₀.fib Ψ (∐₀.fst p)) ((∐₀.snd p) , Fam₀.coe Ψ fst S.Map.$₀ ∐₀.snd q)
+    fst
+      : S.homᵗ I ((∐₀.fst p) , (∐₀.fst q))
+    snd
+      : (open Fam₀) (open S.Map)
+      → S.homᵗ
+          (fib Ψ (∐₀.fst p))
+          ( ∐₀.snd p
+          , coe Ψ fst $₀ ∐₀.snd q
+          )
